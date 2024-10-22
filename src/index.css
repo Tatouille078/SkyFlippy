@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.Muhaha {
+    background: linear-gradient(90deg, #fff 10%, #f6bcff 90%);
+    z-index: 10;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
