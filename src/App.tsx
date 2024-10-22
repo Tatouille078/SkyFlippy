@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaPython } from "react-icons/fa";
+import Categories from './Categories';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
         {/* Contenu principal */}
         <main className={`flex-1 transition-all duration-300 ease-in-out`}>
           <div className="container mx-auto px-4 py-8">
+            <Categories />
           </div>
         </main>
       </div>
