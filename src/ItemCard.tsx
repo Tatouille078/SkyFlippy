@@ -1,6 +1,6 @@
 const ItemCard = ({item}) => {
     return (
-        <div key={item.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-md">
+        <div className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-md">
             <div className="bg-purple-100 p-4">
                 <h2 className="text-xl font-bold text-purple-600">{item.name}</h2>
             </div>

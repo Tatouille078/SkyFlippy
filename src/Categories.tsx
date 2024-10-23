@@ -2,18 +2,18 @@ import ItemCard from "./ItemCard"
 
 const categories = [
     {
-        id: 1, 
+        id: 1000, 
         name: "Top score",
     },
     {
-        id: 3, 
+        id: 1111, 
         name: "Best",
     }
 ]
 
 const items = [
     {
-        id: 1,
+        id: 101,
         name: "sexe",
         stats: [
             {
@@ -31,7 +31,7 @@ const items = [
         ]
     },
     {
-        id: 2,
+        id: 102,
         name: "sexe2",
         stats: [
             {
@@ -49,7 +49,7 @@ const items = [
         ]
     },
     {
-        id: 1,
+        id: 103,
         name: "caca1",
         stats: [
             {
@@ -67,7 +67,7 @@ const items = [
         ]
     },
     {
-        id: 1,
+        id: 104,
         name: "caca2",
         stats: [
             {
@@ -94,7 +94,7 @@ const Categories = () => {
                 <h2 className="text-2xl font-semibold mb-4 text-purple-600">{categorie.name}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {items.map(item => (
-                        <ItemCard item={item}/>
+                        <ItemCard item={item} key={item.id} />
                     ))}
                 </div>
             </div>
