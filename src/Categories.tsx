@@ -14,72 +14,72 @@ const categories = [
 const items = [
     {
         id: 101,
-        name: "sexe",
+        name: "placeholder1",
         stats: [
             {
-                name: "cost",
+                name: "value1",
                 value: 2777
             },
             {
-                name: "sexe",
+                name: "value2",
                 value: 78
             },
             {
-                name: "feur",
+                name: "value3",
                 value: 30
             }
         ]
     },
     {
         id: 102,
-        name: "sexe2",
+        name: "placeholder2",
         stats: [
             {
-                name: "cost",
+                name: "value1",
                 value: 27772
             },
             {
-                name: "sexe",
+                name: "value2",
                 value: 782
             },
             {
-                name: "feur",
+                name: "value3",
                 value: 302
             }
         ]
     },
     {
         id: 103,
-        name: "caca1",
+        name: "placeholder3",
         stats: [
             {
-                name: "cost",
+                name: "value1",
                 value: 2777
             },
             {
-                name: "sexe",
+                name: "value2",
                 value: 78
             },
             {
-                name: "feur",
+                name: "value3",
                 value: 30
             }
         ]
     },
     {
         id: 104,
-        name: "caca2",
+        name: "placeholder4",
         stats: [
             {
-                name: "cost",
+                name: "value1",
                 value: 2777
             },
             {
-                name: "sexe",
+                name: "value2",
                 value: 78
             },
             {
-                name: "feur",
+                name: "value3",
                 value: 30
             }
         ]
@@ -91,7 +91,7 @@ const Categories = () => {
         <>
         {categories.map(categorie => (
             <div className="mb-12" key={categorie.id}>
-                <h2 className="text-2xl font-semibold mb-4 text-purple-600">{categorie.name}</h2>
+                <h2 className="text-2xl mb-4 text-purple-600 exo-2-bold">{categorie.name}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {items.map(item => (
                         <ItemCard item={item} key={item.id} />

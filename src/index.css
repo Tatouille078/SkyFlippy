@@ -2,7 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-.Muhaha {
+.ubuntu-normal {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+.exo-2-bold {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+}
+
+.exo-2-normal {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+.exo-2-light {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+}
+
+.title-fade {
     background: linear-gradient(90deg, #fff 10%, #f6bcff 90%);
     z-index: 10;
     -webkit-background-clip: text;

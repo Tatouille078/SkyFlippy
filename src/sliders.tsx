@@ -4,19 +4,21 @@ import { FaLock, FaLockOpen } from "react-icons/fa";
 const InputSlider = ({props, handler}) => {
 
   const handleChange = (e) => {
-    if (e.target.value > 100) {
-      props.setSlider(100)
-    } else if (e.target.value < 0) {
-      props.setSlider(0)
-    } else {
-      props.setSlider(e.target.value);
+    if (!props.locked) {
+      if (e.target.value > 100) {
+        props.setSlider(100)
+      } else if (e.target.value < 0) {
+        props.setSlider(0)
+      } else {
+        props.setSlider(e.target.value);
+      }
+      handler(props.id)
     }
-    handler(props.id)
   };
 
   return (
     <div className="flex flex-col gap-2 justify-center">
-      <label htmlFor={`slider-${props.name}`} className='text-purple-600 font-bold self-start'>
+      <label htmlFor={`slider-${props.name}`} className='text-purple-600 exo-2-normal self-start'>
         {props.name}: 
         <input 
           type="number" 
