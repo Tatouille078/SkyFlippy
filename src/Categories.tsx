@@ -1,6 +1,22 @@
 import ItemCard from "./ItemCard"
 
-const categories = [
+export type CategoryProps = {
+    id: number;
+    name: string;
+};
+
+export type StatsProps = {
+    name: string;
+    value: number;
+};
+
+export type ItemProps = {
+    id: number;
+    name: string;
+    stats: StatsProps[];
+};
+
+const categories: CategoryProps[] = [
     {
         id: 1000, 
         name: "Top score",
@@ -11,7 +27,7 @@ const categories = [
     }
 ]
 
-const items = [
+const items: ItemProps[] = [
     {
         id: 101,
         name: "placeholder1",

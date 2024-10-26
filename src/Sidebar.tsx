@@ -1,32 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import InputSlider from './sliders'
+import { StateContextType, useStateContext } from './context';
+import { ParamProps } from './App';
 
+export type SidebarProps = {
+  buttonRef: React.MutableRefObject<null>;
+  panelRef: React.MutableRefObject<null>;
+  params: ParamProps[];
+};
 
-const Sidebar = ({buttonRef, panelRef, params, setChangeIndex}) => {
-
-    const [isOpen, setIsOpen] = useState(false)
+const Sidebar: React.FC<SidebarProps> = ({buttonRef, panelRef, params}) => {
+    const { isOpen, setIsOpen, setChangeIndex }: StateContextType = useStateContext();
 
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-          if (
-            isOpen &&
-            panelRef.current &&
-            !panelRef.current.contains(event.target as Node) &&
-            buttonRef.current &&
-            !buttonRef.current.contains(event.target as Node)
-          ) {
-            setIsOpen(false)
-          }
+      const handleClickOutside = (event: MouseEvent) => {
+        if (
+          isOpen &&
+          panelRef.current &&
+          !panelRef.current.contains(event.target as Node) &&
+          buttonRef.current &&
+          !buttonRef.current.contains(event.target as Node)
+        ) {
+          setIsOpen(false)
         }
+      }
     
-        document.addEventListener('mousedown', handleClickOutside)
-        return () => {
-          document.removeEventListener('mousedown', handleClickOutside)
-        }
-      }, [isOpen])
-      const toggleOpen = () => {
-        setIsOpen((prev) => !prev)
-    }
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [isOpen])
 
     return (
     <div 
@@ -37,7 +40,7 @@ const Sidebar = ({buttonRef, panelRef, params, setChangeIndex}) => {
     >
         <div className="p-6 space-y-6">
             <h2 className="text-2xl exo-2-bold text-purple-600 mb-4 w-[48px]">Poids</h2>
-            {params.map((param, index) => (
+            {params.map((param: ParamProps, index: number) => (
                 <div key={index} className="space-y-2">
                     <InputSlider props={param} handler1={setChangeIndex}/>
                 </div>

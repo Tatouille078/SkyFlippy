@@ -9,22 +9,50 @@ type ChangeIndexProps = {
     value: number
 } // ajouté ca
 
-const StateContext = createContext({});
+export type StateContextType = {
+    slider1: number;
+    slider2: number;
+    slider3: number;
+    slider4: number;
+    setSlider1: React.Dispatch<React.SetStateAction<number>>;
+    setSlider2: React.Dispatch<React.SetStateAction<number>>;
+    setSlider3: React.Dispatch<React.SetStateAction<number>>;
+    setSlider4: React.Dispatch<React.SetStateAction<number>>;
+    lock1: boolean;
+    lock2: boolean;
+    lock3: boolean;
+    lock4: boolean;
+    setLock1: React.Dispatch<React.SetStateAction<boolean>>;
+    setLock2: React.Dispatch<React.SetStateAction<boolean>>;
+    setLock3: React.Dispatch<React.SetStateAction<boolean>>;
+    setLock4: React.Dispatch<React.SetStateAction<boolean>>;
+    setChangeIndex: React.Dispatch<React.SetStateAction<ChangeIndexProps>>;
+    isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    toggleOpen: () => void;
+}
+
+const StateContext = createContext<StateContextType | undefined>(undefined);
 
 export const ContextProvider: React.FC<ContextProviderProps>  = ({ children }) => {
-    const[slider1, setSlider1] = useState(25)
-    const[lock1, setLock1] = useState(false)
-    const[slider2, setSlider2] = useState(25)
-    const[lock2, setLock2] = useState(false)
-    const[slider3, setSlider3] = useState(25)
-    const[lock3, setLock3] = useState(false)
-    const[slider4, setSlider4] = useState(25)
-    const[lock4, setLock4] = useState(false)
-    const[changeIndex, setChangeIndex] = useState<ChangeIndexProps>({id:0, value:0}) // ici aussi
+    const [slider1, setSlider1] = useState<number>(25)
+    const [lock1, setLock1] = useState<boolean>(false)
+    const [slider2, setSlider2] = useState<number>(25)
+    const [lock2, setLock2] = useState<boolean>(false)
+    const [slider3, setSlider3] = useState<number>(25)
+    const [lock3, setLock3] = useState<boolean>(false)
+    const [slider4, setSlider4] = useState<number>(25)
+    const [lock4, setLock4] = useState<boolean>(false)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [changeIndex, setChangeIndex] = useState<ChangeIndexProps>({id:0, value:0}) // ici aussi
 
+    const toggleOpen = () => {
+        setIsOpen(!isOpen);
+    }
+    
     useEffect(() => {
         // on a changé ca
-        const handleSlide = (id, value) => { 
+        const handleSlide = (id: number, value: number) => { 
             let lockedValues = 0;
             let unlockCount = -1;
         
@@ -304,11 +332,18 @@ export const ContextProvider: React.FC<ContextProviderProps>  = ({ children }) =
             setLock2,
             setLock3,
             setLock4,
-            setChangeIndex
+            setChangeIndex,
+            isOpen,
+            setIsOpen,
+            toggleOpen
         }}>
             {children}
         </StateContext.Provider>
     )
 }
 
-export const useStateContext = () => useContext(StateContext)
+export const useStateContext = () => {
+    const context = useContext(StateContext);
+    if (!context) throw new Error('useStateContext must be used within a ContextProvider');
+    return context;
+};

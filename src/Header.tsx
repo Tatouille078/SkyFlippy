@@ -1,10 +1,16 @@
-import React from 'react'
 import { IoMenu } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
+import { StateContextType, useStateContext } from "./context";
 
-const Header = ({toggleOpen, buttonRef}) => {
+export type HeaderProps = {
+  buttonRef: React.MutableRefObject<null>;
+};
+
+const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
+  const { toggleOpen }: StateContextType = useStateContext();
+
   return (
-    <header className="bg-purple-600 text-white py-4 sticky top-0">
+    <header className="bg-purple-600 z-10 text-white py-4 sticky top-0">
         <div className="container mx-auto px-4">
           <div className="flex items-center">
             <div className="flex items-center space-x-4">
