@@ -72,11 +72,10 @@ function App() {
 ]; 
   return (
     <div className="min-h-screen bg-white relative overflow-y-hidden">   
-      <AnimatedShapes/>
+      <AnimatedShapes />
       <Header buttonRef={buttonRef}/>
       <div className="flex relative">
         <Sidebar buttonRef={buttonRef} panelRef={panelRef} params={params} />
-        {/* Contenu principal */}
         <main className="flex-1">
           <div className="container mx-auto px-4 py-8">
             <Categories />
