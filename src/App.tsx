@@ -4,6 +4,7 @@ import Categories from './Categories';
 import InputSlider from './sliders';
 import { useStateContext } from './context';
 import { IoMenu } from "react-icons/io5";
+import AnimatedShapes from './background';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
@@ -66,8 +67,9 @@ function App() {
     setIsOpen((prev) => !prev)
   } 
   return (
-    <div className="min-h-screen bg-white">
-      <header className="bg-purple-600 text-white py-4 sticky top-0 z-10">
+    <div className="min-h-screen bg-white relative">   
+      <AnimatedShapes/>
+      <header className="bg-purple-600 text-white py-4 sticky top-0">
         <div className="container mx-auto px-4">
           <div className="flex items-center">
             <div className="flex items-center space-x-4">
@@ -93,7 +95,6 @@ function App() {
           </div>
         </div>
       </header>
-
       <div className="flex relative">
         {/* Side bar */}
         <div 
@@ -106,14 +107,13 @@ function App() {
             <h2 className="text-2xl exo-2-bold text-purple-600 mb-4 w-[48px]">Poids</h2>
             {params.map((param, index) => (
               <div key={index} className="space-y-2">
-                <InputSlider props={param} handler={setChangeIndex} />
+                <InputSlider props={param} handler1={setChangeIndex}/>
               </div>
             ))}
           </div>
         </div>
-              
         {/* Contenu principal */}
-        <main className={`flex-1 transition-all duration-300 ease-in-out`}>
+        <main className="flex-1 transition-all duration-300 ease-in-out">
           <div className="container mx-auto px-4 py-8">
             <Categories />
           </div>

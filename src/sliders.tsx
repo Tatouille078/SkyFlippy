@@ -1,19 +1,13 @@
 import { FaLock, FaLockOpen } from "react-icons/fa";
 
 
-const InputSlider = ({props, handler}) => {
+const InputSlider = ({props, handler1}) => {
 
   const handleChange = (e) => {
     if (!props.locked) {
-      if (e.target.value > 100) {
-        props.setSlider(100)
-      } else if (e.target.value < 0) {
-        props.setSlider(0)
-      } else {
-        props.setSlider(e.target.value);
-      }
-      handler(props.id)
-    }
+      const value = {id:props.id, value: e.target.value} 
+      handler1(value)
+    } // on a tous pt ici
   };
 
   return (
@@ -43,7 +37,7 @@ const InputSlider = ({props, handler}) => {
             background: `linear-gradient(to right, #7E22CE ${props.slider}%, #D8B4FE ${props.slider}%)`,
           }}
         />
-        <div className="cursor-pointer">
+        <div className="cursor-pointer text-purple-800">
           {props.locked ? (
             <FaLock size={20} onClick={() => props.setLocked(false)} />
           ) : (

@@ -4,6 +4,11 @@ type ContextProviderProps = {
     children: ReactNode;
 }
 
+type ChangeIndexProps = {
+    id: number,
+    value: number
+} // ajouté ca
+
 const StateContext = createContext({});
 
 export const ContextProvider: React.FC<ContextProviderProps>  = ({ children }) => {
@@ -15,32 +20,41 @@ export const ContextProvider: React.FC<ContextProviderProps>  = ({ children }) =
     const[lock3, setLock3] = useState(false)
     const[slider4, setSlider4] = useState(25)
     const[lock4, setLock4] = useState(false)
-    const[changeIndex, setChangeIndex] = useState(null)
+    const[changeIndex, setChangeIndex] = useState<ChangeIndexProps>({id:0, value:0}) // ici aussi
 
     useEffect(() => {
-        const handleSlide = (id) => {
+        // on a changé ca
+        const handleSlide = (id, value) => { 
             let lockedValues = 0;
             let unlockCount = -1;
         
-            // Calcul des valeurs verrouillées et du nombre de sliders non verrouillés
             if (!lock1) {
                 unlockCount++;
-            } else lockedValues += slider1;
+            } else lockedValues += id != 1 ? slider1 : value;
             
             if (!lock2) {
                 unlockCount++;
-            } else lockedValues += slider2;
+            } else lockedValues += id != 2 ? slider2 : value;
             
             if (!lock3) {
                 unlockCount++;
-            } else lockedValues += slider3;
+            } else lockedValues += id != 3 ? slider3 : value;
             
             if (!lock4) {
                 unlockCount++;
-            } else lockedValues += slider4;
+            } else lockedValues += id != 4 ? slider4 : value;
         
-            const remainingRes = 100 - lockedValues; // Somme restante à répartir entre les sliders non verrouillés
-    
+            const remainingRes = 100 - lockedValues;
+            const overflow = remainingRes - value;
+
+            if (overflow < 0) {
+                if (!lock1) (id == 1) ? setSlider1(value - overflow) : setSlider1(value) 
+                if (!lock2) (id == 2) ? setSlider2(value - overflow) : setSlider2(value) 
+                if (!lock3) (id == 3) ? setSlider3(value - overflow) : setSlider3(value) 
+                if (!lock4) (id == 4) ? setSlider4(value - overflow) : setSlider4(value) 
+                    
+                return;
+            } 
             switch (id) {
                 case 1:
                     const res1 = remainingRes - slider1;
@@ -99,58 +113,179 @@ export const ContextProvider: React.FC<ContextProviderProps>  = ({ children }) =
                     return;
                 case 2:
                     const res2 = remainingRes - slider2;
-                    if (res2 % unlockCount == 0) {
-                        if (!lock1) setSlider1(res2 / (3-unlockCount))
-                        if (!lock3) setSlider3(res2 / (3-unlockCount))
-                        if (!lock4) setSlider4(res2 / (3-unlockCount))
-                    } else if (res2 % unlockCount == 1) {
-                        if (!lock1) setSlider1(Math.ceil(res2 / (3-unlockCount)));     
-                        (lock1 && !lock3) ? setSlider3(Math.floor(res2 / (3-unlockCount))) : setSlider3(Math.ceil(res2 / (3-unlockCount)))
-                        if (!lock4) setSlider4(Math.floor(res2 / (3-unlockCount)))
-                    } else {
-                        setSlider1(Math.ceil(res2 / (3-unlockCount)))
-                        setSlider3(Math.ceil(res2 / (3-unlockCount)))
-                        setSlider4(Math.floor(res2 / (3-unlockCount)))
+                    if (unlockCount == 2) {
+                        if (!lock1 && !lock3) {
+                            if (res2 % 2 == 1) {
+                                setSlider1(Math.ceil(res2 / 2))
+                                setSlider3(Math.floor(res2 / 2))
+                            } else {
+                                setSlider1(res2 / 2)
+                                setSlider3(res2 / 2)
+                            }
+                        } else if (!lock1 && !lock4) {
+                            if (res2 % 2 == 1) {
+                                setSlider1(Math.ceil(res2 / 2))
+                                setSlider4(Math.floor(res2 / 2))
+                            } else {
+                                setSlider1(res2 / 2)
+                                setSlider4(res2 / 2)
+                            }
+                        }
+                        else {
+                            if (res2 % 2 == 1) {
+                                setSlider3(Math.ceil(res2 / 2))
+                                setSlider4(Math.floor(res2 / 2))
+                            } else {
+                                setSlider3(res2 / 2)
+                                setSlider4(res2 / 2)
+                            }
+                        }
+                    }
+                    else if (unlockCount == 1) {
+                        if (lock3 && lock4) {
+                            setSlider1(res2)
+                        }
+                        else if (lock1 && lock4) {
+                            setSlider3(res2)
+                        }
+                        else setSlider4(res2)
+                    }
+                    else {    
+                        if (res2 % 3 == 1) {
+                            setSlider1(Math.ceil(res2 / 3))
+                            setSlider3(Math.floor(res2 / 3))
+                            setSlider4(Math.floor(res2 / 3))
+                        } else if (res2 % 3 == 2) {
+                            setSlider1(Math.ceil(res2 / 3))
+                            setSlider3(Math.ceil(res2 / 3))
+                            setSlider4(Math.floor(res2 / 3))
+                        } else {
+                            setSlider1(res2 / 3)
+                            setSlider3(res2 / 3)
+                            setSlider4(res2 / 3)
+                        }
                     }
                     return;
                 case 3:
-                    const res3 = 100-slider3;
-                    if (res3 % 3 == 1) {
-                        setSlider1(Math.ceil(res3 / 3))
-                        setSlider2(Math.floor(res3 / 3))
-                        setSlider4(Math.floor(res3 / 3))
-                    } else if (res3 % 3 == 2) {
-                        setSlider1(Math.ceil(res3 / 3))
-                        setSlider2(Math.ceil(res3 / 3))
-                        setSlider4(Math.floor(res3 / 3))
-                    } else {
-                        setSlider1(res3 / 3)
-                        setSlider2(res3 / 3)
-                        setSlider4(res3 / 3)
+                    const res3 = remainingRes - slider3;
+                    if (unlockCount == 2) {
+                        if (!lock1 && !lock2) {
+                            if (res3 % 2 == 1) {
+                                setSlider1(Math.ceil(res3 / 2))
+                                setSlider2(Math.floor(res3 / 2))
+                            } else {
+                                setSlider1(res3 / 2)
+                                setSlider2(res3 / 2)
+                            }
+                        } else if (!lock1 && !lock4) {
+                            if (res3 % 2 == 1) {
+                                setSlider1(Math.ceil(res3 / 2))
+                                setSlider4(Math.floor(res3 / 2))
+                            } else {
+                                setSlider1(res3 / 2)
+                                setSlider4(res3 / 2)
+                            }
+                        }
+                        else {
+                            if (res3 % 2 == 1) {
+                                setSlider2(Math.ceil(res3 / 2))
+                                setSlider4(Math.floor(res3 / 2))
+                            } else {
+                                setSlider2(res3 / 2)
+                                setSlider4(res3 / 2)
+                            }
+                        }
+                    }
+                    else if (unlockCount == 1) {
+                        if (lock2 && lock4) {
+                            setSlider1(res3)
+                        }
+                        else if (lock1 && lock4) {
+                            setSlider2(res3)
+                        }
+                        else setSlider4(res3)
+                    }
+                    else {    
+                        if (res3 % 3 == 1) {
+                            setSlider1(Math.ceil(res3 / 3))
+                            setSlider2(Math.floor(res3 / 3))
+                            setSlider4(Math.floor(res3 / 3))
+                        } else if (res3 % 3 == 2) {
+                            setSlider1(Math.ceil(res3 / 3))
+                            setSlider2(Math.ceil(res3 / 3))
+                            setSlider4(Math.floor(res3 / 3))
+                        } else {
+                            setSlider1(res3 / 3)
+                            setSlider2(res3 / 3)
+                            setSlider4(res3 / 3)
+                        }
                     }
                     return;
                 case 4:
-                    const res4 = 100-slider4;
-                    if (res4 % 3 == 1) {
-                        setSlider1(Math.ceil(res4 / 3))
-                        setSlider2(Math.floor(res4 / 3))
-                        setSlider3(Math.floor(res4 / 3))
-                    } else if (res4 % 3 == 2) {
-                        setSlider1(Math.ceil(res4 / 3))
-                        setSlider2(Math.ceil(res4 / 3))
-                        setSlider3(Math.floor(res4 / 3))
-                    } else {
-                        setSlider1(res4 / 3)
-                        setSlider2(res4 / 3)
-                        setSlider3(res4 / 3)
+                    const res4 = remainingRes - slider4;
+                    if (unlockCount == 2) {
+                        if (!lock1 && !lock2) {
+                            if (res4 % 2 == 1) {
+                                setSlider1(Math.ceil(res4 / 2))
+                                setSlider2(Math.floor(res4 / 2))
+                            } else {
+                                setSlider1(res4 / 2)
+                                setSlider2(res4 / 2)
+                            }
+                        } else if (!lock1 && !lock3) {
+                            if (res4 % 2 == 1) {
+                                setSlider1(Math.ceil(res4 / 2))
+                                setSlider3(Math.floor(res4 / 2))
+                            } else {
+                                setSlider1(res4 / 2)
+                                setSlider3(res4 / 2)
+                            }
+                        }
+                        else {
+                            if (res4 % 2 == 1) {
+                                setSlider2(Math.ceil(res4 / 2))
+                                setSlider3(Math.floor(res4 / 2))
+                            } else {
+                                setSlider2(res4 / 2)
+                                setSlider3(res4 / 2)
+                            }
+                        }
+                    }
+                    else if (unlockCount == 1) {
+                        if (lock2 && lock3) {
+                            setSlider1(res4)
+                        }
+                        else if (lock1 && lock3) {
+                            setSlider2(res4)
+                        }
+                        else setSlider3(res4)
+                    }
+                    else {    
+                        if (res4 % 3 == 1) {
+                            setSlider1(Math.ceil(res4 / 3))
+                            setSlider2(Math.floor(res4 / 3))
+                            setSlider3(Math.floor(res4 / 3))
+                        } else if (res4 % 3 == 2) {
+                            setSlider1(Math.ceil(res4 / 3))
+                            setSlider2(Math.ceil(res4 / 3))
+                            setSlider3(Math.floor(res4 / 3))
+                        } else {
+                            setSlider1(res4 / 3)
+                            setSlider2(res4 / 3)
+                            setSlider3(res4 / 3)
+                        }
                     }
                     return;
                 default:
                     return;     
             }
         }
-        handleSlide(changeIndex)
-    }, [slider1, slider2, slider3, slider4])
+        // var temp = 0
+        // if (changeIndex.value < 0) temp = 0
+        // else if (changeIndex.value > 100) temp = 100
+        // else temp = changeIndex.value
+        handleSlide(changeIndex.id, changeIndex.value)
+    }, [changeIndex])
     return (
         <StateContext.Provider value={{
             slider1,
