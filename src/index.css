@@ -25,12 +25,24 @@
   font-weight: 300;
 }
 
+.itemcard-fade {
+  background: linear-gradient(90deg, #f3e8ff 40%, #fce7f3 90%)
+}
+
+.header-fade {
+  background: linear-gradient(270deg, #9333ea 10%, #b371f0 90%);
+}
+
 .title-fade {
-    background: linear-gradient(90deg, #fff 10%, #f6bcff 90%);
-    z-index: 10;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  background: linear-gradient(90deg, #fff 10%, #efaaf9 90%);
+  z-index: 10;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sidebar-fade {
+  background: linear-gradient(0deg, #ead5ff 10%, #faf5ff 90%)
 }
 
 input[type='range']::-webkit-slider-thumb {

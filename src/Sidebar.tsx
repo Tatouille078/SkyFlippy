@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({buttonRef, panelRef, params}) => {
 
     return (
     <div 
-        className={`bg-purple-100 fixed top-0 left-0 h-full transition-transform duration-300 ease-in-out z-20 ${
+        className={`sidebar-fade fixed top-0 left-0 h-full transition-transform duration-300 ease-in-out z-20 ${
         isOpen ? 'w-1/5 translate-x-0' : 'w-1/5 -translate-x-full'
         } overflow-y-auto`}
         ref={panelRef}

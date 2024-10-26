@@ -16,7 +16,7 @@ const AnimatedShapes = () => {
   }>>([]);
 
   if (shapes.current.length === 0) {
-    shapes.current = [...Array(20)].map(() => ({
+    shapes.current = [...Array(30)].map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 140 + 100}%`,
       width: `${Math.random() * 130 + 70}px`,
@@ -28,8 +28,8 @@ const AnimatedShapes = () => {
         Math.random() > 0.5 ? 'rounded-full' : ''
       } ${
         Math.random() > 0.5 
-          ? Math.random() > 0.5 ? 'border-8 border-purple-200' : 'border-8 border-purple-400' 
-          : Math.random() > 0.5 ? 'bg-purple-200 rounded-md' : 'bg-purple-400 rounded-md'
+          ? Math.random() > 0.5 ? 'border-8 border-pink-200' : 'border-8 border-purple-400' 
+          : Math.random() > 0.5 ? 'bg-purple-200 rounded-md' : 'bg-pink-400 rounded-full'
       }`,
       rotateDirection: Math.random() > 0.5 ? '' : '-',
       translateDirection: Math.random() > 0.5 ? '' : '-',
