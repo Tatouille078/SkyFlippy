@@ -11,6 +11,8 @@ const AnimatedShapes = () => {
     animationDuration: string;
     rotateStart: string;
     className: string;
+    translateDirection: string,
+    rotateAmount: number;
   }>>([]);
 
   const bgShapes = useRef<Array<{ 
@@ -23,6 +25,8 @@ const AnimatedShapes = () => {
     animationDuration: string;
     rotateStart: string;
     className: string;
+    translateDirection: string,
+    rotateAmount: number;
   }>>([]);
 
   if (fgShapes.current.length === 0) {
@@ -42,6 +46,8 @@ const AnimatedShapes = () => {
           ? Math.random() > 0.5 ? 'border-8 border-pink-200' : 'border-8 border-purple-400' 
           : Math.random() > 0.5 ? 'bg-purple-200' : 'bg-pink-400'
       }`,
+      translateDirection : Math.random() > 0.5 ? '' : '-',
+      rotateAmount : Math.random() * 720 + 360,
     }));
   }
   if (bgShapes.current.length === 0) {
@@ -61,11 +67,10 @@ const AnimatedShapes = () => {
           ? Math.random() > 0.5 ? 'border-4 border-pink-200' : 'border-4 border-purple-400' 
           : Math.random() > 0.5 ? 'bg-purple-200' : 'bg-pink-400'
       }`,
+      translateDirection : Math.random() > 0.5 ? '' : '-',
+      rotateAmount : Math.random() * 720 + 360,
     }));
   }
-
-  const translateDirection = Math.random() > 0.5 ? '' : '-';
-  const rotateAmount = Math.random() * 720 + 360;
 
   return (
     <div className="top-0 left-0 right-0 bottom-0 fixed inset-0 pointer-events-none overflow-hidden">
@@ -107,7 +112,7 @@ const AnimatedShapes = () => {
             transform: translate(0, 0) rotate(0deg);
           }
           100% {
-            transform: translate(${translateDirection}5vw, -240vh) rotate(${rotateAmount}deg);
+            transform: translate(${bgShapes.current[0].translateDirection}5vw, -240vh) rotate(${bgShapes.current[0].rotateAmount}deg);
           }
         }
       `}</style>
