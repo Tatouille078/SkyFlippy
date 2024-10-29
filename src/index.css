@@ -30,7 +30,11 @@
 }
 
 .header-fade {
-  background: linear-gradient(270deg, #9333ea 10%, #b371f0 90%);
+  background: linear-gradient(270deg, #ff83c3 10%, #f6afff 50%, #9333ea 90%);
+}
+
+.search-fade {
+  background: linear-gradient(90deg, #fab3e8 10%, #faafd8 90%);
 }
 
 .title-fade {

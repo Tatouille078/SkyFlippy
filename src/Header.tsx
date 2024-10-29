@@ -28,9 +28,9 @@ const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
                 <input
                   type="text"
                   placeholder="Rechercher..."
-                  className="w-full exo-2-normal pl-10 pr-4 py-2 text-sm md:text-base rounded-full bg-purple-700 text-white placeholder-purple-300 focus:outline-none focus:ring-2 focus:ring-white"
+                  className="w-full exo-2-normal pl-10 pr-4 py-2 text-sm md:text-base rounded-full focus:shadow-xl search-fade shadow-md focus:outline-offset-0 focus:outline-fuchsia-200 text-purple-700 placeholder-purple-500 focus:outline-none"
                 />
-                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-300" size={18} />
+                <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-600" size={18} />
               </div>
             </div>
           </div>
