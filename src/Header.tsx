@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
           <div className="flex items-center">
             <div className="flex items-center space-x-4">
               <button 
-                className="p-2 hover:bg-purple-700 dark:hover:bg-purple-800 rounded-full transition-colors duration-200 hidden md:block"
+                className="p-2 hover:bg-purple-700 dark:hover:bg-purple-700 rounded-2xl shadow-xl transition-colors duration-200 hidden md:block"
                 onClick={toggleOpen}
                 ref={buttonRef}
               >

@@ -38,7 +38,7 @@ const AnimatedShapes = () => {
       opacity: 0.4,
       animationDelay: `${Math.random() * 5}s`,
       animationDuration: `${Math.random() * 15 + 20}s`,
-      rotateStart: `${Math.random() * 360}`,
+      rotateStart: `${Math.random() * 360 + 360}`,
       className: `absolute ${
         Math.random() > 0.5 ? 'rounded-full' : 'rounded-lg'
       } ${
@@ -53,12 +53,12 @@ const AnimatedShapes = () => {
   if (bgShapes.current.length === 0) {
     bgShapes.current = [...Array(20)].map(() => ({
       left: `${Math.random() * 80 + 10}%`,
-      top: `${Math.random() * 140 + 120}%`,
+      top: `${Math.random() * 140 + 130}%`,
       width: Math.random() * 30 + 50,
       height: Math.random() * 30 + 50,
       opacity: 0.2,
       animationDelay: `${Math.random() * 5}s`,
-      animationDuration: `${Math.random() * 15 + 50}s`,
+      animationDuration: `${Math.random() * 15 + 60}s`,
       rotateStart: `${Math.random() * 360 + 360}`,
       className: `absolute ${
         Math.random() > 0.5 ? 'rounded-full' : 'rounded-md'

@@ -2,50 +2,40 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
 
-// Register the necessary chart.js components
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
-// PDF function to calculate the height of the normal distribution at a given x
+
 function normalPdf(x, mean, stdDev) {
     return (1 / (stdDev * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mean) / stdDev, 2));
 }
 
 const MargeChart = () => {
-    // Calculate margePercent from buy and sell prices
     const mean = 15;
     const stdDev = 5;
 
-    // Generate data points for the chart
     const xValues = Array.from({ length: 50 }, (_, i) => i * (30 / 50));
     const yValues = xValues.map(x => normalPdf(x, mean, stdDev));
 
-    // Find max y-value for scaling purposes
     const y_max = Math.max(...yValues);
 
-    // Chart data
     const data = {
         labels: xValues,
         datasets: [
             {
-                label: 'Height of PDF at Margin Percentage',
-                data: yValues.map(y => y * (25 / y_max)),  // Scale y-values to a max of 25
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                label: 'Score per margin percentage',
+                data: yValues.map(y => y * (25 / y_max)),
+                borderColor: 'rgb(207, 96, 255)',
+                backgroundColor: 'rgba(207, 96, 255, 0.2)',
                 borderWidth: 2,
             },
         ],
     };
 
-    // Chart options
     const options = {
         responsive: true,
         plugins: {
             legend: {
                 position: 'top',
-            },
-            title: {
-                display: true,
-                text: `Muhaha`,
             },
         },
         scales: {
@@ -59,7 +49,7 @@ const MargeChart = () => {
             y: {
                 title: {
                     display: true,
-                    text: 'Height of PDF',
+                    text: 'Score',
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,
@@ -80,7 +70,7 @@ const prix = (buyPriceProduct) => {
   
 const PriceScoreChart = () => {
     // Generate data points
-    const dataPoints = Array.from({ length: 500 }, (_, index) => index * 100); // Generate x values from 0 to 49500 in increments of 500
+    const dataPoints = Array.from({ length: 70 }, (_, index) => index < 15 ? index * 50 : index * 1000); // Generate x values from 0 to 49500 in increments of 500
     const prixScores = dataPoints.map(prix); // Calculate y values using the prix function
   
     // Prepare data for the chart
@@ -88,11 +78,11 @@ const PriceScoreChart = () => {
       labels: dataPoints,
       datasets: [
         {
-          label: 'Prix Score',
+          label: 'Score per price',
           data: prixScores,
           fill: false,
-          backgroundColor: 'rgba(75,192,192,0.4)',
-          borderColor: 'rgba(75,192,192,0.9)',
+          borderColor: 'rgb(207, 96, 255)',
+          backgroundColor: 'rgba(207, 96, 255, 0.2)',
         },
       ],
     };
@@ -103,16 +93,18 @@ const PriceScoreChart = () => {
             legend: {
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: `Muhaha`,
-            },
         },
         scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Price',
+                },
+            },
             y: {
                 title: {
                     display: true,
-                    text: 'Prix Score',
+                    text: 'Score',
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,
@@ -150,10 +142,10 @@ const generateData = () => {
         labels: xValues,
         datasets: [
             {
-                label: 'Offre-Demande Relationship',
+                label: 'Score Supply/Demand',
                 data: yValues,
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgb(207, 96, 255)',
+                backgroundColor: 'rgba(207, 96, 255, 0.2)',
                 fill: true,
             },
         ],
@@ -171,16 +163,18 @@ const OffreDemandeChart = () => {
                     legend: {
                         position: 'top',
                     },
-                    title: {
-                        display: true,
-                        text: `Muhaha`,
-                    },
                 },
                 scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Summ of buy + sell amount',
+                        },
+                    },
                     y: {
                         title: {
                             display: true,
-                            text: 'Y (Output Value)',
+                            text: 'Score',
                         },
                         min: 0,
                         max: 30,
@@ -216,11 +210,11 @@ const PopularityLowChart = () => {
         labels: xValues,
         datasets: [
             {
-                label: 'popularity Low Chart',
+                label: 'Score per Popularity',
                 data: yValues,
                 fill: false,
-                backgroundColor: 'rgba(75,192,192,0.4)',
-                borderColor: 'rgba(75,192,192,0.9)',
+                borderColor: 'rgb(207, 96, 255)',
+                backgroundColor: 'rgba(207, 96, 255, 0.2)',
             },
         ],
     };
@@ -231,16 +225,18 @@ const PopularityLowChart = () => {
             legend: {
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: `Muhaha`,
-            },
         },
         scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Supply/Demand when price is <= 1000',
+                },
+            },
             y: {
                 title: {
                     display: true,
-                    text: 'Popu Score',
+                    text: 'Score',
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,
@@ -278,11 +274,11 @@ const PopularityMediumChart = () => {
         labels: xValues,
         datasets: [
             {
-                label: 'popularity Medium Chart',
+                label: 'Score per popularity',
                 data: yValues,
                 fill: false,
-                backgroundColor: 'rgba(75,192,192,0.4)',
-                borderColor: 'rgba(75,192,192,0.9)',
+                borderColor: 'rgb(207, 96, 255)',
+                backgroundColor: 'rgba(207, 96, 255, 0.2)',
             },
         ],
     };
@@ -293,16 +289,18 @@ const PopularityMediumChart = () => {
             legend: {
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: `Muhaha`,
-            },
         },
         scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Supply/Demand when price is > 1000 <= 1000',
+                },
+            },
             y: {
                 title: {
                     display: true,
-                    text: 'Popu Score',
+                    text: 'Score',
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,
@@ -340,11 +338,11 @@ const PopularityHighChart = () => {
         labels: xValues,
         datasets: [
             {
-                label: 'popularity High Chart',
+                label: 'Score per popularity',
                 data: yValues,
                 fill: false,
-                backgroundColor: 'rgba(75,192,192,0.4)',
-                borderColor: 'rgba(75,192,192,0.9)',
+                borderColor: 'rgb(207, 96, 255)',
+                backgroundColor: 'rgba(207, 96, 255, 0.2)',
             },
         ],
     };
@@ -355,16 +353,18 @@ const PopularityHighChart = () => {
             legend: {
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: `Muhaha`,
-            },
         },
         scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Supply/Demand when price is above 5000',
+                },
+            },
             y: {
                 title: {
                     display: true,
-                    text: 'Popu Score',
+                    text: 'Score',
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,

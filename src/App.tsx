@@ -102,29 +102,29 @@ function App() {
             <Categories />
             <div className="flex items-center justify-center">
               <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Graphique Marge</h1>
+                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Marge Score</h1>
                 <MargeChart/>
               </div>
               <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Graphique Prix</h1>
+                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Prix Score</h1>
                 <PriceScoreChart/>
               </div>
               <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Graphique Offre/Demande</h1>
+                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Offre/Demande Score</h1>
                 <OffreDemandeChart/>
               </div>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center py-8">
               <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Graphique Low Popularity</h1>
+                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Low Popularity Score</h1>
                 <PopularityLowChart/>
               </div>
               <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Graphique Medium Popularity</h1>
+                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Medium Popularity Score</h1>
                 <PopularityMediumChart/>
               </div>
               <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-gray-700 mb-6">Graphique High Popularity</h1>
+                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">High Popularity Score</h1>
                 <PopularityHighChart/>
               </div>
             </div>
