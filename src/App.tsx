@@ -1,12 +1,9 @@
 import React, { useRef, useEffect } from 'react'
-import Categories from './Categories';
 import { StateContextType, useStateContext } from './context';
-import AnimatedShapes from './background';
-import Sidebar from './Sidebar';
-import Header from './Header';
 import getProducts, { Item, ProductType } from './api';
 import Scores from "./Calculus";
-import {MargeChart, OffreDemandeChart, PriceScoreChart, PopularityLowChart, PopularityMediumChart, PopularityHighChart} from './graph';
+import { Categories, Header, Sidebar, AnimatedShapes, Graphs } from './components';
+
 
 const convertToArray = (productArray: ProductType) => {
   return Object.values(productArray.products)
@@ -103,29 +100,29 @@ function App() {
             <div className="flex items-center justify-center">
               <div className="w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Marge Score</h1>
-                <MargeChart/>
+                <Graphs.MargeChart/>
               </div>
               <div className="w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Prix Score</h1>
-                <PriceScoreChart/>
+                <Graphs.PriceChart/>
               </div>
               <div className="w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Offre/Demande Score</h1>
-                <OffreDemandeChart/>
+                <Graphs.OffreDemandeChart/>
               </div>
             </div>
             <div className="flex items-center justify-center py-8">
               <div className="w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Low Popularity Score</h1>
-                <PopularityLowChart/>
+                <Graphs.PopularityLowChart/>
               </div>
               <div className="w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Medium Popularity Score</h1>
-                <PopularityMediumChart/>
+                <Graphs.PopularityMediumChart/>
               </div>
               <div className="w-full max-w-lg">
                 <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">High Popularity Score</h1>
-                <PopularityHighChart/>
+                <Graphs.PopularityHighChart/>
               </div>
             </div>
           </div>

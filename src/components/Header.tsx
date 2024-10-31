@@ -1,6 +1,6 @@
 import { IoMenu } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
-import { StateContextType, useStateContext } from "./context";
+import { StateContextType, useStateContext } from "../context";
 
 export type HeaderProps = {
   buttonRef: React.MutableRefObject<null>;

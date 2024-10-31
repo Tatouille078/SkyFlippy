@@ -1,0 +1,6 @@
+export {default as MargeChart} from "./marge"
+export {default as OffreDemandeChart} from "./offreDemande"
+export {default as PopularityLowChart} from "./popularityLow"
+export {default as PopularityMediumChart} from "./popularityMedium"
+export {default as PopularityHighChart} from "./popularityHigh"
+export {default as PriceChart} from "./price"

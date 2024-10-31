@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import InputSlider from './sliders'
-import { StateContextType, useStateContext } from './context';
-import { ParamProps } from './App';
+import { StateContextType, useStateContext } from '../context';
+import { ParamProps } from '../App';
 
 export type SidebarProps = {
   buttonRef: React.MutableRefObject<null>;
