@@ -97,34 +97,6 @@ function App() {
         <main className="flex-1">
           <div className="container mx-auto px-4 py-8">
             <Categories />
-            <div className="flex items-center justify-center">
-              <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Marge Score</h1>
-                <Graphs.MargeChart/>
-              </div>
-              <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Prix Score</h1>
-                <Graphs.PriceChart/>
-              </div>
-              <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Offre/Demande Score</h1>
-                <Graphs.OffreDemandeChart/>
-              </div>
-            </div>
-            <div className="flex items-center justify-center py-8">
-              <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Low Popularity Score</h1>
-                <Graphs.PopularityLowChart/>
-              </div>
-              <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">Medium Popularity Score</h1>
-                <Graphs.PopularityMediumChart/>
-              </div>
-              <div className="w-full max-w-lg">
-                <h1 className="text-2xl font-bold text-center text-purple-700 mb-6">High Popularity Score</h1>
-                <Graphs.PopularityHighChart/>
-              </div>
-            </div>
           </div>
         </main>
       </div>

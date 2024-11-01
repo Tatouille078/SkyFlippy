@@ -7,7 +7,7 @@ type ItemCardProps = {
 
 const ItemCard: React.FC<ItemCardProps> = ({item}) => {
     return (
-        <div className="bg-white overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-md">
+        <div className="bg-gray-50 overflow-hidden shadow-xl hover:shadow-xl transition-shadow duration-300 rounded-md">
             <div className="itemcard-fade p-4">
                 <h2 className="text-xl exo-2-bold text-purple-600">{item.name}</h2>
             </div>

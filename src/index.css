@@ -33,6 +33,10 @@
   background: linear-gradient(270deg, #ff83c3 10%, #f6afff 50%, #9333ea 90%);
 }
 
+.header-sidebar-fade {
+  background: linear-gradient(90deg, #f4ceff 10%, #ecb0ff 90%)
+}
+
 .search-fade {
   background: linear-gradient(90deg, #fab3e8 10%, #faafd8 90%);
 }
@@ -46,7 +50,15 @@
 }
 
 .sidebar-fade {
-  background: linear-gradient(0deg, #ead5ff 10%, #faf5ff 90%)
+  background: linear-gradient(270deg, #ead5ff 10%, #f5ebff 90%)
+}
+
+.sidebar-graphs-fade {
+  background: linear-gradient(270deg, #f3e7ff 10%, #fbf9ff 90%)
+}
+
+.h1-fade {
+  background: linear-gradient(270deg, #fcd4ff 10%, #f3d8ff 90%)
 }
 
 input[type='range']::-webkit-slider-thumb {

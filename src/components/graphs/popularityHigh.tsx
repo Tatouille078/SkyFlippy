@@ -35,6 +35,7 @@ const PopularityHighChart = () => {
                 fill: false,
                 borderColor: 'rgb(207, 96, 255)',
                 backgroundColor: 'rgba(207, 96, 255, 0.2)',
+                borderWidth: 2,
             },
         ],
     };

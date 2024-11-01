@@ -13,7 +13,7 @@ const prix = (buyPriceProduct) => {
   };
   
 const PriceChart = () => {
-    const dataPoints = Array.from({ length: 70 }, (_, index) => index < 15 ? index * 50 : index * 1000); 
+    const dataPoints = Array.from({ length: 60 }, (_, index) => index < 16 ? index * 50 : (index - 15) * 1300); 
     const prixScores = dataPoints.map(prix);
   
     const data = {
@@ -25,6 +25,7 @@ const PriceChart = () => {
           fill: false,
           borderColor: 'rgb(207, 96, 255)',
           backgroundColor: 'rgba(207, 96, 255, 0.2)',
+          borderWidth: 2,
         },
       ],
     };

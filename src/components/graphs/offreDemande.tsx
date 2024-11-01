@@ -34,6 +34,7 @@ const generateData = () => {
                 borderColor: 'rgb(207, 96, 255)',
                 backgroundColor: 'rgba(207, 96, 255, 0.2)',
                 fill: true,
+                borderWidth: 2,
             },
         ],
     };
