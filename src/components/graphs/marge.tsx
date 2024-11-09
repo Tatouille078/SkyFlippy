@@ -9,11 +9,9 @@ function normalPdf(x, mean, stdDev) {
 }
 
 const MargeChart = () => {
-    const mean = 15;
-    const stdDev = 5;
 
     const xValues = Array.from({ length: 50 }, (_, i) => i * (30 / 50));
-    const yValues = xValues.map(x => normalPdf(x, mean, stdDev));
+    const yValues = xValues.map(x => normalPdf(x, 15, 5));
 
     const y_max = Math.max(...yValues);
 

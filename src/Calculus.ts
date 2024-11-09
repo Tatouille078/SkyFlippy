@@ -17,24 +17,25 @@ function normalPdf(x: number, mean: number, stdDev: number): number {
 }
 
 function marge(buyPriceProduct: number, sellPriceProduct: number): number {
-    const margePercent = 100 - ((sellPriceProduct * 100) / buyPriceProduct);
+    const margePercent = ((buyPriceProduct / sellPriceProduct) * 100) - 100;
     const y = normalPdf(margePercent, 15, 5);
 
     // Generate y_max by simulating the max value of the PDF across a range of values.
-    const yValues = Array.from({ length: 1000 }, (_, i) => normalPdf(i * (30 / 1000), 15, 5));
+    const xValues = Array.from({ length: 1000 }, (_, i) => i * (30 / 1000));
+    const yValues = xValues.map(x => normalPdf(x, 15, 5));
+
     const y_max = Math.max(...yValues);
 
     return y * (25 / y_max);
 }
 
-
 function offreDemande(buyVolumeProduct: number, sellVolumeProduct: number): number {
     let x: number;
 
     if (buyVolumeProduct <= sellVolumeProduct) {
-        x = (sellVolumeProduct * 100) / buyVolumeProduct;
+        x = ((sellVolumeProduct * 100) / buyVolumeProduct) - 100;
     } else {
-        x = (buyVolumeProduct * 100) / sellVolumeProduct;
+        x = ((buyVolumeProduct * 100) / sellVolumeProduct) - 100;
     }
 
     if (x <= 75) {
@@ -88,7 +89,7 @@ function getFinalScore(product: Product): number | null {
         if (product.marge == null || product.prix == null || product.offreDemande == null || product.popularity == null) {
             throw new Error()
         }
-        return Math.floor(
+        return Math.ceil(
             ((product.marge * margeWeight) +
                 (product.prix * prixWeight) +
                 (product.offreDemande * offreDemandeWeight) +
@@ -101,7 +102,7 @@ function getFinalScore(product: Product): number | null {
 }
 
 
-type Product = {
+export type Product = {
     productID: string;
     sellPrice: number;
     sellVolume: number;
@@ -114,45 +115,4 @@ type Product = {
     popularity: number | null;
 };
 
-class Scores {
-    products: Product[];
-
-    constructor() {
-        this.products = [];
-    }
-
-    refreshProducts(data: { [pID: string]: { quick_status: any } }): void {
-        this.products = Object.keys(data).map((pID) => this.retrieveProduct(data[pID].quick_status));
-    }
-
-    retrieveProduct(raw_product: any): Product {
-        return {
-            productID: raw_product.productId,
-            sellPrice: parseFloat(raw_product.sellPrice),
-            sellVolume: parseFloat(raw_product.sellVolume) < 1 ? 1 : parseFloat(raw_product.sellVolume),
-            buyPrice: parseFloat(raw_product.buyPrice) < 0.1 ? 1 : parseFloat(raw_product.buyPrice),
-            buyVolume: parseFloat(raw_product.buyVolume) < 1 ? 1 : parseFloat(raw_product.buyVolume),
-            finalScore: null,
-            marge: null,
-            prix: null,
-            offreDemande: null,
-            popularity: null
-        };
-    }
-
-    addCustomScores(): void {
-        for (const product of this.products) {
-            try {
-                product.marge = marge(product.buyPrice, product.sellPrice);
-                product.prix = prix(product.buyPrice);
-                product.offreDemande = offreDemande(product.buyVolume, product.sellVolume);
-                product.popularity = popularity(product.buyPrice, product.buyVolume, product.sellVolume);
-                product.finalScore = getFinalScore(product);
-            } catch (error) {
-                console.error("Error in calculating scores:", error);
-            }
-        }
-    }
-}
-
-export default Scores
+export {popularity, offreDemande, prix, marge, getFinalScore}

@@ -5,6 +5,7 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
 const offreDemande = (buyVolumeProduct) => {
+
     if (buyVolumeProduct <= 75) {
         return 25;
     } else if (buyVolumeProduct > 75 && buyVolumeProduct <= 600) {
