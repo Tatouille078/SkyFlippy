@@ -33,6 +33,7 @@ const quickSort = (arr) => {
 
 function App() {
   const [products, setProducts] = useState<Product[]>([])
+  const [pagination, setPagination] = useState<number>(12)
   const panelRef = useRef(null)
   const buttonRef = useRef(null)
   const {
@@ -83,21 +84,18 @@ function App() {
     }
     p.finalScore = getFinalScore(p)
     setProducts((prev) => [...prev, p])
-    console.log(p.productID, p.finalScore, Math.floor(p.marge), Math.floor(p.prix), Math.floor(p.offreDemande), Math.floor(p.popularity), Math.ceil(((p.buyPrice / p.sellPrice) * 100) - 100) )
   }
   const sortedList = useMemo(() => {
-    const goodP = products.filter(p => !isNaN(p.finalScore))
+    const goodP = products.filter(p => p.finalScore == null || !isNaN(p.finalScore))
     const sortedP = quickSort(goodP).reverse()
-    console.log(sortedP)
-    return sortedP.slice(0, 12)
+    return sortedP.slice(0, pagination)
   },
-    [products],
+    [products, pagination]
   )
   useEffect(() => {
     const fetchProducts = async () => {
       const resp = await getProducts();
       const data = convertToArray(resp);
-      console.log(data)
       data.forEach((item) => createProductFromItem(item))
     }
     fetchProducts()
@@ -108,14 +106,15 @@ function App() {
       <Header buttonRef={buttonRef} />
       <div className="flex relative">
         <Sidebar buttonRef={buttonRef} panelRef={panelRef} params={params} />
-        <main className="flex-1">
-          <div className="container mx-auto px-4 py-8">
-            {sortedList.map((product, index) => (
+        <main className="flex-1 flex flex-col">
+          <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {sortedList.map((product: Product, index: number) => (
               <div key={index}>
                 <ItemCard product={product} />
               </div>
             ))}
           </div>
+          <p className='ubuntu-normal mb-8 text-purple-700 underline cursor-wait self-center' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
         </main>
       </div>
     </div>
