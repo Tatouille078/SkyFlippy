@@ -69,7 +69,7 @@ function popularity(buyPriceProduct: number, buyVolumeProduct: number, sellVolum
             return (12.5 / 600) * (buySellSum - 500) + 12.5;
         }
         return 25;
-    } 
+    }
 
     if (buySellSum <= 5) {
         return 0;
@@ -78,7 +78,7 @@ function popularity(buyPriceProduct: number, buyVolumeProduct: number, sellVolum
     } else if (buySellSum > 25 && buySellSum <= 80) {
         return (12.5 / 55) * (buySellSum - 25) + 12.5;
     }
-    
+
     return 25;
 }
 
@@ -90,9 +90,9 @@ function getFinalScore(product: Product): number | null {
         }
         return Math.floor(
             ((product.marge * margeWeight) +
-            (product.prix * prixWeight) +
-            (product.offreDemande * offreDemandeWeight) +
-            (product.popularity * popularityWeight)) * 4
+                (product.prix * prixWeight) +
+                (product.offreDemande * offreDemandeWeight) +
+                (product.popularity * popularityWeight)) * 4
         );
     } catch (error) {
         console.error("Error calculating the final score");

@@ -1,13 +1,13 @@
 import { useRef } from 'react';
 
 const AnimatedShapes = () => {
-  const fgShapes = useRef<Array<{ 
-    left: string; 
-    top: string; 
-    width: number; 
-    height: number; 
-    opacity: number; 
-    animationDelay: string; 
+  const fgShapes = useRef<Array<{
+    left: string;
+    top: string;
+    width: number;
+    height: number;
+    opacity: number;
+    animationDelay: string;
     animationDuration: string;
     rotateStart: string;
     className: string;
@@ -15,13 +15,13 @@ const AnimatedShapes = () => {
     rotateAmount: number;
   }>>([]);
 
-  const bgShapes = useRef<Array<{ 
-    left: string; 
-    top: string; 
-    width: number; 
-    height: number; 
-    opacity: number; 
-    animationDelay: string; 
+  const bgShapes = useRef<Array<{
+    left: string;
+    top: string;
+    width: number;
+    height: number;
+    opacity: number;
+    animationDelay: string;
     animationDuration: string;
     rotateStart: string;
     className: string;
@@ -39,15 +39,13 @@ const AnimatedShapes = () => {
       animationDelay: `${Math.random() * 5}s`,
       animationDuration: `${Math.random() * 15 + 20}s`,
       rotateStart: `${Math.random() * 360 + 360}`,
-      className: `absolute ${
-        Math.random() > 0.5 ? 'rounded-full' : 'rounded-lg'
-      } ${
-        Math.random() > 0.5 
-          ? Math.random() > 0.5 ? 'border-8 border-pink-200' : 'border-8 border-purple-400' 
+      className: `absolute ${Math.random() > 0.5 ? 'rounded-full' : 'rounded-lg'
+        } ${Math.random() > 0.5
+          ? Math.random() > 0.5 ? 'border-8 border-pink-200' : 'border-8 border-purple-400'
           : Math.random() > 0.5 ? 'bg-purple-200' : 'bg-pink-400'
-      }`,
-      translateDirection : Math.random() > 0.5 ? '' : '-',
-      rotateAmount : Math.random() * 720 + 360,
+        }`,
+      translateDirection: Math.random() > 0.5 ? '' : '-',
+      rotateAmount: Math.random() * 720 + 360,
     }));
   }
   if (bgShapes.current.length === 0) {
@@ -60,15 +58,13 @@ const AnimatedShapes = () => {
       animationDelay: `${Math.random() * 5}s`,
       animationDuration: `${Math.random() * 15 + 60}s`,
       rotateStart: `${Math.random() * 360 + 360}`,
-      className: `absolute ${
-        Math.random() > 0.5 ? 'rounded-full' : 'rounded-md'
-      } ${
-        Math.random() > 0.5 
-          ? Math.random() > 0.5 ? 'border-4 border-pink-200' : 'border-4 border-purple-400' 
+      className: `absolute ${Math.random() > 0.5 ? 'rounded-full' : 'rounded-md'
+        } ${Math.random() > 0.5
+          ? Math.random() > 0.5 ? 'border-4 border-pink-200' : 'border-4 border-purple-400'
           : Math.random() > 0.5 ? 'bg-purple-200' : 'bg-pink-400'
-      }`,
-      translateDirection : Math.random() > 0.5 ? '' : '-',
-      rotateAmount : Math.random() * 720 + 360,
+        }`,
+      translateDirection: Math.random() > 0.5 ? '' : '-',
+      rotateAmount: Math.random() * 720 + 360,
     }));
   }
 

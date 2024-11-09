@@ -41,11 +41,11 @@ const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef, params }) => {
       <div className='absolute header-sidebar-fade -z-10 h-24 w-full '>
       </div>
       <div className="p-6 mt-2">
-        <h2 className="text-2xl z-10 exo-2-bold justify-center flex text-purple-700">Poids</h2>
-        <p className='rounded-lg shadow-lg mt-14 pb-2 pl-6 exo-2-light text-purple-500 mb-0'><b>Attention</b>: Il est recommandé que la somme des 4 poids (sliders) soit égale à 100! Sinon, les résultats données peuvent être incorrects.<br/>
+        <h2 className="text-2xl z-10 exo-2-bold justify-center flex m-auto text-purple-700">Poids</h2>
+        <p className='rounded-lg mb-4 shadow-md mt-14 pb-2 pl-6 exo-2-light text-purple-500'><b>Attention</b>: Il est recommandé que la somme des 4 poids (sliders) soit égale à 100! Sinon, les résultats données peuvent être incorrects.<br />
           En cas de problème d'affichage des courbes, essayez de rafraichir la page.
         </p>
-        <div className='space-y-2  sidebar-graphs-fade pb-5 rounded-lg mt-5 px-5 grid gap-4'>
+        <div className='shadow-md space-y-2  sidebar-graphs-fade pb-5 rounded-lg px-5 grid gap-4'>
           <div className='grid grid-cols-2 gap-2'>
             <div className='grid h-auto grid-cols-2'>
               <InputSlider props={params[0]} handler1={setChangeIndex} />

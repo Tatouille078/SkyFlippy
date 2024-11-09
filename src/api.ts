@@ -1,15 +1,15 @@
 type SellSummary = {
     amount: number;
     pricePerUnit: number;
-    orders: number;  
+    orders: number;
 }
-  
+
 type BuySummary = {
     amount: number;
     pricePerUnit: number;
-    orders: number;  
+    orders: number;
 }
-  
+
 type QuickStatus = {
     productId: string;
     sellPrice: number;
@@ -19,9 +19,9 @@ type QuickStatus = {
     buyPrice: number;
     buyVolume: number;
     buyMovingWeek: number;
-    buyOrders: number;  
+    buyOrders: number;
 }
-  
+
 export type Item = {
     product_id: string;
     sell_summary: SellSummary[];
@@ -38,6 +38,6 @@ export type ProductType = {
 const getProducts = async () => {
     const data = await fetch("https://api.hypixel.net/v2/skyblock/bazaar")
     return await data.json()
-} 
+}
 
 export default getProducts

@@ -6,7 +6,7 @@ ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, T
 
 
 const popularityHigh = (x: number) => {
-    
+
     if (x <= 5) {
         return 0;
     } else if (x > 5 && x <= 25) {
@@ -39,7 +39,7 @@ const PopularityHighChart = () => {
             },
         ],
     };
-    
+
     const options = {
         plugins: {
             legend: {
@@ -63,7 +63,7 @@ const PopularityHighChart = () => {
             },
         },
     };
-    
+
     return (
         <Line data={data} options={options} />
     );

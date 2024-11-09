@@ -5,7 +5,7 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
 const popularityLow = (x: number) => {
-    
+
     if (x <= 500) {
         return 0;
     } else if (x > 500 && x <= 1500) {
@@ -61,7 +61,7 @@ const PopularityLowChart = () => {
             },
         },
     };
-    
+
     return (
         <Line data={data} options={options} />
     );

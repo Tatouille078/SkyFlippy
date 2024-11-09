@@ -18,11 +18,11 @@ export type ItemProps = {
 
 const categories: CategoryProps[] = [
     {
-        id: 1000, 
+        id: 1000,
         name: "Top scores",
     },
     {
-        id: 1111, 
+        id: 1111,
         name: "Best",
     }
 ]
@@ -105,18 +105,18 @@ const items: ItemProps[] = [
 const Categories = () => {
     return (
         <>
-        {categories.map(categorie => (
-            <div className="mb-12" key={categorie.id}>
-                <h2 className="text-2xl mb-4 pb-[2px] shadow-md text-purple-600 w-max h1-fade rounded-xl px-3 exo-2-bold">{categorie.name}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {items.map(item => (
-                        <ItemCard item={item} key={item.id} />
-                    ))}
+            {categories.map(categorie => (
+                <div className="mb-12" key={categorie.id}>
+                    <h2 className="text-2xl mb-4 pb-[2px] shadow-md text-purple-600 w-max h1-fade rounded-xl px-3 exo-2-bold">{categorie.name}</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {items.map(item => (
+                            <ItemCard item={item} key={item.id} />
+                        ))}
+                    </div>
                 </div>
-            </div>
-        ))}
+            ))}
         </>
     )
-} 
+}
 
 export default Categories

@@ -5,7 +5,7 @@ import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
 const popularityMedium = (x: number) => {
-    
+
     if (x <= 100) {
         return 0;
     } else if (x > 100 && x <= 400) {
@@ -38,7 +38,7 @@ const PopularityMediumChart = () => {
             },
         ],
     };
-    
+
     const options = {
         plugins: {
             legend: {
@@ -62,7 +62,7 @@ const PopularityMediumChart = () => {
             },
         },
     };
-    
+
     return (
         <Line data={data} options={options} />
     );
