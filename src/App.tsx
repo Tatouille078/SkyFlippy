@@ -106,7 +106,7 @@ function App() {
       <Header buttonRef={buttonRef} />
       <div className="flex relative">
         <Sidebar buttonRef={buttonRef} panelRef={panelRef} params={params} />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 mt-8 flex flex-col">
           <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {sortedList.map((product: Product, index: number) => (
               <div key={index}>

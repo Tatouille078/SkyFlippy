@@ -26,11 +26,11 @@
 }
 
 .itemcard-fade {
-  background: linear-gradient(90deg, #e7d1ff 40%, #ffcde9 90%)
+  background: linear-gradient(90deg, #b34ee5 30%, #f279d0 90%)
 }
 
 .header-fade {
-  background: linear-gradient(270deg, #ff83c3 10%, #f6afff 50%, #9333ea 90%);
+  background: linear-gradient(270deg, #ff83c3 10%, #f398ff 50%, #9333ea 90%);
 }
 
 .header-sidebar-fade {
@@ -39,14 +39,6 @@
 
 .search-fade {
   background: linear-gradient(90deg, #ffd5f4 10%, #ffdaee 90%);
-}
-
-.title-fade {
-  background: linear-gradient(90deg, #fff 10%, #efaaf9 90%);
-  z-index: 10;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .sidebar-fade {

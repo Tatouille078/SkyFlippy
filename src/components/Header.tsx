@@ -15,13 +15,13 @@ const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
         <div className="flex items-center">
           <div className="flex items-center space-x-4">
             <button
-              className="p-2 hover:bg-purple-700 dark:hover:bg-purple-700 rounded-2xl shadow-xl transition-colors duration-200 hidden md:block"
+              className="p-2 hover:bg-purple-700 bg-purple-500 rounded-2xl shadow-xl transition-colors duration-200 hidden md:block"
               onClick={toggleOpen}
               ref={buttonRef}
             >
               <IoMenu size={30} />
             </button>
-            <h1 className="mb-2 text-xl py-2 md:text-4xl title-fade exo-2-bold">SkyFlippy</h1>
+            <h1 className="mb-2 text-xl py-2 md:text-4xl exo-2-normal">SkyFlippy</h1>
           </div>
           <div className="flex justify-end w-full px-2 md:px-4">
             <div className="relative self-end w-[30%]">
