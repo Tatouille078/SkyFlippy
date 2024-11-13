@@ -1,6 +1,6 @@
 import { IoMenu } from "react-icons/io5";
-import { FaSearch } from "react-icons/fa";
 import { StateContextType, useStateContext } from "../context";
+import Searchbar from "./Searchbar";
 
 export type HeaderProps = {
   buttonRef: React.MutableRefObject<null>;
@@ -23,16 +23,7 @@ const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
             </button>
             <h1 className="mb-2 text-xl py-2 md:text-4xl exo-2-normal">SkyFlippy</h1>
           </div>
-          <div className="flex justify-end w-full px-2 md:px-4">
-            <div className="relative self-end w-[30%]">
-              <input
-                type="text"
-                placeholder="Rechercher..."
-                className="w-full exo-2-normal pl-10 pr-4 py-2 text-sm md:text-base rounded-full focus:shadow-lg transition-all search-fade shadow-md focus:outline-offset-0 focus:outline-white text-purple-700 placeholder-purple-500 focus:outline-none"
-              />
-              <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-600" size={18} />
-            </div>
-          </div>
+          <Searchbar />
         </div>
       </div>
     </header>

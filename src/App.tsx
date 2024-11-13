@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState, useMemo } from 'react'
 import { StateContextType, useStateContext } from './context';
 import getProducts, { Item, ProductType } from './api';
-import {popularity, offreDemande, marge, prix, Product, getFinalScore} from "./Calculus";
+import { popularity, offreDemande, marge, prix, Product, getFinalScore } from "./Calculus";
 import { Categories, Header, Sidebar, AnimatedShapes, ItemCard } from './components';
 
 
@@ -15,25 +15,7 @@ export type ParamProps = {
   setSlider: React.Dispatch<React.SetStateAction<number>>,
 };
 
-const quickSort = (arr) => {
-  if (arr.length <= 1) return arr;
-  const pivot = arr[arr.length - 1];
-  const left = [];
-  const right = [];
-
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i].finalScore < pivot.finalScore) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
-    }
-  }
-  return [...quickSort(left), pivot, ...quickSort(right)];
-};
-
 function App() {
-  const [products, setProducts] = useState<Product[]>([])
-  const [pagination, setPagination] = useState<number>(12)
   const panelRef = useRef(null)
   const buttonRef = useRef(null)
   const {
@@ -45,6 +27,10 @@ function App() {
     setSlider2,
     setSlider3,
     setSlider4,
+    pagination,
+    setPagination,
+    createProductFromItem,
+    sortedList
   }: StateContextType = useStateContext();
 
   const params: ParamProps[] = [
@@ -69,29 +55,7 @@ function App() {
       setSlider: setSlider4,
     },
   ];
-  const createProductFromItem = (item: Item) => {
-    const p: Product = {
-      productID: item.product_id,
-      sellPrice: item.quick_status.sellPrice,
-      sellVolume: item.quick_status.sellVolume,
-      buyPrice: item.quick_status.buyPrice,
-      buyVolume: item.quick_status.buyVolume,
-      finalScore: null,
-      marge: marge(item.quick_status.buyPrice, item.quick_status.sellPrice),
-      prix: prix(item.quick_status.buyPrice),
-      offreDemande: offreDemande(item.quick_status.buyVolume, item.quick_status.sellVolume),
-      popularity: popularity(item.quick_status.buyPrice, item.quick_status.buyVolume, item.quick_status.sellVolume)
-    }
-    p.finalScore = getFinalScore(p)
-    setProducts((prev) => [...prev, p])
-  }
-  const sortedList = useMemo(() => {
-    const goodP = products.filter(p => p.finalScore == null || !isNaN(p.finalScore))
-    const sortedP = quickSort(goodP).reverse()
-    return sortedP.slice(0, pagination)
-  },
-    [products, pagination]
-  )
+
   useEffect(() => {
     const fetchProducts = async () => {
       const resp = await getProducts();
