@@ -26,6 +26,8 @@ export type StateContextType = {
     createProductFromItem: (item: Item) => void;
     search: string;
     setSearch: React.Dispatch<React.SetStateAction<string>>;
+    getItem: <T>(key: string) => T | null;
+    setItem: <T>(key: string, value: T) => void;
 }
 
 const quickSort = (arr: Product[]): Product[] => {
@@ -87,6 +89,15 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         [products, pagination, search]
     )
 
+    const getItem = <T,>(key: string): T | null => {
+        const item = localStorage.getItem(key);
+        return item ? (JSON.parse(item) as T) : null;
+    }
+
+    const setItem = <T,>(key: string, value: T) => {
+        localStorage.setItem(key, JSON.stringify(value))
+    }
+
     return (
         <StateContext.Provider value={{
             slider1,
@@ -107,7 +118,9 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
             setPagination,
             createProductFromItem,
             search,
-            setSearch
+            setSearch,
+            getItem,
+            setItem
         }}>
             {children}
         </StateContext.Provider>
