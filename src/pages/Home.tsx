@@ -4,6 +4,7 @@ import getProducts, { ProductType } from '../api';
 import { AnimatedShapes, Header, ItemCard, Sidebar } from '../components';
 import { Product } from '../Calculus';
 
+
 const convertToArray = (productArray: ProductType) => {
     return Object.values(productArray.products)
 }
@@ -17,6 +18,7 @@ export type ParamProps = {
 const Home = () => {
     const panelRef = useRef(null)
     const buttonRef = useRef(null)
+    const searchbarRef = useRef(null)
     const {
         slider1,
         slider2,
@@ -65,7 +67,7 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-white overflow-y-hidden">
             <AnimatedShapes />
-            <Header buttonRef={buttonRef} />
+            <Header buttonRef={buttonRef} searchbarRef={searchbarRef}/>
             <div className="flex relative">
                 <Sidebar buttonRef={buttonRef} panelRef={panelRef} params={params} />
                 <main className="flex-1 mt-8 flex flex-col">
@@ -76,7 +78,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    <p className='ubuntu-normal mb-8 text-purple-700 underline cursor-wait self-center' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
+                    <p className='ubuntu-normal mb-8 text-xl shadow-xl px-4 py-1 text-purple-800 h1-fade rounded-xl cursor-pointer self-center' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
                 </main>
             </div>
         </div>

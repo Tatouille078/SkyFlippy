@@ -2,6 +2,8 @@ import React from "react";
 import { Product } from "../Calculus";
 import { useStateContext } from "../context";
 import { Link } from "react-router-dom";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 type ItemCardProps = {
     product: Product;
@@ -19,20 +21,22 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
                     <ul className="mb-4 space-y-2">
                         <li className="flex justify-between items-center">
                             <span className="text-gray-800 ml-5 exo-2-normal">Final score:</span>
-                            <div
-                                className="mr-5 ubuntu-normal rounded-2xl px-2"
-                                style={{
-                                    backgroundColor: product.finalScore <= 75 ? product.finalScore <= 55 ? 'rgb(254, 202, 202)' : 'rgb(254 243 199)' : 'rgb(187, 247, 208)',
-                                    color: product.finalScore <= 75 ? product.finalScore <= 55 ? 'rgb(220, 38, 38)' : 'rgb(190, 100, 9)' : 'rgb(22, 101, 52)',
-                                }}
-                            >
-                                {product.finalScore}
-                            </div>
+                            <Tippy content={`Score Marge: ${product.marge.toFixed(1)} | Score Prix: ${product.prix.toFixed(1)} | Score Offre/Demande: ${product.offreDemande.toFixed(1)} | Score Popularity: ${product.popularity.toFixed(1)}`}>
+                                <div
+                                    className="shadow-md mr-5 ubuntu-normal rounded-2xl px-2"
+                                    style={{
+                                        backgroundColor: product.finalScore <= 75 ? product.finalScore <= 55 ? 'rgb(254, 202, 202)' : 'rgb(254 243 199)' : 'rgb(187, 247, 208)',
+                                        color: product.finalScore <= 75 ? product.finalScore <= 55 ? 'rgb(220, 38, 38)' : 'rgb(190, 100, 9)' : 'rgb(22, 101, 52)',
+                                    }}
+                                >
+                                    {product.finalScore}
+                                </div>
+                            </Tippy>
                         </li>
                         <li className="flex justify-between items-center">
                             <span className="text-gray-800 ml-5 exo-2-normal">Marge:</span>
                             <div
-                                className="mr-5 ubuntu-normal rounded-2xl px-2"
+                                className="mr-5 shadow-md ubuntu-normal rounded-2xl px-2"
                                 style={{
                                     backgroundColor: product.marge <= 18 ? product.marge <= 10 ? 'rgb(254, 202, 202)' : 'rgb(254 243 199)' : 'rgb(187, 247, 208)',
                                     color: product.marge <= 18 ? product.marge <= 10 ? 'rgb(220, 38, 38)' : 'rgb(190, 100, 9)' : 'rgb(22, 101, 52)',
@@ -44,7 +48,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
                         <li className="flex justify-between items-center">
                             <span className="text-gray-800 ml-5 exo-2-normal">écart offre / demande:</span>
                             <div
-                                className="mr-5 ubuntu-normal rounded-2xl px-2"
+                                className="mr-5 shadow-md ubuntu-normal rounded-2xl px-2"
                                 style={{
                                     backgroundColor: product.offreDemande <= 23 ? product.offreDemande <= 16 ? 'rgb(254, 202, 202)' : 'rgb(254 243 199)' : 'rgb(187, 247, 208)',
                                     color: product.offreDemande <= 23 ? product.offreDemande <= 16 ? 'rgb(220, 38, 38)' : 'rgb(190, 100, 9)' : 'rgb(22, 101, 52)',

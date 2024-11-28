@@ -53,6 +53,7 @@
   background: linear-gradient(270deg, #fcd4ff 10%, #f3d8ff 90%)
 }
 
+
 input[type='range']::-webkit-slider-thumb {
   appearance: none;
   width: 20px;
@@ -86,7 +87,3 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-/* input[type="number"] {
-  -moz-appearance: textfield;
-} */

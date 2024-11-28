@@ -1,7 +1,8 @@
 import { FaSearch } from "react-icons/fa"
 import { useStateContext } from "../context"
+import React from "react";
 
-const Searchbar = () => {
+const Searchbar = React.forwardRef<HTMLInputElement>((props, ref) => {
 
     const { search, setSearch } = useStateContext()
 
@@ -11,6 +12,7 @@ const Searchbar = () => {
                 <input
                     type="text"
                     value={search}
+                    ref={ref}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Rechercher..."
                     className="w-full exo-2-normal pl-10 pr-4 py-2 text-sm md:text-base rounded-full focus:shadow-lg transition-all search-fade shadow-md focus:outline-offset-0 focus:outline-white text-purple-700 placeholder-purple-500 focus:outline-none"
@@ -19,6 +21,6 @@ const Searchbar = () => {
             </div>
         </div>
     )
-}
+});
 
 export default Searchbar

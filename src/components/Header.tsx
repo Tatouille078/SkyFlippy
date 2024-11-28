@@ -4,9 +4,10 @@ import Searchbar from "./Searchbar";
 
 export type HeaderProps = {
   buttonRef?: React.MutableRefObject<null>;
+  searchbarRef?: React.MutableRefObject<null>;
 };
 
-const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
+const Header: React.FC<HeaderProps> = ({ buttonRef, searchbarRef }) => {
   const { toggleOpen }: StateContextType = useStateContext();
 
   return (
@@ -19,12 +20,13 @@ const Header: React.FC<HeaderProps> = ({ buttonRef }) => {
               className="p-2 hover:bg-purple-700 bg-purple-500 rounded-2xl shadow-xl transition-colors duration-200 hidden md:block"
               onClick={toggleOpen}
               ref={buttonRef}
-            >
+              >
               <IoMenu size={30} />
             </button>}
             <h1 className="mb-2 text-xl py-2 md:text-4xl exo-2-normal">SkyFlippy</h1>
           </div>
-          <Searchbar />
+          {searchbarRef &&
+          <Searchbar ref={searchbarRef}/> }
         </div>
       </div>
     </header>
