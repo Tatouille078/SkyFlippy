@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ buttonRef, searchbarRef }) => {
           <div className="flex items-center space-x-4">
             {buttonRef && 
               <button
-              className="p-2 hover:bg-purple-700 bg-purple-500 rounded-2xl shadow-xl transition-colors duration-200 hidden md:block"
+              className="p-2 hover:bg-purple-400 bg-purple-500 rounded-2xl shadow-lg hover:outline hover:outline-1 hover:scale-105 transition-all hover:rotate-2 hover:shadow-xl duration-200 hidden md:block"
               onClick={toggleOpen}
               ref={buttonRef}
               >

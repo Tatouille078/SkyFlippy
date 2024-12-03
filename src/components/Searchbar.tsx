@@ -15,7 +15,7 @@ const Searchbar = React.forwardRef<HTMLInputElement>((props, ref) => {
                     ref={ref}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Rechercher..."
-                    className="w-full exo-2-normal pl-10 pr-4 py-2 text-sm md:text-base rounded-full focus:shadow-lg transition-all search-fade shadow-md focus:outline-offset-0 focus:outline-white text-purple-700 placeholder-purple-500 focus:outline-none"
+                    className="w-full exo-2-normal pl-10 pr-4 py-2 hover:shadow-lg text-sm md:text-base rounded-full focus:shadow-xl transition-all search-fade shadow-md focus:outline-offset-0 focus:outline-white hover:placeholder-purple-600 text-purple-700 placeholder-purple-500 focus:outline-none"
                 />
                 <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-purple-600" size={18} />
             </div>

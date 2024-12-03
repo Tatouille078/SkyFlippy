@@ -78,7 +78,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    <p className='ubuntu-normal mb-8 text-xl shadow-xl px-4 py-1 text-purple-800 h1-fade rounded-xl cursor-pointer self-center' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
+                    <p className='ubuntu-normal mb-8 text-xl shadow-lg px-4 py-1 text-purple-800 transition-all hover:scale-105 hover:rotate-2 h1-fade rounded-xl cursor-pointer self-center hover:shadow-xl' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
                 </main>
             </div>
         </div>
