@@ -19,7 +19,7 @@ const Product = () => {
             <Header />
             <div className='flex relative'>
                 <main className='flex-1 mt-8 flex flex-col'>
-                    <div className='container mx-auto max-w-screen-xl px-4 py-4 sidebar-fade rounded-2xl shadow-xl'>
+                    <div className='container mx-auto max-w-screen-xl px-4 pt-4 bg-trans rounded-2xl shadow-xl'>
                         <ul className='bg-gray-50 mx-auto rounded-3xl shadow-lg grid grid-cols-2'>
                             {/* row 1 */}
                             <li className='col-start-1 col-end-3 flex header-sidebar-fade rounded-t-2xl py-6 justify-center'>
@@ -157,9 +157,16 @@ const Product = () => {
                                 </div>
                             </li>
                         </ul>
-                        <p className='rounded-lg mb-4 shadow-lg mt-14 pb-2 pl-6 exo-2-light text-purple-500'><b>Attention</b>: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo dolore, fugit architecto libero hic necessitatibus eius porro aliquam! Atque, ipsum animi! Esse perspiciatis, reprehenderit officiis corporis neque eius ratione ducimus!
-                        Sint suscipit non, quis architecto quasi assumenda sunt mollitia, est numquam cum quisquam soluta et quaerat obcaecati cupiditate possimus, sed ipsa quibusdam molestiae autem ipsum tenetur reprehenderit. Voluptatem, esse culpa.
-                        Maiores reiciendis modi blanditiis exercitationem. Maxime accusantium maiores sequi. Atque ad magnam, cumque eos id possimus voluptatum deleniti aliquid delectus est doloribus nulla architecto impedit aperiam omnis? Libero, reprehenderit cum.
+                        <p className='rounded-lg mb-4 shadow-lg sidebar-fade mt-8 py-4 pl-6 exo-2-light text-purple-500'>
+                            <b className='exo-2-bold'>Information</b>: Les scores sont actualisés à chaque push de l'API d'hypixel (soit toutes les 2 minutes). <br/> Ils ne peuvent pas 
+                            dépasser <b className='ubuntu-normal'>25</b> est aller en dessous de <b className='ubuntu-normal'>0</b>.
+                            Le score final ne peut pas exceder <b className='ubuntu-normal'>100</b> ni aller en dessous de <b className='ubuntu-normal'>0</b>. <br/>Si vous voyez une erreur, prévenez moi à: ___. <br/> <br/>
+                            <b className='exo-2-bold'>Score de Marge</b>: La marge est le ratio en pourcentage entre le prix d'achat et le prix de vente d'un item. <br/>Sur la cellule de droite ainsi que celle juste au-dessus, on trouve les détailles liés à la marge. <br/> <br/> 
+                            <b className='exo-2-bold'>Score de Prix</b>: Le prix est simplement un score par rapport au prix (voir le graph "Score Prix" dans le menu 
+                            déroulant à la page d'acceuil). <br/> <br/> 
+                            <b className='exo-2-bold'>Score d'Offre et de Demande</b>: L'offre et la demande est le delta entre le volume d'achat et le volume de vente. <br/>Plus la différence est grosse, moins l'offre et 
+                            la demande sont proche, moins le score serra bon. <br/> <br/>
+                            <b className='exo-2-bold'>Score de popularité</b>: Mix entre les systèmes de score de prix et de l'Offre et la demande. Basé sur le volume d'achat par rapport au prix.
                         </p>
                     </div>
                 </main>

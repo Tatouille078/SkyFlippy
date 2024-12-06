@@ -8,7 +8,7 @@ const Searchbar = React.forwardRef<HTMLInputElement>((props, ref) => {
 
     return (
         <div className="flex justify-end w-full px-2 md:px-4">
-            <div className="relative self-end w-[30%]">
+            <div className="relative self-end w-[80%] lg:w-[30%]">
                 <input
                     type="text"
                     value={search}

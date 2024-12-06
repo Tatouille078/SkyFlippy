@@ -32,7 +32,7 @@ const AnimatedShapes = () => {
   if (fgShapes.current.length === 0) {
     fgShapes.current = [...Array(20)].map(() => ({
       left: `${Math.random() * 100}%`,
-      top: `${Math.random() * 140 + 100}%`,
+      top: `${Math.random() * 140 + 110}%`,
       width: Math.random() * 90 + 110,
       height: Math.random() * 90 + 110,
       opacity: 0.4,

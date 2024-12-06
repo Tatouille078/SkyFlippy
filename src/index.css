@@ -30,7 +30,7 @@
 }
 
 .header-fade {
-  background: linear-gradient(270deg, #ff83c3 10%, #f398ff 50%, #9333ea 90%);
+  background: linear-gradient(270deg, rgba(255, 131, 195, 85%) 10%, rgba(243, 152, 255, 85%) 50%, rgba(147, 51, 234) 90%);
 }
 
 .header-sidebar-fade {
@@ -45,8 +45,16 @@
   background: linear-gradient(270deg, #ead5ff 10%, #f5ebff 90%)
 }
 
-.sidebar-graphs-fade {
-  background: linear-gradient(270deg, #f3e7ff 10%, #fbf9ff 90%)
+.sidebar-product-fade {
+  background: linear-gradient(270deg, #f2d6ff 10%, #f4ebff 90%)
+}
+
+.bg-trans {
+  background: linear-gradient(270deg, rgba(242, 214, 255, 65%) 10%, rgba(251, 249, 255, 65%) 90%);
+}
+
+.bg-sidebar-trans {
+  background: linear-gradient(270deg, rgba(244, 206, 255, 85%) 10%, rgba(251, 241, 255, 85%) 90%);
 }
 
 .h1-fade {

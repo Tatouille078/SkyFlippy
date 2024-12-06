@@ -13,7 +13,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
     const { setItem } = useStateContext()
     return (
         <Link to={`/products/${product.productID}`}>
-            <div onClick={() => setItem("product", product)} className="bg-gray-100 group hover:bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 rounded-md hover:scale-105 hover:rotate-2">
+            <div onClick={() => setItem("product", product)} className="bg-gray-100 group bg-opacity-85 hover:bg-opacity-100 hover:bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 rounded-md hover:scale-105 hover:rotate-2">
                 <div className="itemcard-fade p-4">
                     <h2 className="text-xl exo-2-bold group-hover:text-white transition-colors text-fuchsia-50 truncate">{product.productID}</h2>
                 </div>
