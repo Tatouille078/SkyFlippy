@@ -67,7 +67,7 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-white overflow-y-hidden">
             <AnimatedShapes />
-            <Header buttonRef={buttonRef} searchbarRef={searchbarRef}/>
+            <Header buttonRef={buttonRef} searchbarRef={searchbarRef} />
             <div className=" relative">
                 <Sidebar buttonRef={buttonRef} panelRef={panelRef} params={params} />
                 <main className="flex-1 mt-28 flex flex-col">
@@ -81,6 +81,20 @@ const Home = () => {
                     <p className='ubuntu-normal mb-8 text-xl shadow-lg px-4 py-1 text-purple-800 transition-all hover:scale-105 hover:rotate-2 h1-fade rounded-xl cursor-pointer self-center hover:shadow-xl' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
                 </main>
             </div>
+            <input
+                type="radio"
+                id='option1'
+                name='option'
+                value="classicRose"
+            />
+            <label className="ml-80 mr-8 exo-2-normal" htmlFor="option1">Classic Rose</label>
+            <input
+                type="radio"
+                id='option2'
+                name='option'
+                value="leef"
+            />
+            <label className="exo-2-normal" htmlFor="option2">Leef</label>
         </div>
     )
 }

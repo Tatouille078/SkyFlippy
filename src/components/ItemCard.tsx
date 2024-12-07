@@ -14,8 +14,10 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
     return (
         <Link to={`/products/${product.productID}`}>
             <div onClick={() => setItem("product", product)} className="bg-gray-100 group bg-opacity-85 hover:bg-opacity-100 hover:bg-white overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 rounded-md hover:scale-105 hover:rotate-2">
-                <div className="itemcard-fade p-4">
-                    <h2 className="text-xl exo-2-bold group-hover:text-white transition-colors text-fuchsia-50 truncate">{product.productID}</h2>
+                <div className="relative p-4 overflow-hidden transition-all group text-gray-50 rounded-lg">
+                    <span className="absolute inset-0 transition-opacity duration-500 bg-gradient-to-r from-purple-500 via-fuchsia-400 to-fuchsia-300 group-hover:opacity-100"></span>
+                    <span className="absolute inset-0 duration-500 bg-gradient-to-r group-hover:opacity-0 from-purple-500 to-fuchsia-400"></span>
+                    <h2 className="text-xl relative text-white z-50 exo-2-bold truncate">{product.productID}</h2>
                 </div>
                 <div className="pt-4">
                     <ul className="mb-4 space-y-2">
@@ -48,13 +50,13 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
                         <li className="flex justify-between items-center">
                             <span className="text-gray-800 ml-5 exo-2-normal">écart offre / demande:</span>
                             <div
-                                className="mr-5 shadow-md ubuntu-normal rounded-2xl px-2"
+                                className="mr-5 shadow-md flex items-center ubuntu-normal rounded-2xl px-2"
                                 style={{
                                     backgroundColor: product.offreDemande <= 23 ? product.offreDemande <= 16 ? 'rgb(254, 202, 202)' : 'rgb(254 243 199)' : 'rgb(187, 247, 208)',
                                     color: product.offreDemande <= 23 ? product.offreDemande <= 16 ? 'rgb(220, 38, 38)' : 'rgb(190, 100, 9)' : 'rgb(22, 101, 52)',
                                 }}
                             >
-                                {product.buyVolume <= product.sellVolume ? (((product.sellVolume * 100) / product.buyVolume) - 100).toFixed(1) : (((product.buyVolume * 100) / product.sellVolume) - 100).toFixed(1)} %
+                                {product.buyVolume <= product.sellVolume ? (((product.sellVolume * 100) / product.buyVolume) - 100).toFixed() : (((product.buyVolume * 100) / product.sellVolume) - 100).toFixed()} %
                             </div>
                         </li>
                     </ul>

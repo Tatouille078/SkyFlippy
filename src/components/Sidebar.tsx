@@ -38,8 +38,8 @@ const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef, params }) => {
         } overflow-y-auto`}
       ref={panelRef}
     >
-      <div className='top-0 sticky header-sidebar-fade h-24 w-full'>
-        <h2 className="text-2xl h-24 exo-2-bold justify-center flex items-center m-auto text-purple-700">Graphs</h2>
+      <div className='top-0 sticky header-sidebar-fade shadow-lg h-24 w-full'>
+        <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-purple-700">Graphs</h2>
       </div>
       <div className="p-6 mt-2">
         <p className='rounded-lg mb-4 bg-sidebar-trans shadow-md py-2 pl-6 exo-2-light text-purple-500'>Représentation graphique des Scores.
