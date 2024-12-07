@@ -1,28 +1,25 @@
 import React, { useEffect } from 'react'
-import InputSlider from './sliders'
 import { StateContextType, useStateContext } from '../context';
 import { Graphs } from './';
-import { ParamProps } from '../pages/Home';
 
 export type SidebarProps = {
   buttonRef: React.MutableRefObject<null>;
   panelRef: React.MutableRefObject<null>;
-  params: ParamProps[];
 };
 
-const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef, params }) => {
-  const { isOpen, setIsOpen }: StateContextType = useStateContext();
+const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef }) => {
+  const { isSidebarOpen, setIsSidebarOpen }: StateContextType = useStateContext();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        isOpen &&
+        isSidebarOpen &&
         panelRef.current &&
         !panelRef.current.contains(event.target as Node) &&
         buttonRef.current &&
         !buttonRef.current.contains(event.target as Node)
       ) {
-        setIsOpen(false)
+        setIsSidebarOpen(false)
       }
     }
 
@@ -30,11 +27,11 @@ const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef, params }) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isOpen])
+  }, [isSidebarOpen])
 
   return (
     <div
-      className={`bg-fuchsia-100 bg-opacity-85 fixed min-w-[600px] top-0 left-0 h-full transition-transform duration-300 ease-in-out z-[60] ${isOpen ? 'w-3/5 translate-x-0' : 'w-3/5 -translate-x-full'
+      className={`bg-fuchsia-100 bg-opacity-85 fixed min-w-[600px] top-0 left-0 h-full transition-transform duration-300 ease-in-out z-[60] ${isSidebarOpen ? 'w-3/5 translate-x-0' : 'w-3/5 -translate-x-full'
         } overflow-y-auto`}
       ref={panelRef}
     >

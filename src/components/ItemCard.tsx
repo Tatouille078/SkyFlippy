@@ -17,7 +17,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
                 <div className="relative p-4 overflow-hidden transition-all group text-gray-50 rounded-lg">
                     <span className="absolute inset-0 transition-opacity duration-500 bg-gradient-to-r from-purple-500 via-fuchsia-400 to-fuchsia-300 group-hover:opacity-100"></span>
                     <span className="absolute inset-0 duration-500 bg-gradient-to-r group-hover:opacity-0 from-purple-500 to-fuchsia-400"></span>
-                    <h2 className="text-xl relative text-white z-50 exo-2-bold truncate">{product.productID}</h2>
+                    <h2 className="text-xl relative text-white exo-2-bold truncate">{product.productID}</h2>
                 </div>
                 <div className="pt-4">
                     <ul className="mb-4 space-y-2">

@@ -6,18 +6,18 @@ type ContextProviderProps = {
     children: ReactNode;
 }
 
+type Theme = {
+    id: string;
+    label: string;
+} 
+
 export type StateContextType = {
-    slider1: number;
-    slider2: number;
-    slider3: number;
-    slider4: number;
-    setSlider1: React.Dispatch<React.SetStateAction<number>>;
-    setSlider2: React.Dispatch<React.SetStateAction<number>>;
-    setSlider3: React.Dispatch<React.SetStateAction<number>>;
-    setSlider4: React.Dispatch<React.SetStateAction<number>>;
-    isOpen: boolean;
-    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isSidebarOpen: boolean;
+    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isSettingsOpen: boolean;
+    setIsSettingsOpen: React.Dispatch<React.SetStateAction<boolean>>;
     toggleOpen: () => void;
+    toggleSettings: () => void;
     products: Product[];
     setProducts: React.Dispatch<React.SetStateAction<Product[]>>;
     sortedList: Product[];
@@ -28,6 +28,9 @@ export type StateContextType = {
     setSearch: React.Dispatch<React.SetStateAction<string>>;
     getItem: <T>(key: string) => T | null;
     setItem: <T>(key: string, value: T) => void;
+    themes: Theme[];
+    currentTheme: string;
+    setCurrentTheme: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const quickSort = (arr: Product[]): Product[] => {
@@ -49,18 +52,26 @@ const quickSort = (arr: Product[]): Product[] => {
 const StateContext = createContext<StateContextType | undefined>(undefined);
 
 export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
-    const [slider1, setSlider1] = useState<number>(25)
-    const [slider2, setSlider2] = useState<number>(25)
-    const [slider3, setSlider3] = useState<number>(25)
-    const [slider4, setSlider4] = useState<number>(25)
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false)
+    const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false)
     const [products, setProducts] = useState<Product[]>([])
     const [pagination, setPagination] = useState<number>(12)
     const [search, setSearch] = useState("")
+    const [currentTheme, setCurrentTheme] = useState('theme-light')
 
     const toggleOpen = () => {
-        setIsOpen(!isOpen);
+        setIsSidebarOpen(!isSidebarOpen);
     }
+
+    const toggleSettings = () => {
+        setIsSettingsOpen(prev => !prev);
+    }
+
+    const themes: Theme[] = [
+        { id: 'theme-light', label: 'Light Theme' },
+        { id: 'theme-dark', label: 'Dark Theme' },
+        { id: 'theme-solarized', label: 'Solarized Theme' },
+    ];
 
     const createProductFromItem = (item: Item) => {
         const p: Product = {
@@ -100,17 +111,12 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
 
     return (
         <StateContext.Provider value={{
-            slider1,
-            slider2,
-            slider3,
-            slider4,
-            setSlider1,
-            setSlider2,
-            setSlider3,
-            setSlider4,
-            isOpen,
-            setIsOpen,
+            isSidebarOpen,
+            setIsSidebarOpen,
+            isSettingsOpen,
+            setIsSettingsOpen,
             toggleOpen,
+            toggleSettings,
             sortedList,
             setProducts,
             products,
@@ -120,7 +126,10 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
             search,
             setSearch,
             getItem,
-            setItem
+            setItem,
+            themes,
+            currentTheme,
+            setCurrentTheme,
         }}>
             {children}
         </StateContext.Provider>
