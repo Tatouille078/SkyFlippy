@@ -2,6 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .theme-light {
+    --background-color: #f2f2f2;
+    --background-itemCard-color: rgba(246, 246, 246, 0.9) ;
+    --background-itemCard-colorHover: #fff;
+    --background-searchBar: rgba(255, 255, 255, 0.65);
+    --background-settings: rgba(250, 232, 255, 0.9);
+    --background-product: #fae8ff; /* table */
+    --background-firstProduct: #e9d5ff; /* first product table */
+    --background-oddRowProduct: #f9fafb ; /* table odd row */
+    --background-fadeComp1: rgba(255, 131, 195, 0.85); /* header */
+    --background-fadeComp2: rgba(243, 152, 255, 0.85); /* header */
+    --background-fadeComp3: rgba(147, 51, 234, 0.85); /* header */
+    --background-fadeComp4: #f4ceff; /* sidebar header */
+    --background-fadeComp5: #ecb0ff; /* sidebar header */
+    --background-fadeComp6: #ead5ff; /* sidebar */
+    --background-fadeComp7: #f5ebff; /* sidebar */
+    --background-fadeComp8: #fcd4ff; /* h1 */
+    --background-fadeComp9: #f3d8ff; /* h1 */
+    --background-fadeComp10: #f472b6; /* settings header & h1 */
+    --background-fadeComp11: #f9a8d4; /* settings header & h1 */
+    --background-fadeComp12: #a855f7; /* itemcard header */
+    --background-fadeComp13: #e879f9; /* itemcard header */
+    --background-fadeComp14: #f0abfc; /* itemcard header only hover*/
+    --background-fadeTrans1: rgba(242, 214, 255, 65%); /* bg trans */
+    --background-fadeTrans2: rgba(251, 249, 255, 65%); /* bg trans */
+    --background-fadeTrans3: rgba(250, 232, 255, 0.9); /* bg sidebar trans */
+    --background-fadeTrans4: rgba(253, 248, 255, 0.9); /* bg sidebar trans */
+    --text-defaultColor: #1a1a1a;
+    --text-primaryColor: #f7f7f7;
+    --text-secondaryColor: #a855f7; /* purple-500 */
+    --text-secondaryColor-accent1: #7e22ce; /* purple-700 */
+    --text-secondaryColor-accent2: #9333ea; /* purple-600 */
+    --text-secondaryColor-accent3: #581c87; /* purple-900 */
+    --button-headerLeft-color: #9431f2;
+    --button-headerLeft-colorHover: #c084fc;
+    --button-headerLeft-inlineColorHover: #581c87;
+    --button-headerRight-color: #fbcfe8;
+    --button-headerRight-colorHover: #f9a8d4;
+    --button-headerRight-inlineColor: #ec4899;
+    --button-headerRight-inlineColorHover: #fce7f3;
+    --shapes-colorId1: #fbcfe8 ;
+    --shapes-colorId2: #f472b6 ;
+    --shapes-colorId3: #c084fc ;
+    --shapes-colorId4: #e9d5ff ;
+    --score-greenBg-color: #bbf7d0;
+    --score-greenText-color: #166534;
+    --score-yellowBg-color: #fef3c7;
+    --score-yellowText-color: #be6409;
+    --score-redBg-color: #fecaca;
+    --score-redText-color: #dc2626;
+  }
+
+  .theme-dark {
+    --custom-color-default: #1e3a8a;
+    --background-color: #0d1b2a;
+    --text-color: #ffffff;
+
+  }
+
+  .theme-solarized {
+    --custom-color-default: #b58900;
+    --background-color: #fdf6e3;
+    --text-color: #073642;
+  }
+}
+
 .ubuntu-normal {
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
@@ -23,38 +90,6 @@
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
-}
-
-.header-fade {
-  background: linear-gradient(270deg, rgba(255, 131, 195, 85%) 10%, rgba(243, 152, 255, 85%) 50%, rgba(147, 51, 234) 90%);
-}
-
-.header-sidebar-fade {
-  background: linear-gradient(90deg, #f4ceff 10%, #ecb0ff 90%)
-}
-
-.search-fade {
-  background: linear-gradient(90deg, #ffd5f4 10%, #ffdaee 90%);
-}
-
-.sidebar-fade {
-  background: linear-gradient(270deg, #ead5ff 10%, #f5ebff 90%)
-}
-
-.sidebar-product-fade {
-  background: linear-gradient(270deg, #f2d6ff 10%, #f4ebff 90%)
-}
-
-.bg-trans {
-  background: linear-gradient(270deg, rgba(242, 214, 255, 65%) 10%, rgba(251, 249, 255, 65%) 90%);
-}
-
-.bg-sidebar-trans {
-  background: linear-gradient(270deg, rgba(250, 232, 255, 0.85) 10%, rgba(253, 248, 255, 0.85) 90%);
-}
-
-.h1-fade {
-  background: linear-gradient(270deg, #fcd4ff 10%, #f3d8ff 90%)
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -82,9 +117,9 @@ input[type="radio"] + label::before {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid #c71ebe;
+  border: 2px solid var(--button-headerRight-inlineColor);
   border-radius: 35%;
-  background-color: #fde5ff;
+  background-color: var(--button-headerRight-inlineColorHover);
   position: absolute;
   left: 0;
   top: 50%;
@@ -93,8 +128,8 @@ input[type="radio"] + label::before {
 }
 
 input[type="radio"]:checked + label::before {
-  background-color: #f05ece;
-  border-color: #f05ece;
+  background-color: var(--button-headerRight-inlineColor);
+  border-color: var(--button-headerRight-inlineColor);
 }
 
 input[type="radio"]:checked + label::after {
@@ -102,7 +137,7 @@ input[type="radio"]:checked + label::after {
   display: inline-block;
   width: 10px;
   height: 10px;
-  background-color: #fde5ff;
+  background-color: var(--button-headerRight-color);
   border-radius: 50%;
   position: absolute;
   left: 5px;

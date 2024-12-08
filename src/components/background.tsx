@@ -1,6 +1,10 @@
 import { useRef } from 'react';
+import { StateContextType, useStateContext } from '../context';
 
 const AnimatedShapes = () => {
+
+  const { currentTheme }: StateContextType = useStateContext()
+
   const fgShapes = useRef<Array<{
     left: string;
     top: string;
@@ -41,8 +45,8 @@ const AnimatedShapes = () => {
       rotateStart: `${Math.random() * 360 + 360}`,
       className: `absolute ${Math.random() > 0.5 ? 'rounded-full' : 'rounded-lg'
         } ${Math.random() > 0.5
-          ? Math.random() > 0.5 ? 'border-8 border-pink-200' : 'border-8 border-purple-400'
-          : Math.random() > 0.5 ? 'bg-purple-200' : 'bg-pink-400'
+          ? Math.random() > 0.5 ? 'border-8 border-[var(--shapes-colorId1)]' : 'border-8 border-[var(--shapes-colorId3)]'
+          : Math.random() > 0.5 ? 'bg-[var(--shapes-colorId4)]' : 'bg-[var(--shapes-colorId2)]'
         }`,
       translateDirection: Math.random() > 0.5 ? '' : '-',
       rotateAmount: Math.random() * 720 + 360,
@@ -60,8 +64,8 @@ const AnimatedShapes = () => {
       rotateStart: `${Math.random() * 360 + 360}`,
       className: `absolute ${Math.random() > 0.5 ? 'rounded-full' : 'rounded-md'
         } ${Math.random() > 0.5
-          ? Math.random() > 0.5 ? 'border-4 border-pink-200' : 'border-4 border-purple-400'
-          : Math.random() > 0.5 ? 'bg-purple-200' : 'bg-pink-400'
+          ? Math.random() > 0.5 ? 'border-4 border-[var(--shapes-colorId1)]' : 'border-4 border-[var(--shapes-colorId3)]'
+          : Math.random() > 0.5 ? 'bg-[var(--shapes-colorId4)]' : 'bg-[var(--shapes-colorId2)]'
         }`,
       translateDirection: Math.random() > 0.5 ? '' : '-',
       rotateAmount: Math.random() * 720 + 360,

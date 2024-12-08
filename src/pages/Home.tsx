@@ -19,7 +19,8 @@ const Home = () => {
     const {
         setPagination,
         createProductFromItem,
-        sortedList
+        sortedList,
+        currentTheme,
     }: StateContextType = useStateContext();
 
     useEffect(() => {
@@ -31,7 +32,7 @@ const Home = () => {
         fetchProducts()
     }, [])
     return (
-        <div className="min-h-screen bg-white overflow-y-hidden">
+        <div style={{backgroundColor: 'var(--background-color)',}} className={`${currentTheme} min-h-screen transition-all duration-300 overflow-y-hidden`}>
             <AnimatedShapes />
             <Header buttonSidebarRef={buttonSidebarRef} searchbarRef={searchbarRef} buttonSettingsRef={buttonSettingsRef} />
             <div className=" relative">
@@ -45,7 +46,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    <p className='ubuntu-normal mb-8 text-xl shadow-lg px-4 py-1 text-purple-800 transition-all hover:scale-105 hover:rotate-2 h1-fade rounded-xl cursor-pointer self-center hover:shadow-xl' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
+                    <p className='ubuntu-normal mb-8 text-xl shadow-lg px-4 py-1 transition-all text-[var(--text-secondaryColor-accent1)] hover:scale-105 hover:rotate-2 rounded-xl cursor-pointer self-center hover:shadow-xl bg-gradient-to-r from-[var(--background-fadeComp9)] to-[var(--background-fadeComp8)]' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
                 </main>
             </div>
         </div>

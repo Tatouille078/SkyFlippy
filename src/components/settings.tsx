@@ -8,7 +8,8 @@ export type SettingsProps = {
 };
 
 const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
-    const { isSettingsOpen, toggleSettings }: StateContextType = useStateContext();
+    const { isSettingsOpen, toggleSettings, currentTheme, themes, setCurrentTheme }: StateContextType = useStateContext();
+
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -30,18 +31,18 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
     }, [isSettingsOpen])
 
     return (
-        <div className={`bg-fuchsia-100 bg-opacity-95 fixed min-w-[300px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
+        <div className={`bg-[var(--background-settings)] fixed min-w-[300px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
             } overflow-y-auto`} ref={panelRef}>
-            <div className='top-0 flex sticky bg-gradient-to-r from-pink-400 to-pink-300 shadow-lg h-24 w-full'>
-                <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-pink-50">Options</h2>
+            <div className='top-0 flex sticky bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] shadow-lg h-24 w-full'>
+                <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-[var(--text-primaryColor)]">Options</h2>
                 <button
-                    className="p-2 hover:bg-pink-300 group flex justify-end bg-pink-200 rounded-2xl ml-12 m-auto lg:ml-0 outline-white shadow-lg hover:outline hover:outline-1 hover:scale-105 transition-all hover:-rotate-2 hover:shadow-xl duration-200"
+                    className="p-2 hover:bg-[var(--button-headerRight-colorHover)] group flex justify-end bg-[var(--button-headerRight-color)] rounded-2xl ml-12 m-auto lg:ml-0 outline-[var(--text-primaryColor)] shadow-lg hover:outline hover:outline-1 hover:scale-105 transition-all hover:-rotate-2 hover:shadow-xl duration-200"
                     onClick={toggleSettings}
                 >
-                    <IoMdClose size={30} className="group-hover:-rotate-90 transition-all group-hover:text-pink-100 text-pink-500 duration-300" />
+                    <IoMdClose size={30} className="group-hover:-rotate-90 transition-all group-hover:text-[var(--button-headerRight-inlineColorHover)] text-[var(--button-headerRight-inlineColor)] duration-300" />
                 </button>
             </div>
-            <h1 className="flex justify-center exo-2-bold text-2xl text-white bg-gradient-to-r from-pink-400 to-pink-300 mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">Themes</h1>
+            <h1 className="flex justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">Themes</h1>
             <div className="m-4 grid grid-cols-2 gap-4">
                 <div className="w-auto h-5">
                     <input
@@ -78,6 +79,35 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         value="DarkLeef"
                     />
                     <label className="exo-2-normal" htmlFor="option4">Dark Leef</label>
+                </div>
+            </div>
+            <div
+                className={`${currentTheme} min-h-screen flex flex-col items-center justify-center`}
+                style={{
+                    backgroundColor: 'var(--background-color)',
+                    color: 'var(--text-color)',
+                }}
+            >
+                <h1 className="text-customColor-default text-4xl">Hello, Tailwind!</h1>
+                <p className="mt-4">Choose a theme:</p>
+                <div className="flex mt-4 gap-4">
+                    {themes.map((theme) => (
+                        <label key={theme.id} className="flex items-center gap-2">
+                            <input
+                                type="radio"
+                                name="theme"
+                                value={theme.id}
+                                checked={currentTheme === theme.id}
+                                onChange={(e) => setCurrentTheme(e.target.value)}
+                                className="accent-customColor-default"
+                            />
+                            {theme.label}
+                        </label>
+                    ))}
+                </div>
+                <div className="mt-6">
+                    <p>The current theme is:</p>
+                    <strong>{currentTheme.replace('theme-', '')}</strong>
                 </div>
             </div>
         </div>

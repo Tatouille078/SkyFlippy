@@ -1,5 +1,7 @@
 import ItemCard from "./ItemCard"
 
+// unused file
+
 export type CategoryProps = {
     id: number;
     name: string;
@@ -107,7 +109,7 @@ const Categories = () => {
         <>
             {categories.map(categorie => (
                 <div className="mb-12" key={categorie.id}>
-                    <h2 className="text-2xl mb-4 pb-[2px] shadow-md text-purple-600 w-max h1-fade rounded-xl px-3 exo-2-bold">{categorie.name}</h2>
+                    <h2 className="text-2xl mb-4 pb-[2px] shadow-md w-max rounded-xl px-3">{categorie.name}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {items.map(item => (
                             <ItemCard item={item} key={item.id} />
@@ -118,5 +120,7 @@ const Categories = () => {
         </>
     )
 }
+
+// unused file
 
 export default Categories
