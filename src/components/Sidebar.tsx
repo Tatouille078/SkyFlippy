@@ -31,7 +31,7 @@ const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef }) => {
 
   return (
     <div
-      className={`bg-[var(--background-settings)] fixed min-w-[600px] top-0 left-0 h-full transition-transform duration-300 ease-in-out z-[60] ${isSidebarOpen ? 'w-3/5 translate-x-0' : 'w-3/5 -translate-x-full'
+      className={`bg-gradient-to-r from-[var(--background-fadeTrans4)] to-[var(--background-fadeTrans3)] fixed min-w-[600px] top-0 left-0 h-full transition-transform duration-300 ease-in-out z-[60] ${isSidebarOpen ? 'w-3/5 translate-x-0' : 'w-3/5 -translate-x-full'
         } overflow-y-auto`}
       ref={panelRef}
     >
@@ -39,8 +39,8 @@ const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef }) => {
         <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-[var(--text-secondaryColor-accent1)]">Graphs</h2>
       </div>
       <div className="p-6 mt-2">
-        <p className="rounded-lg mb-4 shadow-md py-2 pl-6 exo-2-light bg-gradient-to-r from-[var(--background-fadeTrans4)] to-[var(--background-fadeTrans3)] text-[var(--text-secondaryColor)]">Représentation graphique des Scores.</p>
-        <div className='shadow-md space-y-2 bg-gradient-to-r from-[var(--background-fadeTrans4)] to-[var(--background-fadeTrans3)] pb-5 rounded-lg px-5 grid gap-4'>
+        <p className="rounded-lg mb-4 shadow-md py-2 pl-6 exo-2-light bg-gradient-to-r from-[var(--background-fadeComp7)] to-[var(--background-fadeComp6)] text-[var(--text-secondaryColor)]">Représentation graphique des Scores.</p>
+        <div className='shadow-md space-y-2 bg-gradient-to-r from-[var(--background-fadeComp7)] to-[var(--background-fadeComp6)] pb-5 rounded-lg px-5 grid gap-4'>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
             <div className='grid h-auto grid-cols-1'>
               <h1 className="text-2xl exo-2-bold text-center flex justify-center mx-auto px-4 mt-12 mb-4 min-h-9 py-[2px] rounded-3xl bg-gradient-to-r from-[var(--background-fadeComp8)] to-[var(--background-fadeComp9)] shadow-lg text-[var(--text-secondaryColor-accent2)]">Marge Score</h1>

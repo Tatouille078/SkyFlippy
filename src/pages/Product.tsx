@@ -32,7 +32,7 @@ const Product = () => {
                         <ul className='bg-[var(--background-product)] mx-auto rounded-lg shadow-lg grid grid-cols-2'>
                             {/* row 1 */}
                             <li className='col-start-1 col-end-3 flex bg-gradient-to-r from-[var(--background-fadeComp4)] to-[var(--background-fadeComp5)] rounded-t-lg py-6 justify-center'>
-                                <p className='exo-2-bold text-2xl text-[var(--text-secondaryColor-accent2)]'>{product.productID}</p>
+                                <p className='exo-2-bold text-2xl text-[var(--text-primaryColor)]'>{product.productID}</p>
                             </li>
                             {/* row 2 */}
                             <li className='bg-[var(--background-firstProduct)] py-4 flex justify-between items-center'>

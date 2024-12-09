@@ -32,8 +32,7 @@ const generateData = () => {
             {
                 label: 'Score Supply/Demand',
                 data: yValues,
-                borderColor: 'rgb(207, 96, 255)',
-                backgroundColor: 'rgba(207, 96, 255, 0.2)',
+                borderColor: 'pink',
                 fill: true,
                 borderWidth: 2,
             },
@@ -50,23 +49,45 @@ const OffreDemandeChart = () => {
                 responsive: true,
                 plugins: {
                     legend: {
-                        position: 'top',
+                        position: "top",
+                        labels: {
+                            color: 'gray', // Texte de la légende en noir
+                        },
+                    },
+                    tooltip: {
+                        titleColor: 'gray', // Titre des tooltips en noir
+                        bodyColor: 'gray', // Corps des tooltips en noir
                     },
                 },
                 scales: {
                     x: {
+                        type: 'linear',
                         title: {
                             display: true,
-                            text: 'Summ of buy + sell amount',
+                            text: 'delta offre/demande',
+                            color: 'gray', // Titre de l'axe X en noir
+                        },
+                        ticks: {
+                            color: 'gray', // Ticks de l'axe X en noir
+                        },
+                        grid: {
+                            color: 'black', // Grille de l'axe X en noir
                         },
                     },
                     y: {
                         title: {
                             display: true,
                             text: 'Score',
+                            color: 'gray', // Titre de l'axe Y en noir
                         },
-                        min: 0,
-                        max: 30,
+                        ticks: {
+                            color: 'gray', // Ticks de l'axe Y en noir
+                        },
+                        grid: {
+                            color: 'black', // Grille de l'axe Y en noir
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 30,
                     },
                 },
             }} />

@@ -56,10 +56,55 @@
   }
 
   .theme-dark {
-    --custom-color-default: #1e3a8a;
     --background-color: #0d1b2a;
-    --text-color: #ffffff;
-
+    --background-itemCard-color: rgba(55, 39, 74, 0.9) ;
+    --background-itemCard-colorHover: #4b3257;
+    --background-searchBar: rgba(0, 0, 0, 0.25);
+    --background-settings: rgba(79, 45, 91, 0.807);
+    --background-product: #6e4a92; /* table */
+    --background-firstProduct: #5e3d82; /* first product table */
+    --background-oddRowProduct: #7d59a4 ; /* table odd row */
+    --background-fadeComp1: rgba(180, 56, 120, 0.85); /* header */
+    --background-fadeComp2: rgba(187, 73, 202, 0.85); /* header */
+    --background-fadeComp3: rgba(96, 10, 176, 0.85); /* header */
+    --background-fadeComp4: #af6eb5; /* sidebar header */
+    --background-fadeComp5: #74308f; /* sidebar header */
+    --background-fadeComp6: rgba(84, 50, 107, 0.84); /* sidebar */
+    --background-fadeComp7: rgba(121, 80, 131, 0.856); /* sidebar */
+    --background-fadeComp8: #6b265c; /* h1 */
+    --background-fadeComp9: #6b2887; /* h1 */
+    --background-fadeComp10: #902b5f; /* settings header & h1 */
+    --background-fadeComp11: #c25d95; /* settings header & h1 */
+    --background-fadeComp12: #6c23b0; /* itemcard header */
+    --background-fadeComp13: #9d39ad; /* itemcard header */
+    --background-fadeComp14: #ca71da; /* itemcard header only hover*/
+    --background-fadeTrans1: rgba(76, 52, 92, 0.65); /* bg trans */
+    --background-fadeTrans2: rgba(54, 40, 89, 0.65); /* bg trans */
+    --background-fadeTrans3: rgba(79, 45, 91, 0.8); /* bg sidebar trans */
+    --background-fadeTrans4: rgba(104, 75, 105, 0.8); /* bg sidebar trans */
+    --text-defaultColor: #e7e7e7;
+    --text-primaryColor: #f7f7f7;
+    --text-secondaryColor: #d7a9ff; /* purple-500 */
+    --text-secondaryColor-accent1: #ddbcfa; /* purple-700 */
+    --text-secondaryColor-accent2: #d7b3f9; /* purple-600 */
+    --text-secondaryColor-accent3: #e4c7fc; /* purple-900 */
+    --button-headerLeft-color: #47107a;
+    --button-headerLeft-colorHover: #985fd2;
+    --button-headerLeft-inlineColorHover: #581c87;
+    --button-headerRight-color: #7E2D6C;
+    --button-headerRight-colorHover: #e69fc2;
+    --button-headerRight-inlineColor: #e69fc2;
+    --button-headerRight-inlineColorHover: #7E2D6C;
+    --shapes-colorId1: #e892c3 ;
+    --shapes-colorId2: #c24988 ;
+    --shapes-colorId3: #945ccc ;
+    --shapes-colorId4: #bb9ddb ;
+    --score-greenBg-color: #3c843e;
+    --score-greenText-color: #d1ffe3;
+    --score-yellowBg-color: #b0903f;
+    --score-yellowText-color: #fdf8e7;
+    --score-redBg-color: #b12929;
+    --score-redText-color: #fceaea;
   }
 
   .theme-solarized {

@@ -23,8 +23,7 @@ const PriceChart = () => {
                 label: 'Score per price',
                 data: prixScores,
                 fill: false,
-                borderColor: 'rgb(207, 96, 255)',
-                backgroundColor: 'rgba(207, 96, 255, 0.2)',
+                borderColor: 'pink',
                 borderWidth: 2,
             },
         ],
@@ -34,6 +33,13 @@ const PriceChart = () => {
         plugins: {
             legend: {
                 position: 'top',
+                labels: {
+                    color: 'gray',
+                },
+            },
+            tooltip: {
+                titleColor: 'gray',
+                bodyColor: 'gray',
             },
         },
         scales: {
@@ -41,12 +47,26 @@ const PriceChart = () => {
                 title: {
                     display: true,
                     text: 'Price',
+                    color: 'gray'
+                },
+                ticks: {
+                    color: 'gray',
+                },
+                grid: {
+                    color: 'black',
                 },
             },
             y: {
                 title: {
                     display: true,
                     text: 'Score',
+                    color: 'gray'
+                },
+                ticks: {
+                    color: 'gray',
+                },
+                grid: {
+                    color: 'black',
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,

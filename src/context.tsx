@@ -31,6 +31,7 @@ export type StateContextType = {
     themes: Theme[];
     currentTheme: string;
     setCurrentTheme: React.Dispatch<React.SetStateAction<string>>;
+    toggleTheme: (theme: string) => void;
 }
 
 const quickSort = (arr: Product[]): Product[] => {
@@ -57,7 +58,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
     const [products, setProducts] = useState<Product[]>([])
     const [pagination, setPagination] = useState<number>(12)
     const [search, setSearch] = useState("")
-    const [currentTheme, setCurrentTheme] = useState('theme-light')
+    const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("currentTheme") || 'theme-light')
 
     const toggleOpen = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -100,6 +101,11 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         [products, pagination, search]
     )
 
+    const toggleTheme = (theme: string) => {
+        setCurrentTheme(theme)
+        localStorage.setItem('currentTheme', theme)
+    }
+
     const getItem = <T,>(key: string): T | null => {
         const item = localStorage.getItem(key);
         return item ? (JSON.parse(item) as T) : null;
@@ -130,6 +136,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
             themes,
             currentTheme,
             setCurrentTheme,
+            toggleTheme
         }}>
             {children}
         </StateContext.Provider>

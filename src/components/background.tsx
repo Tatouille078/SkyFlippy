@@ -1,9 +1,6 @@
 import { useRef } from 'react';
-import { StateContextType, useStateContext } from '../context';
 
 const AnimatedShapes = () => {
-
-  const { currentTheme }: StateContextType = useStateContext()
 
   const fgShapes = useRef<Array<{
     left: string;

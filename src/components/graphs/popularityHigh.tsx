@@ -33,33 +33,55 @@ const PopularityHighChart = () => {
                 label: 'Score per popularity',
                 data: yValues,
                 fill: false,
-                borderColor: 'rgb(207, 96, 255)',
-                backgroundColor: 'rgba(207, 96, 255, 0.2)',
+                borderColor: 'pink',
                 borderWidth: 2,
             },
         ],
     };
 
     const options = {
+        responsive: true,
         plugins: {
             legend: {
-                position: 'top',
+                position: "top",
+                labels: {
+                    color: 'gray', // Texte de la légende en noir
+                },
+            },
+            tooltip: {
+                titleColor: 'gray', // Titre des tooltips en noir
+                bodyColor: 'gray', // Corps des tooltips en noir
             },
         },
         scales: {
             x: {
+                type: 'linear',
                 title: {
                     display: true,
-                    text: 'Supply/Demand when price is above 5000',
+                    text: 'Supply/Demand when price is above 50000',
+                    color: 'gray', // Titre de l'axe X en noir
+                },
+                ticks: {
+                    color: 'gray', // Ticks de l'axe X en noir
+                },
+                grid: {
+                    color: 'black', // Grille de l'axe X en noir
                 },
             },
             y: {
                 title: {
                     display: true,
                     text: 'Score',
+                    color: 'gray', // Titre de l'axe Y en noir
+                },
+                ticks: {
+                    color: 'gray', // Ticks de l'axe Y en noir
+                },
+                grid: {
+                    color: 'black', // Grille de l'axe Y en noir
                 },
                 suggestedMin: 0,
-                suggestedMax: 25,
+                suggestedMax: 30,
             },
         },
     };

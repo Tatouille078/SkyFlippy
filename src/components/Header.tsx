@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonS
             <div className="flex items-center space-x-4">
               {buttonSidebarRef &&
                 <button
-                  className="p-2 hover:bg-[var(--button-headerLeft-colorHover)] group bg-[var(--button-headerLeft-color)] rounded-2xl ml-12 lg:ml-0 shadow-lg hover:outline hover:outline-1 hover:scale-105 transition-all hover:-rotate-2 outline-[var(--button-headerLeft-inlineColorHover)] hover:outline-[var(--button-headerLeft-inlineColorHover)] hover:shadow-xl duration-200"
+                  className="p-2 hover:bg-[var(--button-headerLeft-colorHover)] duration-[100ms] hover:outline-2 group bg-[var(--button-headerLeft-color)] rounded-2xl ml-12 lg:ml-0 shadow-lg hover:outline hover:scale-105 transition-all hover:-rotate-2 outline-[var(--button-headerLeft-inlineColorHover)] hover:outline-[var(--button-headerLeft-inlineColorHover)] hover:shadow-xl"
                   onClick={toggleOpen}
                   ref={buttonSidebarRef}
                 >
@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonS
                 <button
                   onClick={toggleSettings}
                   ref={buttonSettingsRef}
-                  className="p-2 hover:bg-[var(--button-headerRight-colorHover)] group flex justify-end bg-[var(--button-headerRight-color)] rounded-2xl ml-12 lg:ml-0 shadow-lg hover:outline hover:outline-1 hover:scale-105 transition-all hover:rotate-2 hover:shadow-xl duration-200">
+                  className="p-2 hover:bg-[var(--button-headerRight-colorHover)] duration-[100ms] group flex justify-end bg-[var(--button-headerRight-color)] rounded-2xl ml-12 lg:ml-0 shadow-lg hover:outline hover:outline-[var(--button-headerRight-inlineColorHover)] outline-[var(--button-headerRight-inlineColorHover)] hover:outline-2 hover:scale-105 transition-all hover:rotate-2 hover:shadow-xl">
                   <IoSettingsOutline size={30} className="group-hover:rotate-90 text-[var(--button-headerRight-inlineColor)] group-hover:text-[var(--button-headerRight-inlineColorHover)] transition-all duration-300" />
                 </button>
               }
