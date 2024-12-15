@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<svg width="640" height="480.00000000000006" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <linearGradient fx="0.38" fy="0.51" id="svg_32" x1="1" x2="0" y1="1" y2="1">
+   <stop id="jq_stop_8132" offset="0" stop-color="#7f7f7f"/>
+   <stop id="jq_stop_4702" offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient fx="0.58" fy="0.82" id="svg_34" x2="1" y2="0">
+   <stop id="jq_stop_4242" offset="0" stop-color="#7f7f7f"/>
+   <stop id="jq_stop_7573" offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#7f7f7f" height="545.23" id="svg_28" opacity="0.6" stroke="#000000" stroke-opacity="0" stroke-width="5" transform="matrix(1 0 0 1 0 0) rotate(11.4695 402.316 236.977)" width="159.7" x="322.47" y="-35.64"/>
+  <rect fill="url(#svg_32)" height="566.5" id="svg_30" opacity="0.3" stroke="#000000" stroke-opacity="0" stroke-width="5" transform="matrix(0.980031 0.198846 -0.198846 0.980031 52.0113 -42.8346)" width="159.7" x="159.42" y="-45.72"/>
+  <rect fill="url(#svg_34)" height="575.77" id="svg_33" opacity="0.25" stroke="#000000" stroke-opacity="0" stroke-width="5" transform="matrix(0.980031 0.198846 -0.198846 0.980031 58.0177 -95.7236)" width="44.32" x="483.44" y="-46.89"/>
+ </g>
+</svg>

@@ -69,9 +69,10 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
     }
 
     const themes: Theme[] = [
-        { id: 'theme-light', label: 'Light Theme' },
-        { id: 'theme-dark', label: 'Dark Theme' },
-        { id: 'theme-solarized', label: 'Solarized Theme' },
+        { id: 'theme-rose', label: 'Rose Theme' },
+        { id: 'theme-darkRose', label: 'Dark Rose Theme' },
+        { id: 'theme-apple', label: 'Apple Theme' },
+        { id: 'theme-darkApple', label: 'Dark Apple Theme' },
     ];
 
     const createProductFromItem = (item: Item) => {

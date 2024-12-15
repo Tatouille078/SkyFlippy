@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer utilities {
-  .theme-light {
+  .theme-rose {
     --background-color: #f2f2f2;
     --background-itemCard-color: rgba(246, 246, 246, 0.9) ;
     --background-itemCard-colorHover: #fff;
@@ -12,9 +12,9 @@
     --background-product: #fae8ff; /* table */
     --background-firstProduct: #e9d5ff; /* first product table */
     --background-oddRowProduct: #f9fafb ; /* table odd row */
-    --background-fadeComp1: rgba(255, 131, 195, 0.85); /* header */
-    --background-fadeComp2: rgba(243, 152, 255, 0.85); /* header */
-    --background-fadeComp3: rgba(147, 51, 234, 0.85); /* header */
+    --background-fadeComp1: rgba(255, 131, 195, 0.9); /* header */
+    --background-fadeComp2: rgba(243, 152, 255, 0.9); /* header */
+    --background-fadeComp3: rgba(147, 51, 234, 0.9); /* header */
     --background-fadeComp4: #f4ceff; /* sidebar header */
     --background-fadeComp5: #ecb0ff; /* sidebar header */
     --background-fadeComp6: #ead5ff; /* sidebar */
@@ -36,12 +36,9 @@
     --text-secondaryColor-accent1: #7e22ce; /* purple-700 */
     --text-secondaryColor-accent2: #9333ea; /* purple-600 */
     --text-secondaryColor-accent3: #581c87; /* purple-900 */
-    --button-headerLeft-color: #9431f2;
-    --button-headerLeft-colorHover: #c084fc;
-    --button-headerLeft-inlineColorHover: #581c87;
-    --button-headerRight-color: #fbcfe8;
-    --button-headerRight-colorHover: #f9a8d4;
-    --button-headerRight-inlineColor: #ec4899;
+    --button-headerRight-color: rgba(251, 207, 232, 0.5);
+    --button-headerRight-colorHover: rgba(249, 168, 212, 0.3);
+    --button-headerRight-inlineColor: rgba(138, 1, 69, 0.6);
     --button-headerRight-inlineColorHover: #fce7f3;
     --shapes-colorId1: #fbcfe8 ;
     --shapes-colorId2: #f472b6 ;
@@ -55,10 +52,10 @@
     --score-redText-color: #dc2626;
   }
 
-  .theme-dark {
-    --background-color: #0d1b2a;
-    --background-itemCard-color: rgba(55, 39, 74, 0.9) ;
-    --background-itemCard-colorHover: #4b3257;
+  .theme-darkRose {
+    --background-color: #141b22;
+    --background-itemCard-color: rgba(38, 30, 48, 0.9) ;
+    --background-itemCard-colorHover: #3e2848;
     --background-searchBar: rgba(0, 0, 0, 0.25);
     --background-settings: rgba(79, 45, 91, 0.807);
     --background-product: #6e4a92; /* table */
@@ -88,12 +85,9 @@
     --text-secondaryColor-accent1: #ddbcfa; /* purple-700 */
     --text-secondaryColor-accent2: #d7b3f9; /* purple-600 */
     --text-secondaryColor-accent3: #e4c7fc; /* purple-900 */
-    --button-headerLeft-color: #47107a;
-    --button-headerLeft-colorHover: #985fd2;
-    --button-headerLeft-inlineColorHover: #581c87;
-    --button-headerRight-color: #7E2D6C;
-    --button-headerRight-colorHover: #e69fc2;
-    --button-headerRight-inlineColor: #e69fc2;
+    --button-headerRight-color: rgba(126, 45, 108, 0.5);
+    --button-headerRight-colorHover: rgba(245, 178, 237, 0.3);
+    --button-headerRight-inlineColor: #f7cee3;
     --button-headerRight-inlineColorHover: #7E2D6C;
     --shapes-colorId1: #e892c3 ;
     --shapes-colorId2: #c24988 ;
@@ -105,13 +99,152 @@
     --score-yellowText-color: #fdf8e7;
     --score-redBg-color: #b12929;
     --score-redText-color: #fceaea;
+    --dynamic-gradient-color1: hsl(0, 100%, 50%);
+    --dynamic-gradient-color2: hsl(120, 70%, 60%);
+    --dynamic-gradient-color3: hsl(240, 70%, 60%);
   }
 
-  .theme-solarized {
-    --custom-color-default: #b58900;
-    --background-color: #fdf6e3;
-    --text-color: #073642;
+  .theme-apple {
+    --background-color: #f5f5f5;
+    --background-itemCard-color: rgba(248, 255, 244, 0.9) ;
+    --background-itemCard-colorHover: #f7fff7;
+    --background-searchBar: rgba(255, 255, 255, 0.65);
+    --background-settings: rgba(220, 249, 226, 0.9);
+    --background-product: #d4eccf; /* table */
+    --background-firstProduct: #adeca0; /* first product table */
+    --background-oddRowProduct: #f0fde8 ; /* table odd row */
+    --background-fadeComp1: rgba(100, 222, 159, 0.85); /* header */
+    --background-fadeComp2: rgba(126, 238, 149, 0.85); /* header */
+    --background-fadeComp3: rgba(87, 206, 41, 0.85); /* header */
+    --background-fadeComp4: #cdf0ad; /* sidebar header */
+    --background-fadeComp5: #75d16c; /* sidebar header */
+    --background-fadeComp6: #e6ffe1; /* sidebar */
+    --background-fadeComp7: #fafff9; /* sidebar */
+    --background-fadeComp8: #e0ffd4; /* h1 */
+    --background-fadeComp9: #b2ebb5; /* h1 */
+    --background-fadeComp10: #5fe293; /* settings header & h1 */
+    --background-fadeComp11: #91e9a7; /* settings header & h1 */
+    --background-fadeComp12: #3ed749; /* itemcard header */
+    --background-fadeComp13: #5ade8a; /* itemcard header */
+    --background-fadeComp14: #abfcb7; /* itemcard header only hover*/
+    --background-fadeTrans1: rgba(217, 255, 214, 0.65); /* bg trans */
+    --background-fadeTrans2: rgba(251, 255, 249, 0.65); /* bg trans */
+    --background-fadeTrans3: rgba(218, 241, 215, 0.9); /* bg sidebar trans */
+    --background-fadeTrans4: rgba(230, 240, 229, 0.9); /* bg sidebar trans */
+    --text-defaultColor: #1a1a1a;
+    --text-primaryColor: #f7f7f7;
+    --text-secondaryColor: #36b834; /* purple-500 */
+    --text-secondaryColor-accent1: #10801b; /* purple-700 */
+    --text-secondaryColor-accent2: #13a117; /* purple-600 */
+    --text-secondaryColor-accent3: #0a550b; /* purple-900 */
+    --button-headerRight-color: rgba(217, 255, 237, 0.5);
+    --button-headerRight-colorHover: rgba(113, 217, 153, 0.3);
+    --button-headerRight-inlineColor: #31c766;
+    --button-headerRight-inlineColorHover: #d9ffed;
+    --shapes-colorId1: #daeabb ;
+    --shapes-colorId2: #a4f472 ;
+    --shapes-colorId3: #84e881 ;
+    --shapes-colorId4: #d5ffe3 ;
+    --score-greenBg-color: #a7f5dd;
+    --score-greenText-color: #16654b;
+    --score-yellowBg-color: #f5fda3;
+    --score-yellowText-color: #746d17;
+    --score-redBg-color: #fec8c2;
+    --score-redText-color: #9b3811;
   }
+
+  .theme-darkApple {
+    --background-color: #1d1d1f;
+    --background-itemCard-color: rgba(48, 47, 52, 0.9) ;
+    --background-itemCard-colorHover: #3a3a3b;
+    --background-searchBar: rgba(0, 0, 0, 0.25);
+    --background-settings: rgba(45, 91, 65, 0.807);
+    --background-product: #4a9264; /* table */
+    --background-firstProduct: #4b823d; /* first product table */
+    --background-oddRowProduct: #86a459 ; /* table odd row */
+    --background-fadeComp1: rgba(56, 180, 89, 0.85); /* header */
+    --background-fadeComp2: rgba(73, 202, 84, 0.85); /* header */
+    --background-fadeComp3: rgba(93, 176, 10, 0.85); /* header */
+    --background-fadeComp4: #af6eb5; /* sidebar header */
+    --background-fadeComp5: #74308f; /* sidebar header */
+    --background-fadeComp6: rgba(84, 50, 107, 0.84); /* sidebar */
+    --background-fadeComp7: rgba(121, 80, 131, 0.856); /* sidebar */
+    --background-fadeComp8: #6b265c; /* h1 */
+    --background-fadeComp9: #6b2887; /* h1 */
+    --background-fadeComp10: #902b5f; /* settings header & h1 */
+    --background-fadeComp11: #c25d95; /* settings header & h1 */
+    --background-fadeComp12: #3d6a1c; /* itemcard header */
+    --background-fadeComp13: #08991e; /* itemcard header */
+    --background-fadeComp14: #5fb422; /* itemcard header only hover*/
+    --background-fadeTrans1: rgba(52, 92, 55, 0.65); /* bg trans */
+    --background-fadeTrans2: rgba(40, 89, 70, 0.65); /* bg trans */
+    --background-fadeTrans3: rgba(67, 91, 45, 0.8); /* bg sidebar trans */
+    --background-fadeTrans4: rgba(75, 105, 77, 0.8); /* bg sidebar trans */
+    --text-defaultColor: #e7e7e7;
+    --text-primaryColor: #f7f7f7;
+    --text-secondaryColor: #d7a9ff; /* purple-500 */
+    --text-secondaryColor-accent1: #ddbcfa; /* purple-700 */
+    --text-secondaryColor-accent2: #d7b3f9; /* purple-600 */
+    --text-secondaryColor-accent3: #e4c7fc; /* purple-900 */
+    --button-headerRight-color: rgba(126, 45, 108, 0.5);
+    --button-headerRight-colorHover: rgba(230, 159, 194, 0.3);
+    --button-headerRight-inlineColor: #e69fc2;
+    --button-headerRight-inlineColorHover: #7E2D6C;
+    --shapes-colorId1: #92e8b3 ;
+    --shapes-colorId2: #3bab4c ;
+    --shapes-colorId3: #9acc5c ;
+    --shapes-colorId4: #9ddbb9 ;
+    --score-greenBg-color: #27815a;
+    --score-greenText-color: #edfbf3;
+    --score-yellowBg-color: #b0a13f;
+    --score-yellowText-color: #fdfbf5;
+    --score-redBg-color: #bb3a24;
+    --score-redText-color: #fcf5f5;
+  }
+}
+
+/* Header gradient part */
+
+@property --headerRotate {
+  syntax: '<angle>';
+  initial-value: 0turn;
+  inherits: false;
+}
+
+.headerGradient {
+  position: relative;
+  background-image: 
+    conic-gradient(from var(--headerRotate, 0turn) at 50% -150%, var(--background-fadeComp1), var(--background-fadeComp2), var(--background-fadeComp3), var(--background-fadeComp1));
+
+    animation: 10s --headerHueRotation linear infinite;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-bottom-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    background-image: 
+      conic-gradient(from var(--headerRotate, 0turn) at 50% -250%, #444, #bbb, var(--background-fadeComp2), #444, var(--background-fadeComp3), #bbb, #444);
+
+      animation: 17s --headerHueRotation linear infinite;
+  }
+}
+
+@keyframes --headerHueRotation {
+  from { --headerRotate: 0turn }
+  to { --headerRotate: 1turn }
+}
+
+.dazzle {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image: url(./assets/dazzle.svg);
+  mix-blend-mode: color-dodge;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .ubuntu-normal {

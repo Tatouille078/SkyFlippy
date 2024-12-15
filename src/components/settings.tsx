@@ -49,65 +49,44 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         type="radio"
                         id='option1'
                         name='option'
-                        value="classicRose"
+                        value="theme-rose"
+                        checked={currentTheme === "theme-rose"}
+                        onChange={() => toggleTheme("theme-rose")}
                     />
-                    <label className="exo-2-normal" htmlFor="option1">Rose</label>
+                    <label className="exo-2-normal" htmlFor="option1">Light Rose</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
                         type="radio"
                         id='option2'
                         name='option'
-                        value="leef"
+                        value="theme-darkRose"
+                        checked={currentTheme === "theme-darkRose"}
+                        onChange={() => toggleTheme("theme-darkRose")}
                     />
-                    <label className="exo-2-normal" htmlFor="option2">Leef</label>
+                    <label className="exo-2-normal" htmlFor="option2">Dark Rose</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
                         type="radio"
                         id='option3'
                         name='option'
-                        value="classicDarkRose"
+                        value="theme-apple"
+                        checked={currentTheme === "theme-apple"}
+                        onChange={() => toggleTheme("theme-apple")}
                     />
-                    <label className="exo-2-normal" htmlFor="option3">Dark Rose</label>
+                    <label className="exo-2-normal" htmlFor="option3">Light Apple</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
                         type="radio"
                         id='option4'
                         name='option'
-                        value="DarkLeef"
+                        value="theme-darkApple"
+                        checked={currentTheme === "theme-darkApple"}
+                        onChange={() => toggleTheme("theme-darkApple")}
                     />
-                    <label className="exo-2-normal" htmlFor="option4">Dark Leef</label>
-                </div>
-            </div>
-            <div
-                className={`${currentTheme} min-h-screen flex flex-col items-center justify-center`}
-                style={{
-                    backgroundColor: 'var(--background-color)',
-                    color: 'var(--text-color)',
-                }}
-            >
-                <h1 className="text-customColor-default text-4xl">Hello, Tailwind!</h1>
-                <p className="mt-4">Choose a theme:</p>
-                <div className="flex mt-4 gap-4">
-                    {themes.map((theme) => (
-                        <label key={theme.id} className="flex items-center gap-2">
-                            <input
-                                type="radio"
-                                name="theme"
-                                value={theme.id}
-                                checked={currentTheme === theme.id}
-                                onChange={() => toggleTheme(theme.id)}
-                                className="accent-customColor-default"
-                            />
-                            {theme.label}
-                        </label>
-                    ))}
-                </div>
-                <div className="mt-6">
-                    <p>The current theme is:</p>
-                    <strong>{currentTheme.replace('theme-', '')}</strong>
+                    <label className="exo-2-normal" htmlFor="option4">Dark Apple</label>
                 </div>
             </div>
         </div>

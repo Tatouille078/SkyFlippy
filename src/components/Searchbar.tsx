@@ -8,20 +8,22 @@ const Searchbar = React.forwardRef<HTMLInputElement>((props, ref) => {
 
     return (
         <div className="flex justify-end w-full px-2 md:px-4">
-            <div className="relative self-end w-[80%] lg:w-[30%]">
+            <div className="relative group bg-[var(--background-searchBar)] hover:bg-[var(--button-headerRight-colorHover)] outline-none outline-offset-0 hover:outline-[var(--button-headerRight-inlineColorHover)] focus-within:outline-[var(--button-headerRight-inlineColorHover)] flex items-center transition-all duration-300 w-[44px] focus-within:w-[80%] lg:focus-within:w-[30%] overflow-hidden rounded-2xl shadow-lg">
+                <FaSearch
+                    className="absolute group-hover:-rotate-12 group-hover:scale-110 duration-200 transition-all pointer-events-none left-3 top-1/2 transform -translate-y-1/2 group-hover:text-[var(--button-headerRight-inlineColorHover)] text-[var(--button-headerRight-inlineColor)]"
+                    size={18}
+                />
                 <input
                     type="text"
                     value={search}
                     ref={ref}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Rechercher..."
-                    style={{ backgroundColor: 'var(--background-searchBar)' }}
-                    className="w-full exo-2-normal pl-10 pr-4 py-2 text-sm md:text-base duration-[50ms] rounded-full focus:shadow-xl transition-all shadow-lg focus:outline-offset-0 focus:outline-[--text-secondaryColor-accent2] outline-[--text-secondaryColor-accent2] hover:placeholder-[var(--text-secondaryColor-accent2)] text-[var(--text-secondaryColor-accent1)] placeholder-[var(--text-secondaryColor)] focus:outline-none"
+                    className="w-full pl-10 pr-4 py-[10px] cursor-pointer focus-within:cursor-text text-sm md:text-base bg-transparent focus:outline-none text-[var(--text-secondaryColor-accent1)] placeholder-[var(--text-secondaryColor)]"
                 />
-                <FaSearch className="absolute left-3 top-1/2 transform text-[var(--text-secondaryColor-accent2)] -translate-y-1/2" size={18} />
             </div>
         </div>
-    )
+    );
 });
 
 export default Searchbar

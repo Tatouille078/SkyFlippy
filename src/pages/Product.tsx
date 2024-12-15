@@ -2,7 +2,8 @@ import { AnimatedShapes, Header } from '../components'
 import { useParams } from 'react-router-dom'
 import { StateContextType, useStateContext } from '../context'
 import { Product as P } from '../Calculus'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Settings from '../components/settings'
 
 const Product = () => {
     const [inputPrice, setInputPrice] = useState<number>(() => {
@@ -18,6 +19,9 @@ const Product = () => {
         return null
     }
 
+    const panelSettingsRef = useRef(null)
+    const buttonSettingsRef = useRef(null)
+
     useEffect(() => {
         localStorage.setItem('inputPrice', inputPrice.toString());
     })
@@ -25,7 +29,8 @@ const Product = () => {
     return (
         <div className={`${currentTheme} min-h-screen bg-[var(--background-color)] overflow-y-hidden`}>
             <AnimatedShapes />
-            <Header />
+            <Header buttonSettingsRef={buttonSettingsRef} />
+            <Settings buttonRef={buttonSettingsRef} panelRef={panelSettingsRef} />
             <div className='mt-28 mb-4 flex relative'>
                 <main className='flex-1 mt-8 flex flex-col'>
                     <div className='container mx-auto max-w-screen-xl px-4 pt-4 bg-gradient-to-r from-[var(--background-fadeTrans2)] to-[var(--background-fadeTrans1)] rounded-xl shadow-xl'>
