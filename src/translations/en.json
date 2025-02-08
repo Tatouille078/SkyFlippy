@@ -1,0 +1,54 @@
+{
+    "mainTitle": "SkyFlippy",
+
+    "homePage" : {
+        "seeMore": "See more"
+    },
+
+    "productPage" : {
+        "table" : {
+            "finalScore" : "Final Score",
+            "margeScore" : "Marge Score",
+            "priceScore" : "Price Score",
+            "demandScore" : "Demand/Suply Score",
+            "popuScore" : "Popularity Score",
+            "margePercent" : "Marge Percent",
+            "buyPrice" : "Buy Price",
+            "difference" : "difference",
+            "sellPrice" : "sell Price",
+            "Product" : "Product",
+            "supply" : "Supply",
+            "demand" : "Demand"
+        },
+        "about" : {
+            "information" : [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "disclaimer" : [
+                "",
+                "",
+                ""
+            ],
+            "margeScore" : [
+                "",
+                ""
+            ],
+            "priceScore" : [
+                "",
+                "",
+                "",
+                ""
+            ],
+            "demandScore" : [
+                "",
+                ""
+            ],
+            "popuScore" : ""
+        } 
+    }
+}

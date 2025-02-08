@@ -1,6 +1,7 @@
 import { IoMenu, IoSettingsOutline } from "react-icons/io5";
 import { StateContextType, useStateContext } from "../context";
 import Searchbar from "./Searchbar";
+import { useTranslation } from "../contexts/TranslationContext";
 
 export type HeaderProps = {
   buttonSidebarRef?: React.MutableRefObject<null>;
@@ -10,6 +11,8 @@ export type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonSettingsRef }) => {
   const { toggleOpen, toggleSettings }: StateContextType = useStateContext();
+  const {translation} = useTranslation()
+  console.log(translation)
 
   return (
     <header className="bg-gradient-to-r z-40 from-[var(--background-fadeTrans2)] to-[var(--background-fadeTrans1)] rounded-b-[4.7rem] shadow-xl fixed w-full pb-4">
@@ -25,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonS
                 >
                   <IoMenu size={30} className="group-hover:scale-y-150 group-hover:text-[var(--button-headerRight-inlineColorHover)] transition-all" />
                 </button>}
-              <h1 className="hidden md:block mb-2 text-xl py-2 md:text-4xl exo-2-normal"><a href="./Home">SkyFlippy</a></h1>
+              <h1 className="hidden md:block mb-2 text-xl py-2 md:text-4xl exo-2-normal"><a href="./Home">{translation.mainTitle}</a></h1>
             </div>
             <div className="flex items-center flex-1 justify-end space-x-4">
               {searchbarRef &&

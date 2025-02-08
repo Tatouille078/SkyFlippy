@@ -16,7 +16,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
     const [dazzlePosition, setDazzlePosition] = useState({ x: "50%", y: "50%" });
 
     const handleMouseMove = (e) => {
-        const {left, top, width, height } = e.currentTarget.getBoundingClientRect();
+        const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
         const x = ((e.clientX - left) / width) * 100;
         const y = ((e.clientY - top) / height) * 100;
         setDazzlePosition({ x: `${x}%`, y: `${y}%` });
@@ -26,24 +26,26 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
         <Link to={`/products/${product.productID}`}>
             <div onClick={() => setItem("product", product)} className="bg-[var(--background-itemCard-color)] group hover:bg-opacity-100 hover:bg-[var(--background-itemCard-colorHover)] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 rounded-lg hover:scale-105 hover:rotate-2">
                 <div className="relative p-4 overflow-hidden transition-all group rounded-lg">
-                    <span 
+                    <span
                         onMouseMove={handleMouseMove}
                         className="dazzle -translate-x-full opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all ease-out duration-300"
-                        style={{backgroundPosition: `${dazzlePosition.x} ${dazzlePosition.y}`}}
+                        style={{
+                            backgroundPosition: `${dazzlePosition.x} ${dazzlePosition.y}`
+                        }}
                     ></span>
-                    <span 
+                    <span
                         className="absolute inset-0 transition-opacity duration-500 bg-gradient-to-r from-[var(--background-fadeComp12)] via-[var(--background-fadeComp13)] to-[var(--background-fadeComp14)] group-hover:opacity-100"
                         style={{
                             backgroundImage: 'linear-gradient(-45deg, var(--background-fadeComp14), var(--background-fadeComp13), var(--background-fadeComp12))'
-                          }}
+                        }}
                     ></span>
-                    <span 
+                    <span
                         className="absolute inset-0 duration-500 group-hover:opacity-0"
                         style={{
                             backgroundImage: 'linear-gradient(-45deg, var(--background-fadeComp13), var(--background-fadeComp12))'
-                          }}
+                        }}
                     ></span>
-                        
+
                     <h2 className="text-xl relative text-[var(--text-primaryColor)] exo-2-bold truncate">{product.productID}</h2>
                 </div>
                 <div className="pt-4">

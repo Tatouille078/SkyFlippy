@@ -4,13 +4,14 @@ import getProducts, { ProductType } from '../api';
 import { AnimatedShapes, Header, ItemCard, Sidebar } from '../components';
 import { Product } from '../Calculus';
 import Settings from '../components/settings';
-
+import { useTranslation } from '../contexts/TranslationContext';
 
 const convertToArray = (productArray: ProductType) => {
     return Object.values(productArray.products)
 }
 
 const Home = () => {
+    const {translation} = useTranslation()
     const panelSidebarRef = useRef(null)
     const buttonSidebarRef = useRef(null)
     const panelSettingsRef = useRef(null)
@@ -46,7 +47,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
-                    <p className='ubuntu-normal mb-8 text-xl shadow-lg px-4 py-1 transition-all text-[var(--text-secondaryColor-accent1)] hover:scale-105 hover:rotate-2 rounded-xl cursor-pointer self-center hover:shadow-xl bg-gradient-to-r from-[var(--background-fadeComp9)] to-[var(--background-fadeComp8)]' onClick={() => setPagination((prev) => prev + 12)}>See more</p>
+                    <p className='ubuntu-normal mb-8 text-xl shadow-lg px-4 py-1 transition-all text-[var(--text-secondaryColor-accent1)] hover:scale-105 hover:rotate-2 rounded-xl cursor-pointer self-center hover:shadow-xl bg-gradient-to-r from-[var(--background-fadeComp9)] to-[var(--background-fadeComp8)]' onClick={() => setPagination((prev) => prev + 12)}>{translation.seeMore}</p>
                 </main>
             </div>
         </div>

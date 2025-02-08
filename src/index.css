@@ -14,7 +14,7 @@
     --background-oddRowProduct: #f9fafb ; /* table odd row */
     --background-fadeComp1: rgba(255, 131, 195, 0.9); /* header */
     --background-fadeComp2: rgba(243, 152, 255, 0.9); /* header */
-    --background-fadeComp3: rgba(147, 51, 234, 0.9); /* header */
+    --background-fadeComp3: rgba(147, 51, 234, 0.902); /* header */
     --background-fadeComp4: #f4ceff; /* sidebar header */
     --background-fadeComp5: #ecb0ff; /* sidebar header */
     --background-fadeComp6: #ead5ff; /* sidebar */

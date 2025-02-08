@@ -45,8 +45,8 @@ const Product = () => {
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
-                                        backgroundColor: product.finalScore <= 75 ? product.finalScore <= 55 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
-                                        color: product.finalScore <= 75 ? product.finalScore <= 55 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
+                                        backgroundColor: product.finalScore! <= 75 ? product.finalScore! <= 55 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
+                                        color: product.finalScore! <= 75 ? product.finalScore! <= 55 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
                                     }}
                                 >
                                     {product.finalScore}
@@ -57,8 +57,8 @@ const Product = () => {
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
-                                        backgroundColor: product.marge <= 18 ? product.marge <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
-                                        color: product.marge <= 18 ? product.marge <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
+                                        backgroundColor: product.marge! <= 18 ? product.marge! <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
+                                        color: product.marge! <= 18 ? product.marge! <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
                                     }}
                                 >
                                     {(((product.buyPrice / product.sellPrice) * 100) - 100).toFixed(1)} %
@@ -70,11 +70,11 @@ const Product = () => {
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
-                                        backgroundColor: product.marge <= 20 ? product.marge <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
-                                        color: product.marge <= 20 ? product.marge <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
+                                        backgroundColor: product.marge! <= 20 ? product.marge! <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
+                                        color: product.marge! <= 20 ? product.marge! <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
                                     }}
                                 >
-                                    {product.marge.toFixed(1)}
+                                    {product.marge!.toFixed(1)}
                                 </div>
                             </li>
                             <li className='bg-[var(--background-oddRowProduct)] py-4 flex justify-between items-center'>
@@ -97,11 +97,11 @@ const Product = () => {
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
-                                        backgroundColor: product.prix <= 20 ? product.prix <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
-                                        color: product.prix <= 20 ? product.prix <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
+                                        backgroundColor: product.prix! <= 20 ? product.prix! <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
+                                        color: product.prix! <= 20 ? product.prix! <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
                                     }}
                                 >
-                                    {product.prix.toFixed(1)}
+                                    {product.prix!.toFixed(1)}
                                 </div>
                             </li>
                             <li className='py-4 flex justify-between items-center'>
@@ -124,11 +124,11 @@ const Product = () => {
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
-                                        backgroundColor: product.offreDemande <= 20 ? product.offreDemande <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
-                                        color: product.offreDemande <= 20 ? product.offreDemande <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
+                                        backgroundColor: product.offreDemande! <= 20 ? product.offreDemande! <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
+                                        color: product.offreDemande! <= 20 ? product.offreDemande! <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
                                     }}
                                 >
-                                    {product.offreDemande.toFixed(1)}
+                                    {product.offreDemande!.toFixed(1)}
                                 </div>
                             </li>
                             <li className='bg-[var(--background-oddRowProduct)] py-4 flex justify-between items-center'>
@@ -137,7 +137,7 @@ const Product = () => {
                                     <input
                                         type="number"
                                         value={inputPrice}
-                                        onChange={(e) => setInputPrice(e.target.value)}
+                                        onChange={(e) => setInputPrice(Number(e.target.value))}
                                         className='w-full py-0.5 ubuntu-normal px-3 hover:shadow-lg text-sm md:text-base rounded-full focus:shadow-xl transition-all bg-[var(--background-firstProduct)] shadow-md focus:outline-offset-0 focus:outline-[var(--text-secondaryColor)] outline-none text-[var(--text-secondaryColor-accent3)] focus:outline-none'/>
                                 </div>
                                 <span className='flex-1 justify-end flex truncate text-lg ubuntu-normal text-[var(--score-greenText-color)] mr-8'>{(inputPrice * product.buyPrice).toFixed(1)}</span>
@@ -148,11 +148,11 @@ const Product = () => {
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
-                                        backgroundColor: product.popularity <= 20 ? product.popularity <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
-                                        color: product.popularity <= 20 ? product.popularity <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
+                                        backgroundColor: product.popularity! <= 20 ? product.popularity! <= 10 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
+                                        color: product.popularity! <= 20 ? product.popularity! <= 10 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',
                                     }}
                                 >
-                                    {product.popularity.toFixed(1)}
+                                    {product.popularity!.toFixed(1)}
                                 </div>
                             </li>
                             <li className='py-4 flex justify-between items-center'>
@@ -171,7 +171,7 @@ const Product = () => {
                             </li>
                         </ul>
                         <p className='rounded-lg mb-4 shadow-lg bg-gradient-to-r from-[var(--background-fadeComp7)] to-[var(--background-fadeComp6)] mt-8 py-4 pl-6 exo-2-light text-[var(--text-secondaryColor)]'>
-                            <b className='exo-2-bold'>Information</b>: Les scores sont actualisés à chaque push de l'API d'Hypixel (soit toutes les 2 minutes). 
+                            <b className='exo-2-bold'>Information:</b> Les scores sont actualisés à chaque push de l'API d'Hypixel (soit toutes les 2 minutes). 
                             <br/> Ils ne peuvent pas dépasser <b className='ubuntu-normal'>25</b> est aller en dessous de <b className='ubuntu-normal'>0</b>.
                             Le score final ne peut pas excéder <b className='ubuntu-normal'>100</b> ni aller en dessous de <b className='ubuntu-normal'>0</b>. 
                             <br/> Si vous voyez une erreur, prévenez moi cette adresse: ___ .
