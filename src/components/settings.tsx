@@ -32,7 +32,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
     }, [isSettingsOpen])
 
     return (
-        <div className={`bg-[var(--background-settings)] fixed min-w-[300px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
+        <div className={`bg-[var(--background-settings)] fixed min-w-[375px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
             } overflow-y-hidden`} ref={panelRef}>
             <div className='top-0 flex sticky bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] shadow-lg h-24 w-full'>
                 <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-[var(--text-primaryColor)]">Options</h2>

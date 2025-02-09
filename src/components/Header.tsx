@@ -1,6 +1,7 @@
 import { IoMenu, IoSettingsOutline } from "react-icons/io5";
 import { StateContextType, useStateContext } from "../context";
 import Searchbar from "./Searchbar";
+import { useState } from "react";
 
 export type HeaderProps = {
   buttonSidebarRef?: React.MutableRefObject<HTMLButtonElement | null>;
@@ -10,11 +11,12 @@ export type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonSettingsRef }) => {
   const { toggleOpen, toggleSettings }: StateContextType = useStateContext();
+  const [ isSearching, setSearching ] = useState(false)
 
   return (
     <header className="bg-gradient-to-r z-40 from-[var(--background-fadeTrans2)] to-[var(--background-fadeTrans1)] rounded-b-[4.7rem] shadow-xl fixed w-full pb-4">
       <div className="headerGradient rounded-b-[5rem] transition-all text-[var(--text-primaryColor)] py-4 w-full top-0">
-        <div className="container mx-auto px-16 md:px-8">
+        <div className="container mx-auto px-0 lg:px-12">
           <div className="flex items-center justify-between mr-12 lg:mr-0">
             <div className="flex items-center space-x-4">
               {buttonSidebarRef &&
@@ -25,11 +27,11 @@ const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonS
                 >
                   <IoMenu size={30} className="group-hover:scale-y-150 group-hover:text-[var(--button-headerRight-inlineColorHover)] transition-all" />
                 </button>}
-              <h1 className="hidden md:block mb-2 text-xl py-2 md:text-4xl exo-2-normal"><a href="./Home">SkyFlippy</a></h1>
+              <h1 className={`mb-2 text-xl py-2 md:text-4xl exo-2-normal transition-all ml-8 lg:ml-0 ${isSearching ? "opacity-0 w-0 md:opacity-100 md:w-full ml-0" : "opacity-100 w-full"}`}><a href="./Home">SkyFlippy</a></h1>
             </div>
             <div className="flex items-center flex-1 justify-end space-x-4">
               {searchbarRef &&
-                <Searchbar ref={searchbarRef} />}
+                <Searchbar ref={searchbarRef} setIsFocused={setSearching} />}
               {buttonSettingsRef &&
                 <button
                   onClick={toggleSettings}

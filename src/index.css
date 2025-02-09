@@ -8,7 +8,7 @@
     --background-itemCard-color: rgba(246, 246, 246, 0.9) ;
     --background-itemCard-colorHover: #fff;
     --background-searchBar: rgba(255, 255, 255, 0.65);
-    --background-settings: rgba(250, 232, 255, 0.9);
+    --background-settings: rgba(250, 232, 255, 0.97);
     --background-product: #fae8ff; /* table */
     --background-firstProduct: #e9d5ff; /* first product table */
     --background-oddRowProduct: #f9fafb ; /* table odd row */
@@ -57,7 +57,7 @@
     --background-itemCard-color: rgba(38, 30, 48, 0.9) ;
     --background-itemCard-colorHover: #3e2848;
     --background-searchBar: rgba(0, 0, 0, 0.25);
-    --background-settings: rgba(79, 45, 91, 0.807);
+    --background-settings: rgba(79, 45, 91, 0.97);
     --background-product: #6e4a92; /* table */
     --background-firstProduct: #5e3d82; /* first product table */
     --background-oddRowProduct: #7d59a4 ; /* table odd row */
@@ -109,7 +109,7 @@
     --background-itemCard-color: rgba(248, 255, 244, 0.9) ;
     --background-itemCard-colorHover: #f7fff7;
     --background-searchBar: rgba(255, 255, 255, 0.65);
-    --background-settings: rgba(220, 249, 226, 0.9);
+    --background-settings: rgba(220, 249, 226, 0.97);
     --background-product: #d4eccf; /* table */
     --background-firstProduct: #adeca0; /* first product table */
     --background-oddRowProduct: #f0fde8 ; /* table odd row */
@@ -158,7 +158,7 @@
     --background-itemCard-color: rgba(48, 47, 52, 0.9) ;
     --background-itemCard-colorHover: #3a3a3b;
     --background-searchBar: rgba(0, 0, 0, 0.25);
-    --background-settings: rgba(45, 91, 65, 0.807);
+    --background-settings: rgba(45, 91, 65, 0.97);
     --background-product: #4a9264; /* table */
     --background-firstProduct: #4b823d; /* first product table */
     --background-oddRowProduct: #86a459 ; /* table odd row */

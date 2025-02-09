@@ -3,7 +3,12 @@ import { useStateContext } from "../context"
 import React from "react";
 import { useTranslation } from "../contexts/TranslationContext";
 
-const Searchbar = React.forwardRef<HTMLInputElement>((_, ref) => {
+type SearchProps = {
+    ref: React.MutableRefObject<HTMLInputElement | null>
+    setIsFocused: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const Searchbar = ({ref, setIsFocused} : SearchProps) => {
 
     const { translation } = useTranslation()
     const { search, setSearch } = useStateContext()
@@ -19,6 +24,8 @@ const Searchbar = React.forwardRef<HTMLInputElement>((_, ref) => {
                     type="text"
                     value={search}
                     ref={ref}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder={translation.homePage.searchBar}
                     className="w-full pl-10 pr-4 py-[10px] cursor-pointer focus-within:cursor-text text-sm md:text-base bg-transparent focus:outline-none text-[var(--text-secondaryColor-accent1)] placeholder-[var(--text-secondaryColor)]"
@@ -26,6 +33,6 @@ const Searchbar = React.forwardRef<HTMLInputElement>((_, ref) => {
             </div>
         </div>
     );
-});
+};
 
 export default Searchbar
