@@ -142,7 +142,7 @@ const Product = () => {
                                         onChange={(e) => setInputPrice(Number(e.target.value))}
                                         className='max-w-28 py-0.5 ubuntu-normal px-3 hover:shadow-lg text-sm md:text-base rounded-full focus:shadow-xl transition-all bg-[var(--background-firstProduct)] shadow-md focus:outline-offset-0 focus:outline-[var(--text-secondaryColor)] outline-none text-[var(--text-secondaryColor-accent3)] focus:outline-none' />
                                 </div>
-                                <p className='ubuntu-normal ml-2'>=</p>
+                                <p className='ubuntu-normal ml-2 text-[var(--text-defaultColor)]'>=</p>
                                 <span className='flex-1 justify-end flex truncate text-lg ubuntu-normal text-[var(--score-greenText-color)] mr-8'>{(inputPrice * product.buyPrice).toFixed(1)}</span>
                             </li>
                             {/* row 6 */}
@@ -278,9 +278,9 @@ const Product = () => {
                                         type="number"
                                         value={inputPrice}
                                         onChange={(e) => setInputPrice(Number(e.target.value))}
-                                        className='max-w-24 py-0.5 ubuntu-normal px-3 hover:shadow-lg text-sm md:text-base rounded-full focus:shadow-xl transition-all bg-[var(--background-firstProduct)] shadow-md focus:outline-offset-0 focus:outline-[var(--text-secondaryColor)] outline-none text-[var(--text-secondaryColor-accent3)] focus:outline-none' />
+                                        className='max-w-24 py-0.5 ubuntu-normal px-3 hover:shadow-lg text-sm md:text-base rounded-full focus:shadow-xl transition-all bg-[var(--background-firstProduct)] shadow-md focus:outline-offset-0 focus:outline-[var(--text-secondaryColor)] outline-none text-[var(--text-secondaryColor-accent3)] focus:outline-none ' />
                                 </div>
-                                <p className='ubuntu-normal ml-2'>=</p>
+                                <p className='ubuntu-normal ml-2 text-[var(--text-defaultColor)]'>=</p>
                                 <span className='flex-1 justify-end flex truncate text-lg ubuntu-normal text-[var(--score-greenText-color)] mr-8'>{(inputPrice * product.buyPrice).toFixed(1)}</span>
                             </li>
                             {/* row 6 */}

@@ -99,9 +99,6 @@
     --score-yellowText-color: #fdf8e7;
     --score-redBg-color: #b12929;
     --score-redText-color: #fceaea;
-    --dynamic-gradient-color1: hsl(0, 100%, 50%);
-    --dynamic-gradient-color2: hsl(120, 70%, 60%);
-    --dynamic-gradient-color3: hsl(240, 70%, 60%);
   }
 
   .theme-apple {
@@ -165,14 +162,14 @@
     --background-fadeComp1: rgba(56, 180, 89, 0.85); /* header */
     --background-fadeComp2: rgba(73, 202, 84, 0.85); /* header */
     --background-fadeComp3: rgba(93, 176, 10, 0.85); /* header */
-    --background-fadeComp4: #af6eb5; /* sidebar header */
-    --background-fadeComp5: #74308f; /* sidebar header */
-    --background-fadeComp6: rgba(84, 50, 107, 0.84); /* sidebar */
-    --background-fadeComp7: rgba(121, 80, 131, 0.856); /* sidebar */
-    --background-fadeComp8: #6b265c; /* h1 */
-    --background-fadeComp9: #6b2887; /* h1 */
-    --background-fadeComp10: #902b5f; /* settings header & h1 */
-    --background-fadeComp11: #c25d95; /* settings header & h1 */
+    --background-fadeComp4: #6CB26F; /* sidebar header */
+    --background-fadeComp5: #618E30; /* sidebar header */
+    --background-fadeComp6: rgba(76, 104, 49, 0.84); /* sidebar */
+    --background-fadeComp7: rgba(97, 130, 80, 0.856); /* sidebar */
+    --background-fadeComp8: #256836; /* h1 */
+    --background-fadeComp9: #4C8427; /* h1 */
+    --background-fadeComp10: #2A8E60; /* settings header & h1 */
+    --background-fadeComp11: #5DC160; /* settings header & h1 */
     --background-fadeComp12: #3d6a1c; /* itemcard header */
     --background-fadeComp13: #08991e; /* itemcard header */
     --background-fadeComp14: #5fb422; /* itemcard header only hover*/
@@ -182,20 +179,20 @@
     --background-fadeTrans4: rgba(75, 105, 77, 0.8); /* bg sidebar trans */
     --text-defaultColor: #e7e7e7;
     --text-primaryColor: #f7f7f7;
-    --text-secondaryColor: #d7a9ff; /* purple-500 */
-    --text-secondaryColor-accent1: #ddbcfa; /* purple-700 */
-    --text-secondaryColor-accent2: #d7b3f9; /* purple-600 */
-    --text-secondaryColor-accent3: #e4c7fc; /* purple-900 */
-    --button-headerRight-color: rgba(126, 45, 108, 0.5);
-    --button-headerRight-colorHover: rgba(230, 159, 194, 0.3);
-    --button-headerRight-inlineColor: #e69fc2;
-    --button-headerRight-inlineColorHover: #7E2D6C;
+    --text-secondaryColor: #D3FFAA; /* purple-500 */
+    --text-secondaryColor-accent1: #D5F9BD; /* purple-700 */
+    --text-secondaryColor-accent2: #D2F7B2; /* purple-600 */
+    --text-secondaryColor-accent3: #E2F9C5; /* purple-900 */
+    --button-headerRight-color: rgba(44, 124, 82, 0.5);
+    --button-headerRight-colorHover: rgba(160, 229, 180, 0.3);
+    --button-headerRight-inlineColor: #ADE5A0;
+    --button-headerRight-inlineColorHover: #477C2C;
     --shapes-colorId1: #92e8b3 ;
     --shapes-colorId2: #3bab4c ;
     --shapes-colorId3: #9acc5c ;
     --shapes-colorId4: #9ddbb9 ;
     --score-greenBg-color: #27815a;
-    --score-greenText-color: #edfbf3;
+    --score-greenText-color: #d6f6e4;
     --score-yellowBg-color: #b0a13f;
     --score-yellowText-color: #fdfbf5;
     --score-redBg-color: #bb3a24;
@@ -287,7 +284,7 @@ input[type="radio"] + label {
   cursor: pointer;
   padding-left: 30px;
   font-size: 16px;
-  color: rgb(31 41 55);
+  color: var(--text-defaultColor);
 }
 
 input[type="radio"] + label::before {

@@ -32,7 +32,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
     }, [isSettingsOpen])
 
     return (
-        <div className={`bg-[var(--background-settings)] fixed min-w-[375px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
+        <div className={`bg-[var(--background-settings)] fixed md:min-w-[375px] min-w-[100vw] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
             } overflow-y-hidden`} ref={panelRef}>
             <div className='top-0 flex sticky bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] shadow-lg h-24 w-full'>
                 <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-[var(--text-primaryColor)]">Options</h2>
@@ -44,7 +44,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                 </button>
             </div>
             <h1 className="flex justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">{translation.homePage.sidebar.options[0]}</h1>
-            <div className="m-4 grid grid-cols-2 gap-4">
+            <div className="m-4 grid grid-cols-2 gap-4 ">
                 <div className="w-auto h-5">
                     <input
                         type="radio"
@@ -54,7 +54,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         checked={currentTheme === "theme-rose"}
                         onChange={() => toggleTheme("theme-rose")}
                     />
-                    <label className="exo-2-normal" htmlFor="option1">{translation.homePage.sidebar.options[1]}</label>
+                    <label className="exo-2-normal " htmlFor="option1">{translation.homePage.sidebar.options[1]}</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
@@ -91,7 +91,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                 </div>
             </div>
             <h1 className="flex mt-12 justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">{translation.homePage.sidebar.options[5]}</h1>
-            <div className="m-4 grid grid-cols-2 gap-4">
+            <div className="m-4 grid grid-cols-2 gap-4 ">
                 <div className="w-auto h-5">
                     <input
                         type="radio"

@@ -21,13 +21,13 @@ const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonS
             <div className="flex items-center space-x-4">
               {buttonSidebarRef &&
                 <button
-                  className="p-2 hover:bg-[var(--button-headerRight-colorHover)] duration-[100ms] hover:outline-2 group bg-[var(--button-headerRight-color)] rounded-2xl ml-12 lg:ml-0 shadow-lg hover:outline hover:scale-105 transition-all hover:-rotate-2 outline-[var(--button-headerRight-inlineColorHover)] hover:outline-[var(--button-headerRight-inlineColorHover)] hover:shadow-xl"
+                  className="p-2 hidden md:block hover:bg-[var(--button-headerRight-colorHover)] duration-[100ms] hover:outline-2 group bg-[var(--button-headerRight-color)] rounded-2xl ml-12 lg:ml-0 shadow-lg hover:outline hover:scale-105 transition-all hover:-rotate-2 outline-[var(--button-headerRight-inlineColorHover)] hover:outline-[var(--button-headerRight-inlineColorHover)] hover:shadow-xl"
                   onClick={toggleOpen}
                   ref={buttonSidebarRef}
                 >
                   <IoMenu size={30} className="group-hover:scale-y-150 group-hover:text-[var(--button-headerRight-inlineColorHover)] transition-all" />
                 </button>}
-              <h1 className={`mb-2 text-xl py-2 md:text-4xl exo-2-normal transition-all ml-8 lg:ml-0 ${isSearching ? "opacity-0 w-0 md:opacity-100 md:w-full ml-0" : "opacity-100 w-full"}`}><a href="./Home">SkyFlippy</a></h1>
+              <h1 className={`mb-2 text-xl py-2 md:text-4xl exo-2-normal transition-all self-start ml-0 ${isSearching ? "opacity-0 w-0 md:opacity-100 md:w-full" : "opacity-100 w-full"}`}><a href="./Home" className="ml-8">SkyFlippy</a></h1>
             </div>
             <div className="flex items-center flex-1 justify-end space-x-4">
               {searchbarRef &&
