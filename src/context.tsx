@@ -58,7 +58,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
     const [products, setProducts] = useState<Product[]>([])
     const [pagination, setPagination] = useState<number>(12)
     const [search, setSearch] = useState("")
-    const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("currentTheme") || 'theme-light')
+    const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("currentTheme") || 'theme-rose')
 
     const toggleOpen = () => {
         setIsSidebarOpen(!isSidebarOpen);
