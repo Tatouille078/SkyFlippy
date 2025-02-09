@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
 import { getFinalScore, marge, offreDemande, popularity, prix, Product } from './Calculus';
 import { Item } from './api';
 
@@ -76,21 +76,29 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
     ];
 
     const createProductFromItem = (item: Item) => {
-        const p: Product = {
-            productID: item.product_id,
-            sellPrice: item.quick_status.sellPrice,
-            sellVolume: item.quick_status.sellVolume,
-            buyPrice: item.quick_status.buyPrice,
-            buyVolume: item.quick_status.buyVolume,
-            finalScore: null,
-            marge: marge(item.quick_status.buyPrice, item.quick_status.sellPrice),
-            prix: prix(item.quick_status.buyPrice),
-            offreDemande: offreDemande(item.quick_status.buyVolume, item.quick_status.sellVolume),
-            popularity: popularity(item.quick_status.buyPrice, item.quick_status.buyVolume, item.quick_status.sellVolume)
-        }
-        p.finalScore = getFinalScore(p)
-        setProducts((prev) => [...prev, p])
-    }
+        setProducts((prev) => {
+            if (prev.some(p => p.productID === item.product_id)) {
+                return prev; 
+            }
+    
+            const p: Product = {
+                productID: item.product_id,
+                sellPrice: item.quick_status.sellPrice,
+                sellVolume: item.quick_status.sellVolume,
+                buyPrice: item.quick_status.buyPrice,
+                buyVolume: item.quick_status.buyVolume,
+                finalScore: null,
+                marge: marge(item.quick_status.buyPrice, item.quick_status.sellPrice),
+                prix: prix(item.quick_status.buyPrice),
+                offreDemande: offreDemande(item.quick_status.buyVolume, item.quick_status.sellVolume),
+                popularity: popularity(item.quick_status.buyPrice, item.quick_status.buyVolume, item.quick_status.sellVolume)
+            }
+            p.finalScore = getFinalScore(p);
+    
+            return [...prev, p];
+        });
+    };
+
     const sortedList = useMemo(() => {
         var goodP = products.filter(p => p.finalScore == null || !isNaN(p.finalScore))
         if (search.length > 3) {
@@ -101,6 +109,14 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
     },
         [products, pagination, search]
     )
+
+    useEffect(() => {
+        console.log("sortedList recalculé :", sortedList);
+    }, [sortedList]);
+
+    useEffect(() => {
+        console.log("products a changé :", products);
+    }, [products]);
 
     const toggleTheme = (theme: string) => {
         setCurrentTheme(theme)
