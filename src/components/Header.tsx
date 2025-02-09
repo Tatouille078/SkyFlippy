@@ -2,6 +2,7 @@ import { IoMenu, IoSettingsOutline } from "react-icons/io5";
 import { StateContextType, useStateContext } from "../context";
 import Searchbar from "./Searchbar";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export type HeaderProps = {
   buttonSidebarRef?: React.MutableRefObject<HTMLButtonElement | null>;
@@ -27,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonS
                 >
                   <IoMenu size={30} className="group-hover:scale-y-150 group-hover:text-[var(--button-headerRight-inlineColorHover)] transition-all" />
                 </button>}
-              <h1 className={`mb-2 text-xl py-2 md:text-4xl exo-2-normal transition-all self-start ml-0 ${isSearching ? "opacity-0 w-0 md:opacity-100 md:w-full" : "opacity-100 w-full"}`}><a href="./Home" className="ml-8">SkyFlippy</a></h1>
+              <h1 className={`mb-2 text-xl py-2 md:text-4xl exo-2-normal transition-all self-start ml-0 ${isSearching ? "opacity-0 w-0 md:opacity-100 md:w-full" : "opacity-100 w-full"}`}><Link to="/" className="ml-8">SkyFlippy</Link></h1>
             </div>
             <div className="flex items-center flex-1 justify-end space-x-4">
               {searchbarRef &&
