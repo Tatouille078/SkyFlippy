@@ -4,7 +4,7 @@ import fr from "/src/translations/fr.json"
 
 type TranslationContextProps = {
     translation: typeof en | typeof fr;
-    setLang: React.Dispatch<React.SetStateAction<"en" | "fr">>
+    changeLanguage: (langu: "en" | "fr") => void 
     lang: "en" | "fr";
 }
 
@@ -16,7 +16,19 @@ type TranslationProviderProps = {
 
 export const TranslationProvider = ({ children }: TranslationProviderProps) => {
     
-    const [lang, setLang]= useState<"en" | "fr">("en")
+    const initLang = (): "en" | "fr" | undefined => {
+        const storedLang = localStorage.getItem("currentLang")
+        if (!storedLang) return undefined
+        if (storedLang === "en") return "en"
+        if (storedLang === "fr") return "fr"
+        return undefined
+    }
+    const [lang, setLang]= useState<"en" | "fr">(initLang() || "en")
+
+    const changeLanguage = (langu : "en" | "fr") => {
+        setLang(langu)
+        localStorage.setItem("currentLang", langu)
+    }
     
     useEffect(() => {
         const browserLang = navigator.language
@@ -33,7 +45,7 @@ export const TranslationProvider = ({ children }: TranslationProviderProps) => {
     return (
         <TranslationContext.Provider value={{
             translation : translations[lang], 
-            setLang, 
+            changeLanguage, 
             lang
         }}>
             {children}

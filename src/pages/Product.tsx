@@ -4,6 +4,7 @@ import { StateContextType, useStateContext } from '../context'
 import { Product as P } from '../Calculus'
 import { useEffect, useRef, useState } from 'react'
 import Settings from '../components/settings'
+import { useTranslation } from '../contexts/TranslationContext'
 
 const Product = () => {
     const [inputPrice, setInputPrice] = useState<number>(() => {
@@ -21,6 +22,7 @@ const Product = () => {
 
     const panelSettingsRef = useRef(null)
     const buttonSettingsRef = useRef(null)
+    const { translation } = useTranslation()
 
     useEffect(() => {
         localStorage.setItem('inputPrice', inputPrice.toString());
@@ -37,11 +39,11 @@ const Product = () => {
                         <ul className='bg-[var(--background-product)] mx-auto rounded-lg shadow-lg grid grid-cols-2'>
                             {/* row 1 */}
                             <li className='col-start-1 col-end-3 flex bg-gradient-to-r from-[var(--background-fadeComp4)] to-[var(--background-fadeComp5)] rounded-t-lg py-6 justify-center'>
-                                <p className='exo-2-bold text-2xl text-[var(--text-primaryColor)]'>{product.productID}</p>
+                                <p className='exo-2-bold text-2xl text-[var(--text-defaultColor)]'>{product.productID}</p>
                             </li>
                             {/* row 2 */}
                             <li className='bg-[var(--background-firstProduct)] py-4 flex justify-between items-center'>
-                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Score Finale:</span>
+                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.finalScore}</span>
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
@@ -53,7 +55,7 @@ const Product = () => {
                                 </div>
                             </li>
                             <li className='py-4 flex justify-between items-center'>
-                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Marge percent:</span>
+                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.margePercent}</span>
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
@@ -66,7 +68,7 @@ const Product = () => {
                             </li>
                             {/* row 3 */}
                             <li className='bg-[var(--background-oddRowProduct)] py-4 flex justify-between items-center'>
-                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Score Marge:</span>
+                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.margeScore}</span>
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
@@ -79,21 +81,21 @@ const Product = () => {
                             </li>
                             <li className='bg-[var(--background-oddRowProduct)] py-4 flex justify-between items-center'>
                                 <div>
-                                    <span className='pl-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Prix achat: </span>
-                                    <span className='text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.buyPrice.toFixed(2)}</span>
+                                    <span className='pl-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.buyPrice}: </span>
+                                    <span className='pl-8 text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.buyPrice.toFixed(2)}</span>
                                 </div>
                                 <div>
-                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>Diff: </span>
+                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.difference}: </span>
                                     <span className='text-lg ubuntu-normal text-[var(--score-greenText-color)]'>+{(product.buyPrice - product.sellPrice).toFixed()}</span>
                                 </div>
                                 <div>
-                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>Prix vente: </span>
+                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.sellPrice}: </span>
                                     <span className='pr-8 text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.sellPrice.toFixed(2)}</span>
                                 </div>
                             </li>
                             {/* row 4 */}
                             <li className='py-4 flex justify-between items-center'>
-                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Score Prix:</span>
+                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.priceScore}</span>
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
@@ -120,7 +122,7 @@ const Product = () => {
                             </li>
                             {/* row 5 */}
                             <li className='bg-[var(--background-oddRowProduct)] py-4 flex justify-between items-center'>
-                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Score Offre/Demande:</span>
+                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.demandScore}</span>
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
@@ -133,7 +135,7 @@ const Product = () => {
                             </li>
                             <li className='bg-[var(--background-oddRowProduct)] py-4 flex justify-between items-center'>
                                 <div className='flex flex-1'>
-                                    <p className='text-lg pl-8 w-full exo-2-normal text-[var(--text-defaultColor)] mr-2'>Produit x </p>
+                                    <p className='text-lg pl-8 w-full exo-2-normal text-[var(--text-defaultColor)] mr-2'>{translation.productPage.table.Product} x</p>
                                     <input
                                         type="number"
                                         value={inputPrice}
@@ -144,7 +146,7 @@ const Product = () => {
                             </li>
                             {/* row 6 */}
                             <li className='py-4 flex justify-between items-center'>
-                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Score Popularity:</span>
+                                <span className='px-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.popuScore}</span>
                                 <div
                                     className="mr-8 shadow-md ubuntu-normal rounded-2xl px-2"
                                     style={{
@@ -157,42 +159,41 @@ const Product = () => {
                             </li>
                             <li className='py-4 flex justify-between items-center'>
                                 <div>
-                                    <span className='pl-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>Offre: </span>
-                                    <span className='text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.sellVolume.toFixed(2)}</span>
+                                    <span className='pl-8 text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.supply}: </span>
+                                    <span className='pl-8 text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.sellVolume.toFixed()}</span>
                                 </div>
                                 <div>
-                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>Diff: </span>
+                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.difference}: </span>
                                     <span className='text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{(product.sellVolume - product.buyVolume).toFixed()}</span>
                                 </div>
                                 <div>
-                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>Demande: </span>
-                                    <span className='pr-8 text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.buyVolume.toFixed(2)}</span>
+                                    <span className='text-lg exo-2-normal text-[var(--text-defaultColor)]'>{translation.productPage.table.demand}: </span>
+                                    <span className='pr-8 text-lg ubuntu-normal text-[var(--score-greenText-color)]'>{product.buyVolume.toFixed()}</span>
                                 </div>
                             </li>
                         </ul>
                         <p className='rounded-lg mb-4 shadow-lg bg-gradient-to-r from-[var(--background-fadeComp7)] to-[var(--background-fadeComp6)] mt-8 py-4 pl-6 exo-2-light text-[var(--text-secondaryColor)]'>
-                            <b className='exo-2-bold'>Information:</b> Les scores sont actualisés à chaque push de l'API d'Hypixel (soit toutes les 2 minutes). 
-                            <br/> Ils ne peuvent pas dépasser <b className='ubuntu-normal'>25</b> est aller en dessous de <b className='ubuntu-normal'>0</b>.
-                            Le score final ne peut pas excéder <b className='ubuntu-normal'>100</b> ni aller en dessous de <b className='ubuntu-normal'>0</b>. 
-                            <br/> Si vous voyez une erreur, prévenez moi cette adresse: ___ .
+                            <b className='exo-2-bold'>Information:</b> {translation.productPage.about.information[0]} 
+                            <br/> {translation.productPage.about.information[1]} <b className='ubuntu-normal'>25</b> {translation.productPage.about.information[2]} <b className='ubuntu-normal'>0</b>.
+                            {translation.productPage.about.information[3]} <b className='ubuntu-normal'>100</b> {translation.productPage.about.information[4]} <b className='ubuntu-normal'>0</b>. 
                             <br/>
-                            <b className='underline'>Attention</b>: Pour actualiser les scores, vous devez retourner sur la <a href='./Home' className='font-[500] underline hover:font-semibold'>page d'acceuil</a>.
-                            <br/> 
-                            <br/>
-                            <b className='exo-2-bold'>Score de Marge</b>: La Marge est le ratio en pourcentage entre le prix d'achat et le prix de vente d'un item. 
-                            <br/> Sur la cellule de droite ainsi que celle juste au-dessus, on trouve les détails liés à la marge. 
-                            <br/> 
-                            <br/> 
-                            <b className='exo-2-bold'>Score de Prix</b>: Le Prix est simplement un score par rapport au prix (voir le graph "Score Prix" dans le menu déroulant à la <a href='./Home' className='font-[500] underline hover:font-semibold'>page d'acceuil</a>). 
-                            <br/> Sur la cellule de droite, on trouve P (Prix du produit) multiplié par 32, 128 et 1024. 
-                            <br/> Un input placé dans la cellule du dessous vous permez de placer votre propre valeur.
-                            <br/>
-                            <br/> 
-                            <b className='exo-2-bold'>Score d'Offre et de Demande</b>: L'offre et la demande est le delta entre le volume d'achat et le volume de vente que vous pouvez voir dans la cellule à droite de "Score Popularity".
-                            <br/> Plus la différence est grosse, moins l'offre et la demande sont équitables, moins le score sera bon. 
+                            <b className='underline'>{translation.productPage.about.disclaimer[0]}</b> {translation.productPage.about.disclaimer[1]} <a href='./Home' className='font-[500] underline hover:font-semibold'>{translation.productPage.about.disclaimer[2]}</a>.
                             <br/> 
                             <br/>
-                            <b className='exo-2-bold'>Score de popularité</b>: Mix entre les systèmes de score de prix et de l'Offre et la demande. Basé sur le volume d'achat par rapport au prix.
+                            <b className='exo-2-bold'>{translation.productPage.table.margeScore}</b>: {translation.productPage.about.margeScore[0]} 
+                            <br/> {translation.productPage.about.margeScore[1]} 
+                            <br/> 
+                            <br/> 
+                            <b className='exo-2-bold'>{translation.productPage.table.priceScore}</b>: {translation.productPage.about.priceScore[0]} <a href='./Home' className='font-[500] underline hover:font-semibold'>{translation.productPage.about.priceScore[1]} </a>. 
+                            <br/> {translation.productPage.about.priceScore[2]} 
+                            <br/> {translation.productPage.about.priceScore[3]}
+                            <br/>
+                            <br/> 
+                            <b className='exo-2-bold'>{translation.productPage.table.demandScore}</b>: {translation.productPage.about.demandScore[0]}
+                            <br/> {translation.productPage.about.demandScore[1]}
+                            <br/> 
+                            <br/>
+                            <b className='exo-2-bold'>{translation.productPage.table.popuScore}</b>: {translation.productPage.about.popuScore}
                         </p>
                     </div>
                 </main>

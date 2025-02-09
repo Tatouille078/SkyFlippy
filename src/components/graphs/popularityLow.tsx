@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import { useTranslation } from '../../contexts/TranslationContext';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
@@ -19,6 +20,7 @@ const popularityLow = (x: number) => {
 const PopularityLowChart = () => {
     const yValues = [];
     const xValues = [];
+    const { translation } = useTranslation()
 
     for (let x = 400; x <= 6200; x += 150) {
         yValues.push(popularityLow(x))
@@ -29,7 +31,7 @@ const PopularityLowChart = () => {
         labels: xValues,
         datasets: [
             {
-                label: 'Score per Popularity',
+                label: `${translation.homePage.sidebar.graphs.popuGraph[1]}`,
                 data: yValues,
                 fill: false,
                 borderColor: 'pink',
@@ -43,12 +45,12 @@ const PopularityLowChart = () => {
             legend: {
                 position: "top",
                 labels: {
-                    color: 'gray', // Texte de la légende en noir
+                    color: 'gray', 
                 },
             },
             tooltip: {
-                titleColor: 'gray', // Titre des tooltips en noir
-                bodyColor: 'gray', // Corps des tooltips en noir
+                titleColor: 'gray', 
+                bodyColor: 'gray', 
             },
         },
         scales: {
@@ -56,27 +58,27 @@ const PopularityLowChart = () => {
                 type: 'linear',
                 title: {
                     display: true,
-                    text: 'Supply/demand when price is <= 1000',
-                    color: 'gray', // Titre de l'axe X en noir
+                    text: `${translation.homePage.sidebar.graphs.popuGraph[2]} <= 1 000`,
+                    color: 'gray', 
                 },
                 ticks: {
-                    color: 'gray', // Ticks de l'axe X en noir
+                    color: 'gray', 
                 },
                 grid: {
-                    color: 'black', // Grille de l'axe X en noir
+                    color: 'black', 
                 },
             },
             y: {
                 title: {
                     display: true,
                     text: 'Score',
-                    color: 'gray', // Titre de l'axe Y en noir
+                    color: 'gray', 
                 },
                 ticks: {
-                    color: 'gray', // Ticks de l'axe Y en noir
+                    color: 'gray', 
                 },
                 grid: {
-                    color: 'black', // Grille de l'axe Y en noir
+                    color: 'black', 
                 },
                 suggestedMin: 0,
                 suggestedMax: 25,

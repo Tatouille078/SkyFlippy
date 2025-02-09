@@ -1,3 +1,91 @@
 {
-    "mainTitle": "SkyFlippy"
+    "homePage": {
+        "searchBar": "Rechercher...",
+        "seeMore": "Voir plus",
+        "productCard": [
+            "Score finale:",
+            "Marge:",
+            "Delta Offre/Demande:"
+        ],
+        "sidebar": {
+            "options": [
+                "Thêmes",
+                "Rose claire",
+                "Rose sombre",
+                "Pomme claire",
+                "Pomme sombre",
+                "Langues"
+            ],
+            "graphs" : {
+                "title": "Graphiques",
+                "desc": "Représentation graphique des scores.",
+                "margeGraph" : [
+                    "Score de Marge",
+                    "Score par pourcent de Marge",
+                    "Pourcentage de Marge"
+                ],
+                "priceGraph" : [
+                    "Score de Prix",
+                    "Score par Prix",
+                    "Prix"
+                ],
+                "supplyGraph" : [
+                    "Score d'Offre/Demande",
+                    "Score par delta",
+                    "Delta Offre/Demande"
+                ],
+                "popuGraph" : [
+                    "Score de Popularité",
+                    "Score par Popularité",
+                    "Offre/Demande quand le prix est "
+                ]
+            }
+        }
+    },
+
+    "productPage": {
+        "table": {
+            "finalScore": "Score finale",
+            "margeScore": "Score de Marge",
+            "priceScore": "Prix de score",
+            "demandScore": "Score d'Offre/Demande",
+            "popuScore": "Score de Popularité",
+            "margePercent": "Pourcentage de Marge",
+            "buyPrice": "Prix d'achat",
+            "difference": "Diff",
+            "sellPrice": "Prix de vente",
+            "Product": "Produit",
+            "supply": "Offre",
+            "demand": "Demande"
+        },
+        "about": {
+            "information": [
+                "Les scores sont actualisés à chaque push de l'API d'Hypixel (soit toutes les 2 minutes).",
+                "Ils ne peuvent pas dépasser",
+                " est aller en dessous de",
+                " Le score final ne peut pas excéder",
+                " ni aller en dessous de "
+            ],
+            "disclaimer": [
+                "Attention :",
+                "Pour actualiser les scores, vous devez retourner sur la ",
+                "page d'acceuil"
+            ],
+            "margeScore": [
+                " La Marge est le ratio en pourcentage entre le prix d'achat et le prix de vente d'un item.",
+                "Sur la cellule de droite ainsi que celle juste au-dessus, on trouve les détails liés à la marge."
+            ],
+            "priceScore": [
+                "Le Prix est simplement un score par rapport au prix (voir le graph 'Score Prix' dans le menu déroulant à la",
+                "page d'acceuil",
+                "Sur la cellule de droite, on trouve P (Prix du produit) multiplié par 32, 128 et 1024.",
+                "Un input placé dans la cellule du dessous vous permez de placer votre propre valeur."
+            ],
+            "demandScore": [
+                "L'offre et la demande est le delta entre le volume d'achat et le volume de vente que vous pouvez voir dans la cellule à droite de 'Score Popularity'",
+                "Plus la différence est grosse, moins l'offre et la demande sont équitables, moins le score sera bon."
+            ],
+            "popuScore": " Mix entre les systèmes de score de prix et de l'Offre et la demande. Basé sur le volume d'achat par rapport au prix."
+        } 
+    }
 }

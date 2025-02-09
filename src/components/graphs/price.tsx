@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import { useTranslation } from '../../contexts/TranslationContext';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
@@ -15,12 +16,13 @@ const prix = (buyPriceProduct) => {
 const PriceChart = () => {
     const dataPoints = Array.from({ length: 60 }, (_, index) => index < 16 ? index * 50 : (index - 15) * 1300);
     const prixScores = dataPoints.map(prix);
+    const { translation } = useTranslation()
 
     const data = {
         labels: dataPoints,
         datasets: [
             {
-                label: 'Score per price',
+                label: `${translation.homePage.sidebar.graphs.priceGraph[1]}`,
                 data: prixScores,
                 fill: false,
                 borderColor: 'pink',
@@ -46,7 +48,7 @@ const PriceChart = () => {
             x: {
                 title: {
                     display: true,
-                    text: 'Price',
+                    text: `${translation.homePage.sidebar.graphs.priceGraph[2]}`,
                     color: 'gray'
                 },
                 ticks: {

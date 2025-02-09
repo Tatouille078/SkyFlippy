@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { StateContextType, useStateContext } from "../context";
 import { IoMdClose } from "react-icons/io";
+import { useTranslation } from "../contexts/TranslationContext";
 
 export type SettingsProps = {
     buttonRef: React.MutableRefObject<null>;
@@ -8,8 +9,8 @@ export type SettingsProps = {
 };
 
 const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
-    const { isSettingsOpen, toggleSettings, currentTheme, themes, toggleTheme }: StateContextType = useStateContext();
-
+    const { isSettingsOpen, toggleSettings, currentTheme, toggleTheme }: StateContextType = useStateContext();
+    const { translation, lang, changeLanguage } = useTranslation()
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -31,7 +32,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
     }, [isSettingsOpen])
 
     return (
-        <div className={`bg-[var(--background-settings)]  fixed min-w-[300px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
+        <div className={`bg-[var(--background-settings)] fixed min-w-[300px] top-0 left-full h-full transition-transform duration-300 ease-in-out z-[60] ${isSettingsOpen ? 'w-1/6 -translate-x-full' : 'w-1/6 translate-x-0'
             } overflow-y-hidden`} ref={panelRef}>
             <div className='top-0 flex sticky bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] shadow-lg h-24 w-full'>
                 <h2 className="text-5xl h-24 exo-2-bold justify-center flex items-center m-auto text-[var(--text-primaryColor)]">Options</h2>
@@ -42,7 +43,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                     <IoMdClose size={30} className="group-hover:-rotate-90 transition-all group-hover:text-[var(--button-headerRight-inlineColorHover)] text-[var(--button-headerRight-inlineColor)] duration-300" />
                 </button>
             </div>
-            <h1 className="flex justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">Themes</h1>
+            <h1 className="flex justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">{translation.homePage.sidebar.options[0]}</h1>
             <div className="m-4 grid grid-cols-2 gap-4">
                 <div className="w-auto h-5">
                     <input
@@ -53,7 +54,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         checked={currentTheme === "theme-rose"}
                         onChange={() => toggleTheme("theme-rose")}
                     />
-                    <label className="exo-2-normal" htmlFor="option1">Light Rose</label>
+                    <label className="exo-2-normal" htmlFor="option1">{translation.homePage.sidebar.options[1]}</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
@@ -64,7 +65,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         checked={currentTheme === "theme-darkRose"}
                         onChange={() => toggleTheme("theme-darkRose")}
                     />
-                    <label className="exo-2-normal" htmlFor="option2">Dark Rose</label>
+                    <label className="exo-2-normal" htmlFor="option2">{translation.homePage.sidebar.options[2]}</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
@@ -75,7 +76,7 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         checked={currentTheme === "theme-apple"}
                         onChange={() => toggleTheme("theme-apple")}
                     />
-                    <label className="exo-2-normal" htmlFor="option3">Light Apple</label>
+                    <label className="exo-2-normal" htmlFor="option3">{translation.homePage.sidebar.options[3]}</label>
                 </div>
                 <div className="w-auto h-5">
                     <input
@@ -86,7 +87,32 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                         checked={currentTheme === "theme-darkApple"}
                         onChange={() => toggleTheme("theme-darkApple")}
                     />
-                    <label className="exo-2-normal" htmlFor="option4">Dark Apple</label>
+                    <label className="exo-2-normal truncate" htmlFor="option4">{translation.homePage.sidebar.options[4]}</label>
+                </div>
+            </div>
+            <h1 className="flex mt-12 justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">{translation.homePage.sidebar.options[5]}</h1>
+            <div className="m-4 grid grid-cols-2 gap-4">
+                <div className="w-auto h-5">
+                    <input
+                        type="radio"
+                        id='Lang1'
+                        name='Lang'
+                        value="en"
+                        checked={lang === "en"}
+                        onChange={() => changeLanguage("en")}
+                    />
+                    <label className="exo-2-normal" htmlFor="Lang1">English</label>
+                </div>
+                <div className="w-auto h-5">
+                    <input
+                        type="radio"
+                        id='Lang2'
+                        name='Lang'
+                        value="fr"
+                        checked={lang === "fr"}
+                        onChange={() => changeLanguage("fr")}
+                    />
+                    <label className="exo-2-normal" htmlFor="Lang2">Francais</label>
                 </div>
             </div>
         </div>

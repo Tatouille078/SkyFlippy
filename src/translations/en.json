@@ -1,54 +1,91 @@
 {
-    "mainTitle": "SkyFlippy",
-
-    "homePage" : {
-        "seeMore": "See more"
+    "homePage": {
+        "searchBar": "Search...",
+        "seeMore": "See more",
+        "productCard": [
+            "Final Score :",
+            "Marge :",
+            "Supply/Offer delta :"
+        ],
+        "sidebar": {
+            "options": [
+                "Themes",
+                "Light Rose",
+                "Dark Rose",
+                "Light Apple",
+                "Dark Apple",
+                "Languages"
+            ],
+            "graphs" : {
+                "title": "Graphs",
+                "desc": "",
+                "margeGraph" : [
+                    "Marge Score",
+                    "Score per margin percentage",
+                    "Margin percentage"
+                ],
+                "priceGraph" : [
+                    "Price Score",
+                    "Score per price",
+                    "Price"
+                ],
+                "supplyGraph" : [
+                    "Supply/Demand Score",
+                    "Score per delta",
+                    "Delta Supply/Demand"
+                ],
+                "popuGraph" : [
+                    "Popularity Score",
+                    "Score per popularity",
+                    "Supply/demand when price is"
+                ]
+            }
+        }
     },
 
-    "productPage" : {
-        "table" : {
-            "finalScore" : "Final Score",
-            "margeScore" : "Marge Score",
-            "priceScore" : "Price Score",
-            "demandScore" : "Demand/Suply Score",
-            "popuScore" : "Popularity Score",
-            "margePercent" : "Marge Percent",
-            "buyPrice" : "Buy Price",
-            "difference" : "difference",
-            "sellPrice" : "sell Price",
-            "Product" : "Product",
-            "supply" : "Supply",
-            "demand" : "Demand"
+    "productPage": {
+        "table": {
+            "finalScore": "Final Score",
+            "margeScore": "Marge Score",
+            "priceScore": "Price Score",
+            "demandScore": "Demand/Suply Score",
+            "popuScore": "Popularity Score",
+            "margePercent": "Marge Percent",
+            "buyPrice": "Buy Price",
+            "difference": "Delta",
+            "sellPrice": "sell Price",
+            "Product": "Product",
+            "supply": "Supply",
+            "demand": "Demand"
         },
-        "about" : {
-            "information" : [
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""
+        "about": {
+            "information": [
+                "The scores are recalculated every push of the Hypixel API (so each 2min).",
+                "They can not exceed ",
+                " and go below ",
+                " Final score can not exceed",
+                " neither go below "
             ],
-            "disclaimer" : [
-                "",
-                "",
-                ""
+            "disclaimer": [
+                "Disclaimer:",
+                "To update scores, you must go back to the ",
+                "home page"
             ],
-            "margeScore" : [
-                "",
-                ""
+            "margeScore": [
+                "The Marge is the ratio in percent between the buy price and the sell price of an item.",
+                "The cells that provide details associate to the marge are the one just to the right and the 'Marge percent' one."
             ],
-            "priceScore" : [
-                "",
-                "",
-                "",
-                ""
+            "priceScore": [
+                "Price score is just the score compared to price (see the graph 'Price Score' in the sidebar on the",
+                "home page",
+                "On the cellule next to it, we find P (the product price) multiplied by 32, 128 and 1024",
+                "An input is placed in the cell below to put your own multiplier"
             ],
-            "demandScore" : [
-                "",
-                ""
+            "demandScore": [
+                "The supply and demand is a delta between the amount of purchase and the amount of sells. You can see the stats in the last cells of the sheet",
+                "The bigger the difference, the less fair the supply and demand are, and the lower the score will be."
             ],
-            "popuScore" : ""
+            "popuScore": "Mix between the price and the suplly/demand algorithms. Based on the volume purchased compared to the price."
         } 
     }
 }
