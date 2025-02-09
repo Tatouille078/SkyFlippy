@@ -103,7 +103,7 @@ const AnimatedShapes = () => {
           />
         ))}
       </div>
-      <style jsx>{`
+      <style >{`
         @keyframes float {
           0% {
             transform: translate(0, 0) rotate(0deg);

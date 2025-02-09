@@ -3,9 +3,9 @@ import { StateContextType, useStateContext } from "../context";
 import Searchbar from "./Searchbar";
 
 export type HeaderProps = {
-  buttonSidebarRef?: React.MutableRefObject<null>;
-  searchbarRef?: React.MutableRefObject<null>;
-  buttonSettingsRef?: React.MutableRefObject<null>;
+  buttonSidebarRef?: React.MutableRefObject<HTMLButtonElement | null>;
+  searchbarRef?: React.MutableRefObject<HTMLInputElement | null>;
+  buttonSettingsRef?: React.MutableRefObject<HTMLButtonElement | null>;
 };
 
 const Header: React.FC<HeaderProps> = ({ buttonSidebarRef, searchbarRef, buttonSettingsRef }) => {

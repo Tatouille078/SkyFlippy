@@ -4,8 +4,8 @@ import { Graphs } from './';
 import { useTranslation } from '../contexts/TranslationContext';
 
 export type SidebarProps = {
-  buttonRef: React.MutableRefObject<null>;
-  panelRef: React.MutableRefObject<null>;
+  buttonRef: React.MutableRefObject<HTMLButtonElement | null>;
+  panelRef: React.MutableRefObject<HTMLDivElement | null>;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ buttonRef, panelRef }) => {

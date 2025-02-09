@@ -41,7 +41,7 @@ const quickSort = (arr: Product[]): Product[] => {
     const right = [];
 
     for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i].finalScore != null && arr[i].finalScore < pivot.finalScore) {
+        if (arr[i].finalScore != null && arr[i].finalScore! < pivot.finalScore!) {
             left.push(arr[i]);
         } else {
             right.push(arr[i]);

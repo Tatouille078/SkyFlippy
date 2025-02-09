@@ -1,11 +1,10 @@
-import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, ChartOptions } from 'chart.js';
 import { useTranslation } from '../../contexts/TranslationContext';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
-const prix = (buyPriceProduct) => {
+const prix = (buyPriceProduct: number) => {
     const rise = 1 / (1 + Math.exp(-0.015 * (buyPriceProduct - 450)));
     const fall = 1 / (1 + Math.exp(0.0001 * (buyPriceProduct - 50000)));
 
@@ -31,7 +30,7 @@ const PriceChart = () => {
         ],
     };
 
-    const options = {
+    const options: ChartOptions<"line"> = {
         plugins: {
             legend: {
                 position: 'top',

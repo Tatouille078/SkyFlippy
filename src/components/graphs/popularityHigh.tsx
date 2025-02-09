@@ -1,6 +1,5 @@
-import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, ChartOptions } from 'chart.js';
 import { useTranslation } from '../../contexts/TranslationContext';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
@@ -41,7 +40,7 @@ const PopularityHighChart = () => {
         ],
     };
 
-    const options = {
+    const options: ChartOptions<"line"> = {
         responsive: true,
         plugins: {
             legend: {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { StateContextType, useStateContext } from '../context';
 import getProducts, { ProductType } from '../api';
 import { AnimatedShapes, Header, ItemCard, Sidebar } from '../components';
@@ -12,11 +12,11 @@ const convertToArray = (productArray: ProductType) => {
 
 const Home = () => {
     const {translation} = useTranslation()
-    const panelSidebarRef = useRef(null)
-    const buttonSidebarRef = useRef(null)
-    const panelSettingsRef = useRef(null)
-    const buttonSettingsRef = useRef(null)
-    const searchbarRef = useRef(null)
+    const panelSidebarRef = useRef<HTMLDivElement | null>(null)
+    const buttonSidebarRef = useRef<HTMLButtonElement | null>(null)
+    const panelSettingsRef = useRef<HTMLDivElement | null>(null)
+    const buttonSettingsRef = useRef<HTMLButtonElement | null>(null)
+    const searchbarRef = useRef<HTMLInputElement | null>(null)
     const {
         setPagination,
         createProductFromItem,

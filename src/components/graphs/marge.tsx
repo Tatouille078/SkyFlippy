@@ -1,19 +1,15 @@
-import React from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend } from 'chart.js';
-import { StateContextType, useStateContext } from '../../context';
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, ChartOptions } from 'chart.js';
 import { useTranslation } from '../../contexts/TranslationContext';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
-function normalPdf(x, mean, stdDev) {
+function normalPdf(x : number, mean : number, stdDev : number) {
     return (1 / (stdDev * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow((x - mean) / stdDev, 2));
 }
 
 const MargeChart = () => {
 
-    const { currentTheme }: StateContextType = useStateContext();
-    console.log(currentTheme);
     const { translation } = useTranslation()
 
     const xValues = Array.from({ length: 50 }, (_, i) => i * (30 / 50));
@@ -33,7 +29,7 @@ const MargeChart = () => {
         ],
     };
 
-    const options = {
+    const options : ChartOptions<"line"> = {
         responsive: true,
         plugins: {
             legend: {

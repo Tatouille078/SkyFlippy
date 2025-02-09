@@ -4,8 +4,8 @@ import { IoMdClose } from "react-icons/io";
 import { useTranslation } from "../contexts/TranslationContext";
 
 export type SettingsProps = {
-    buttonRef: React.MutableRefObject<null>;
-    panelRef: React.MutableRefObject<null>;
+    buttonRef: React.MutableRefObject<HTMLButtonElement | null>;
+    panelRef: React.MutableRefObject<HTMLDivElement | null>;
 };
 
 const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {

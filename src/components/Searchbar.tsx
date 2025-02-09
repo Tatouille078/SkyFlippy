@@ -3,7 +3,7 @@ import { useStateContext } from "../context"
 import React from "react";
 import { useTranslation } from "../contexts/TranslationContext";
 
-const Searchbar = React.forwardRef<HTMLInputElement>((props, ref) => {
+const Searchbar = React.forwardRef<HTMLInputElement>((_, ref) => {
 
     const { translation } = useTranslation()
     const { search, setSearch } = useStateContext()

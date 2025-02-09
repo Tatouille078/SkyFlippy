@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import en from "/src/translations/en.json"
-import fr from "/src/translations/fr.json"
+import en from "../translations/en.json"
+import fr from "../translations/fr.json"
 
 type TranslationContextProps = {
     translation: typeof en | typeof fr;
