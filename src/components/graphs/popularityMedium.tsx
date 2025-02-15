@@ -33,7 +33,7 @@ const PopularityMediumChart = () => {
                 label: `${translation.homePage.sidebar.graphs.popuGraph[1]}`,
                 data: yValues,
                 fill: false,
-                borderColor: 'pink',
+                borderColor: '#cdc333',
                 borderWidth: 2,
             },
         ],

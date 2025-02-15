@@ -1,6 +1,7 @@
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend, ChartOptions } from 'chart.js';
 import { useTranslation } from '../../contexts/TranslationContext';
+import { StateContextType, useStateContext } from '../../context';
 
 ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Title, Tooltip, Legend);
 
@@ -23,7 +24,7 @@ const MargeChart = () => {
             {
                 label: `${translation.homePage.sidebar.graphs.margeGraph[1]}`,
                 data: yValues.map(y => y * (25 / y_max)),
-                borderColor: "pink",
+                borderColor: "#eee333",
                 borderWidth: 2,
             },
         ],
@@ -35,12 +36,12 @@ const MargeChart = () => {
             legend: {
                 position: "top",
                 labels: {
-                    color: 'gray',
+                    color: 'black',
                 },
             },
             tooltip: {
-                titleColor: 'gray',
-                bodyColor: 'gray',
+                titleColor: 'white',
+                bodyColor: 'white',
             },
         },
         scales: {
@@ -49,10 +50,10 @@ const MargeChart = () => {
                 title: {
                     display: true,
                     text: `${translation.homePage.sidebar.graphs.margeGraph[2]}`,
-                    color: 'gray', 
+                    color: 'black', 
                 },
                 ticks: {
-                    color: 'gray',
+                    color: 'black',
                 },
                 grid: {
                     color: 'black',
@@ -62,10 +63,10 @@ const MargeChart = () => {
                 title: {
                     display: true,
                     text: 'Score',
-                    color: 'gray',
+                    color: 'black',
                 },
                 ticks: {
-                    color: 'gray',
+                    color: 'black',
                 },
                 grid: {
                     color: 'black',

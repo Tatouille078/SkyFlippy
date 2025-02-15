@@ -81,7 +81,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ product }) => {
                         <li className="flex justify-between items-center">
                             <span className="text-[var(--text-defaultColor)] ml-5 exo-2-normal">{translation.homePage.productCard[2]}</span>
                             <div
-                                className="mr-5 shadow-md flex items-center ubuntu-normal rounded-2xl px-2 min-w-[3.9rem]"
+                                className="mr-5 shadow-md flex items-center ubuntu-normal rounded-2xl px-2 min-w-[3.9rem] text-end justify-end"
                                 style={{
                                     backgroundColor: product.offreDemande! <= 23 ? product.offreDemande! <= 16 ? 'var(--score-redBg-color)' : 'var(--score-yellowBg-color)' : 'var(--score-greenBg-color)',
                                     color: product.offreDemande! <= 23 ? product.offreDemande! <= 16 ? 'var(--score-redText-color)' : 'var(--score-yellowText-color)' : 'var(--score-greenText-color)',

@@ -33,7 +33,7 @@ const generateData = () => {
             {
                 label: `${translation.homePage.sidebar.graphs.supplyGraph[1]}`,
                 data: yValues,
-                borderColor: 'pink',
+                borderColor: '#cdc333',
                 fill: true,
                 borderWidth: 2,
             },

@@ -24,7 +24,7 @@ const PriceChart = () => {
                 label: `${translation.homePage.sidebar.graphs.priceGraph[1]}`,
                 data: prixScores,
                 fill: false,
-                borderColor: 'pink',
+                borderColor: '#cdc333',
                 borderWidth: 2,
             },
         ],
