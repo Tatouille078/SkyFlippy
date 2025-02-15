@@ -1,5 +1,5 @@
 import { AnimatedShapes, Header } from '../components'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { StateContextType, useStateContext } from '../context'
 import { Product as P } from '../Calculus'
 import { useEffect, useRef, useState } from 'react'
@@ -316,14 +316,14 @@ const Product = () => {
                             <br /> {translation.productPage.about.information[1]} <b className='ubuntu-normal'>25</b> {translation.productPage.about.information[2]} <b className='ubuntu-normal'>0</b>.
                             {translation.productPage.about.information[3]} <b className='ubuntu-normal'>100</b> {translation.productPage.about.information[4]} <b className='ubuntu-normal'>0</b>.
                             <br />
-                            <b className='underline'>{translation.productPage.about.disclaimer[0]}</b> {translation.productPage.about.disclaimer[1]} <a href='./Home' className='font-[500] underline hover:font-semibold'>{translation.productPage.about.disclaimer[2]}</a>.
+                            <b className='underline'>{translation.productPage.about.disclaimer[0]}</b> {translation.productPage.about.disclaimer[1]} <Link to='/' className='font-[500] underline hover:font-semibold'>{translation.productPage.about.disclaimer[2]}</Link>.
                             <br />
                             <br />
                             <b className='exo-2-bold'>{translation.productPage.table.margeScore}</b>: {translation.productPage.about.margeScore[0]}
                             <br /> {translation.productPage.about.margeScore[1]}
                             <br />
                             <br />
-                            <b className='exo-2-bold'>{translation.productPage.table.priceScore}</b>: {translation.productPage.about.priceScore[0]} <a href='./Home' className='font-[500] underline hover:font-semibold'>{translation.productPage.about.priceScore[1]} </a>.
+                            <b className='exo-2-bold'>{translation.productPage.table.priceScore}</b>: {translation.productPage.about.priceScore[0]} <Link to='/' className='font-[500] underline hover:font-semibold'>{translation.productPage.about.priceScore[1]} </Link>.
                             <br /> {translation.productPage.about.priceScore[2]}
                             <br /> {translation.productPage.about.priceScore[3]}
                             <br />
