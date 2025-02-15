@@ -89,8 +89,19 @@ const Settings: React.FC<SettingsProps> = ({ buttonRef, panelRef }) => {
                     />
                     <label className="exo-2-normal truncate" htmlFor="option4">{translation.homePage.sidebar.options[4]}</label>
                 </div>
+                <div className="w-auto h-5">
+                    <input
+                        type="radio"
+                        id='option5'
+                        name='option'
+                        value="theme-aquamarine"
+                        checked={currentTheme === "theme-aquamarine"}
+                        onChange={() => toggleTheme("theme-aquamarine")}
+                    />
+                    <label className="exo-2-normal truncate" htmlFor="option5">{translation.homePage.sidebar.options[5]}</label>
+                </div>
             </div>
-            <h1 className="flex mt-12 justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">{translation.homePage.sidebar.options[5]}</h1>
+            <h1 className="flex mt-12 justify-center exo-2-bold text-2xl text-[var(--text-primaryColor)] bg-gradient-to-r from-[var(--background-fadeComp10)] to-[var(--background-fadeComp11)] mx-auto w-fit px-4 py-0.5 rounded-2xl my-6">{translation.homePage.sidebar.options[6]}</h1>
             <div className="m-4 grid grid-cols-2 gap-4 ">
                 <div className="w-auto h-5">
                     <input

@@ -198,6 +198,55 @@
     --score-redBg-color: #bb3a24;
     --score-redText-color: #fcf5f5;
   }
+
+  .theme-aquamarine {
+    --background-color: #e7f0ff;
+    --background-itemCard-color: rgba(238, 242, 255, 0.9) ;
+    --background-itemCard-colorHover: #f0faff;
+    --background-searchBar: rgba(255, 255, 255, 0.65);
+    --background-settings: rgba(220, 235, 249, 0.97);
+    --background-product: #cfd5ec; /* table */
+    --background-firstProduct: #a0a8ec; /* first product table */
+    --background-oddRowProduct: #e8f2fd ; /* table odd row */
+    --background-fadeComp1: rgba(83, 128, 212, 0.85); /* header */
+    --background-fadeComp2: rgba(126, 230, 238, 0.85); /* header */
+    --background-fadeComp3: rgba(41, 69, 206, 0.85); /* header */
+    --background-fadeComp4: #adc1f0; /* sidebar header */
+    --background-fadeComp5: #6c8ad1; /* sidebar header */
+    --background-fadeComp6: #e1f4ff; /* sidebar */
+    --background-fadeComp7: #f9fbff; /* sidebar */
+    --background-fadeComp8: #cecdff; /* h1 */
+    --background-fadeComp9: #a3b2e6; /* h1 */
+    --background-fadeComp10: #5fcae2; /* settings header & h1 */
+    --background-fadeComp11: #91d6e9; /* settings header & h1 */
+    --background-fadeComp12: #3e67d7; /* itemcard header */
+    --background-fadeComp13: #5aa9de; /* itemcard header */
+    --background-fadeComp14: #abdafc; /* itemcard header only hover*/
+    --background-fadeTrans1: rgba(215, 214, 255, 0.65); /* bg trans */
+    --background-fadeTrans2: rgba(250, 249, 255, 0.65); /* bg trans */
+    --background-fadeTrans3: rgba(215, 231, 241, 0.9); /* bg sidebar trans */
+    --background-fadeTrans4: rgba(229, 234, 240, 0.9); /* bg sidebar trans */
+    --text-defaultColor: #1a1a1a;
+    --text-primaryColor: #f7f7f7;
+    --text-secondaryColor: #3478b8; /* purple-500 */
+    --text-secondaryColor-accent1: #104e80; /* purple-700 */
+    --text-secondaryColor-accent2: #1350a1; /* purple-600 */
+    --text-secondaryColor-accent3: #0a1855; /* purple-900 */
+    --button-headerRight-color: rgba(217, 254, 255, 0.5);
+    --button-headerRight-colorHover: rgba(113, 191, 217, 0.3);
+    --button-headerRight-inlineColor: #318dc7;
+    --button-headerRight-inlineColorHover: #d9fbff;
+    --shapes-colorId1: #bbe9ea ;
+    --shapes-colorId2: #72b1f4 ;
+    --shapes-colorId3: #81c7e8 ;
+    --shapes-colorId4: #d5f7ff ;
+    --score-greenBg-color: #a7f5eb;
+    --score-greenText-color: #166558;
+    --score-yellowBg-color: #f3f9b3;
+    --score-yellowText-color: #6c6515;
+    --score-redBg-color: #ffa9c8;
+    --score-redText-color: #9b1134;
+  }
 }
 
 /* Header gradient part */

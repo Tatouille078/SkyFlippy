@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useEffect, useMemo, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 import { getFinalScore, marge, offreDemande, popularity, prix, Product } from './Calculus';
 import { Item } from './api';
 
@@ -73,6 +73,7 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         { id: 'theme-darkRose', label: 'Dark Rose Theme' },
         { id: 'theme-apple', label: 'Apple Theme' },
         { id: 'theme-darkApple', label: 'Dark Apple Theme' },
+        { id: 'theme-aquamarine', label: 'Aquamarine Theme' },
     ];
 
     const createProductFromItem = (item: Item) => {
@@ -110,13 +111,13 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({ children }) =>
         [products, pagination, search]
     )
 
-    useEffect(() => {
-        console.log("sortedList recalculé :", sortedList);
-    }, [sortedList]);
+    // useEffect(() => {
+    //     console.log("sortedList recalculé :", sortedList);
+    // }, [sortedList]);
 
-    useEffect(() => {
-        console.log("products a changé :", products);
-    }, [products]);
+    // useEffect(() => {
+    //     console.log("products a changé :", products);
+    // }, [products]);
 
     const toggleTheme = (theme: string) => {
         setCurrentTheme(theme)

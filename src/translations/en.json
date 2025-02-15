@@ -2,6 +2,11 @@
     "homePage": {
         "searchBar": "Search...",
         "seeMore": "See more",
+        "info": [
+            "Welcome to Skyflippy!",
+            "Here, you will find the best algorithms for Flipping on the bazaar of Hypixel skyblock!",
+            "On this page, you have a global overview on the best items to flip. Click on an item for more details."
+        ],
         "productCard": [
             "Final Score :",
             "Marge :",
@@ -14,11 +19,12 @@
                 "Dark Rose",
                 "Light Apple",
                 "Dark Apple",
+                "Aquamarine",
                 "Languages"
             ],
             "graphs" : {
                 "title": "Graphs",
-                "desc": "",
+                "desc": "Graphical representation of the different scores.",
                 "margeGraph" : [
                     "Marge Score",
                     "Score per margin percentage",
