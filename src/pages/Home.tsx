@@ -54,7 +54,7 @@ const Home = () => {
                             <p className='mt-3'>{translation.homePage.info[1]}</p>
                             <p>{translation.homePage.info[2]}</p>
                         </div>
-                        <button type='button' className={`mt-4 underline hover:font-bold transition-all duration-300 ${isRead ? "opacity-0" : "opacity-100"}`} onClick={() => setInfoBulle()}>Ne plus afficher</button>
+                        <button type='button' className={`mt-4 underline hover:font-bold transition-all duration-300 ${isRead ? "opacity-0" : "opacity-100"}`} onClick={() => setInfoBulle()}>{translation.homePage.info[3]}</button>
                     </div>
                     <div className="container mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                         {sortedList.map((product: Product, index: number) => (
